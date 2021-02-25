@@ -1,0 +1,43 @@
+#sidebar {
+    padding: 2rem 0rem;
+    width: auto;
+    text-align: left;
+    background-color: var(--dark);
+}
+
+#page-content {
+  padding: 2rem;
+}
+
+/* add the three horizontal bars icon for the toggle */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+/*   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23212529" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>'); */
+}
+
+@media (min-width: 48em) {
+  /* Hide the toggle on a large screen */
+  #sidebar-toggle {
+    display: none;
+  }
+
+  #sidebar-collapse {
+    display: block;
+  }
+    
+  #page-content {
+    padding: 2rem 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  #page-content {
+    padding: 2rem 6rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  #page-content {
+    padding: 2rem 10rem;
+  }
+}

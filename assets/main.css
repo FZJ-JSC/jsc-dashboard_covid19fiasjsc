@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+}
+
+body > div,
+body > div > div,
+body > div > div > div,
+body > div > div > div > div,
+body > div > div > div > div > div,
+#_dash-app-content
+{
+  height: 100%;
+}
+
+._dash-loading-callback {
+  display: none;
+}
+
+.w-1 {
+  width: 100%;
+}
