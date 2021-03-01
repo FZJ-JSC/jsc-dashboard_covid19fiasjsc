@@ -56,8 +56,8 @@ reduction_formgroup = create_formgroup(
     "Reduction Factor", lorem_ipsum[:199], reduction_dropdown)
 
 
-column_dropdown = dcc.Dropdown(
-    id="column-dropdown",
+data_dropdown = dcc.Dropdown(
+    id="data-dropdown",
     clearable=False,
     options=[
         {"label": columns[key], "value": key}
@@ -65,8 +65,8 @@ column_dropdown = dcc.Dropdown(
     ],
     value="It"
 )
-column_formgroup = create_formgroup(
-    "Column", lorem_ipsum[:199], column_dropdown)
+data_formgroup = create_formgroup(
+    "Plotted Data", lorem_ipsum[:199], data_dropdown)
 
 
 compliance_dropdown = dcc.Dropdown(
@@ -78,54 +78,58 @@ compliance_dropdown = dcc.Dropdown(
     value=[10, 30, 50, 70, 100],
     multi=True
 )
+compliance_tooltip = "Acceptance to comply with regulations"
 compliance_formgroup = create_formgroup(
-    "Compliance", lorem_ipsum[:199], compliance_dropdown)
+    "Compliance", compliance_tooltip, compliance_dropdown)
 
 
-# compliance_widgets = dbc.Row(
-#     [
-#         dbc.Col(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                     [
-#                         html.H5("Modell Parameter", className="card-title"),
-#                         reduction_formgroup
-#                     ]
-#                 ),
-#                 className="mb-4"
-#             ),
-#             xs=12#, xl=8
-#         ),
-#         dbc.Col(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                     [
-#                         html.H5("Graph Parameter", className="card-title"),
-#                         column_formgroup,
-#                         compliance_formgroup
-#                     ]
-#                 ),
-#                 className="mb-4"
-#             ),
-#             xs=12#, xl=8
-#         ),
-#     ],
-#     justify="center"
-# )
-
-compliance_widgets = dbc.Card(
-    dbc.CardBody(
+def make_accordion_item(title, widgets, component_name):
+    return dbc.Card(
         [
-            html.H5("Parameter"),
-            html.Hr(),
-            html.B("Modell"),
-            reduction_formgroup,
-            html.Hr(),
-            html.B("Graph"),
-            column_formgroup,
-            compliance_formgroup
+            dbc.CardHeader(
+                html.Div(
+                    dbc.Row(
+                        [
+                            html.H5(title, className="mb-0"),
+                            html.I(
+                                className="fa fa-chevron-down",
+                                style={
+                                    "color":"var(--primary)",
+                                    "alignSelf": "center"
+                                },
+                                id="accordion-group-{}-toggle-icon".format(component_name)
+                            ),
+                        ],
+                        no_gutters=True,
+                        justify="between"
+                    ),
+                    id="accordion-group-{}-toggle".format(component_name)
+                ),
+                style={"backgroundColor": "transparent", "borderBottom": "None"}
+            ),
+            dbc.Collapse(
+                dbc.CardBody(widgets),
+                id="accordion-collapse-{}".format(component_name)
+            ),
         ]
-    ),
-    className="mb-4"
-)
+    )
 
+
+compliance_widgets = dbc.Row(
+    [
+        dbc.Col(
+            make_accordion_item("Modelling Scenario", 
+                                reduction_formgroup, 
+                                "compliance-model"),
+            className="my-4",
+            xs=12#, xl=8
+        ),
+        dbc.Col(
+            make_accordion_item("Plot Configuration", 
+                                [data_formgroup, compliance_formgroup], 
+                                "compliance-plot"),
+            xs=12#, xl=8
+        ),
+    ],
+    justify="center"
+)

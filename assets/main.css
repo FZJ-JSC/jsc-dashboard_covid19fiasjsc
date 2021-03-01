@@ -16,6 +16,10 @@ body > div > div > div > div > div,
   display: none;
 }
 
+.h-1 {
+    height: 100%;
+}
+
 .w-1 {
   width: 100%;
 }

@@ -7,7 +7,7 @@ def create_nav_button(title, name, href):
         title,
         id=name,
         href=href,
-        color="dark",
+        color="light",
         className="nav-button mb-4 mx-3"
 )
 
@@ -21,16 +21,24 @@ def create_external_link(title, name, href):
         id=name,
         href=href,
         target="_blank",
-        color="dark",
+        color="light",
         className="nav-button mb-4 mx-3"
     )
 
 
 nav_buttons = [
-    create_nav_button("Modelle", "modell-nav", "/"),
-    create_nav_button("Fragen&Antworten", "qa-nav", "faq"),
-    create_external_link("Quellcode", "source-nav",
+    create_nav_button("Models", "model-nav", "/"),
+    create_nav_button("Background Information", "info-nav", "information"),
+    create_nav_button("FAQ", "qa-nav", "faq"),
+    create_nav_button("About Us", "about-nav", "about"),
+    create_external_link("Source Code", "source-nav",
                          href="https://github.com/FZJ-JSC/jsc-dashboard_covid19fiasjsc")
+]
+
+extra_nav_buttons = [
+    create_nav_button("Disclaimer", "disclaimer-nav", "disclaimer"),
+    create_nav_button("Legal Disclosure", "impressum-nav", "impressum"),
+    create_nav_button("Data Protection", "privacy-nav", "privacy")
 ]
 
 
@@ -41,11 +49,18 @@ sidebar = html.Div(
             id="sidebar-toggle"),
         dbc.Collapse(
             dbc.Nav(
-                nav_buttons,
-                vertical=True
+                nav_buttons + 
+                [
+                    html.Div(style={"flexGrow": "1"})
+                ] +
+                extra_nav_buttons,
+                vertical=True,
+                className="h-1 flex-nowrap"
             ),
             id="sidebar-collapse",
             navbar=True,
+            className="h-1",
+            style={"overflow": "auto"}
         ),
     ],
     id="sidebar"

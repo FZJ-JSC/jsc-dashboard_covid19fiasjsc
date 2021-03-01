@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output, State
     [Output("graph", "figure"),
      Output("graph-title", "children")],
     [Input("reduction-dropdown", "value"),
-     Input("column-dropdown", "value"),
+     Input("data-dropdown", "value"),
      Input("compliance-dropdown", "value")],
     State("dataframes", "data")
 )
@@ -56,6 +56,7 @@ def update_chart(reduction, column, percentages, dataframes):
         height=500,
         legend=dict(title_text="Compliance"),
         margin=dict(l=0, r=0, t=30),
+        yaxis_title="Fallzahlen"
         # hovermode="x"
     )
 

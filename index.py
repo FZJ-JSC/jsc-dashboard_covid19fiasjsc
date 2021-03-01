@@ -7,8 +7,9 @@ import callbacks
 import os  # temporary import for jupyterhub service prefix
 
 from app import app, dataframes
-from apps import faq, models
-from layouts.navbars import appbar, footer
+from apps import faq, legal, models
+
+from layouts.navbar import appbar
 from layouts.sidebar import sidebar
 
 
@@ -39,9 +40,7 @@ layout_index = html.Div(
                         "display": "flex",
                         "flexGrow": "1"
                     }
-                ),
-                # Footer
-                footer,
+                )
             ],
             style={
                 "display": "flex",
@@ -73,10 +72,31 @@ app.validation_layout = html.Div(
 @app.callback(
     Output('page-content', 'children'),
     [Input('url', 'pathname')])
-def display_page(pathname):
+def display_page(pathname):   
+    if pathname == os.environ["JUPYTERHUB_SERVICE_PREFIX"]+"proxy/5099/information" \
+    or pathname == "/information":
+        return []
+    
     if pathname == os.environ["JUPYTERHUB_SERVICE_PREFIX"]+"proxy/5099/faq" \
     or pathname == "/faq":
         return faq.children
+    
+    if pathname == os.environ["JUPYTERHUB_SERVICE_PREFIX"]+"proxy/5099/about" \
+    or pathname == "/about":
+        return []
+    
+    if pathname == os.environ["JUPYTERHUB_SERVICE_PREFIX"]+"proxy/5099/disclaimer" \
+    or pathname == "/disclaimer":
+        return legal.disclaimer
+    
+    if pathname == os.environ["JUPYTERHUB_SERVICE_PREFIX"]+"proxy/5099/impressum" \
+    or pathname == "/impressum":
+        return legal.impressum
+    
+    if pathname == os.environ["JUPYTERHUB_SERVICE_PREFIX"]+"proxy/5099/privacy" \
+    or pathname == "/privacy":
+        return legal.privacy
+    
     else:
         return models.children
 

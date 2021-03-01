@@ -11,9 +11,9 @@ def create_modell_button(title, component):
 
 
 modell_buttons = [
-    create_modell_button("Compliance Modell", "compliance"),
-    create_modell_button("Impfung Modell", "impfung"),
-    create_modell_button("Hospitalisierung Modell", "hospitalisierung")
+    create_modell_button("Compliance Model", "compliance"),
+    create_modell_button("Vaccination Model", "vaccination"),
+    create_modell_button("Hospitalization Model", "hospitalization")
 ]
 
 models_selection = dbc.Row(
@@ -31,12 +31,12 @@ models_explanation = dbc.Card(
     dbc.CardBody(
         [
             html.H5(
-                "What is the compliance modell?",
+                "What is the compliance model?",
                 className="card-title",
                 id="model-text-title"),
             html.P(lorem_ipsum[:199], id="model-text"),
-            dbc.Button("...more", id="model-text-toggle"),
+            dbc.Button("...more", color="primary", id="model-text-toggle"),
         ],
     ),
-    className="w-1 my-4"
+    className="w-1"
 )

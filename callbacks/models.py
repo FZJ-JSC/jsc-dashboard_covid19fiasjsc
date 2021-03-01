@@ -2,22 +2,19 @@ import dash
 
 from app import app
 from dash.dependencies import Input, Output, State
+from layouts.compliance import compliance_content
 
 
 with open("./texts/lorem_ipsum.txt") as f:
     lorem_ipsum = f.read()
 
-modell_buttons = ["compliance-button", "impfung-button", "hospitalisierung-button"]
+model_buttons = ["compliance-button", "vaccination-button", "hospitalization-button"]
 
 
 # Toggle active modell in navigation
 @app.callback(
-    [Output(modell_buttons[0], "active"),
-     Output(modell_buttons[1], "active"),
-     Output(modell_buttons[2], "active")],
-    [Input(modell_buttons[0], "n_clicks"),
-     Input(modell_buttons[1], "n_clicks"),
-     Input(modell_buttons[2], "n_clicks")]
+    [Output(btn, "active") for btn in model_buttons],
+    [Input(btn, "n_clicks") for btn in model_buttons]
 )
 def set_active(btn1, btn2, btn3):
     ctx = dash.callback_context
@@ -27,9 +24,9 @@ def set_active(btn1, btn2, btn3):
     else:
         button_id = ctx.triggered[0]['prop_id'].split('.')[0]
 
-    if button_id == modell_buttons[0]:
+    if button_id == model_buttons[0]:
         return True, False, False
-    elif button_id == modell_buttons[1]:
+    elif button_id == model_buttons[1]:
         return False, True, False
     else:
         return False, False, True
@@ -40,13 +37,13 @@ def set_active(btn1, btn2, btn3):
     [Output("model-text-title", "children"),
      Output("model-text", "children"),
      Output("model-text-toggle", "children")],
-    [Input(modell_buttons[0], "n_clicks"),
-     Input(modell_buttons[1], "n_clicks"),
-     Input(modell_buttons[2], "n_clicks"),
+    [Input(model_buttons[0], "n_clicks"),
+     Input(model_buttons[1], "n_clicks"),
+     Input(model_buttons[2], "n_clicks"),
      Input("model-text-toggle", "n_clicks")],
-    [State(modell_buttons[0], "active"),
-     State(modell_buttons[1], "active"),
-     State(modell_buttons[2], "active"),
+    [State(model_buttons[0], "active"),
+     State(model_buttons[1], "active"),
+     State(model_buttons[2], "active"),
      State("model-text-toggle", "children")],
     prevent_initial_call=True
 )
@@ -55,19 +52,19 @@ def update_model_text(btn1, btn2, btn3, toggle_btn, active1, active2, active3, b
     title = "What is the "
 
     if not ctx.triggered:
-        return title + "compliance model?"
+        return title + "compliance model?", lorem_ipsum[:199], "...more"
     else:
         button_id = ctx.triggered[0]['prop_id'].split('.')[0]
 
-    if button_id == modell_buttons[0]:
+    if button_id == model_buttons[0]:
         title = title + "compliance model?"
         text = lorem_ipsum[:199]
         button_text = "...more"
-    elif button_id == modell_buttons[1]:
+    elif button_id == model_buttons[1]:
         title = title + "vaccination model?"
         text = lorem_ipsum[:199]
         button_text = "...more"
-    elif button_id == modell_buttons[2]:
+    elif button_id == model_buttons[2]:
         title = title + "hospitalisation model?"
         text = lorem_ipsum[:199]
         button_text = "...more"
@@ -97,3 +94,25 @@ def update_model_text(btn1, btn2, btn3, toggle_btn, active1, active2, active3, b
             button_text = "...more"
 
     return title, text, button_text
+
+
+# Update content in page depending on the model
+@app.callback(
+    Output("model-content", "children"),
+    [Input(btn, "n_clicks") for btn in model_buttons],
+    prevent_initial_call=True
+) 
+def update_model_content(btn1, btn2, btn3):
+    ctx = dash.callback_context
+
+    if not ctx.triggered:
+        return compliance_content
+    else:
+        button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    
+    if button_id == model_buttons[0]:
+        return compliance_content
+    elif button_id == model_buttons[1]:
+        return []
+    elif button_id == model_buttons[2]:
+        return []

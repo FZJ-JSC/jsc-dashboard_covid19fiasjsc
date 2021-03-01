@@ -3,7 +3,6 @@ import dash_html_components as html
 
 
 def make_accordion_item(i, title, text):
-    # we use this function to make the example items to avoid code duplication
     return dbc.Card(
         [
             dbc.CardHeader(
@@ -14,7 +13,7 @@ def make_accordion_item(i, title, text):
                             html.I(
                                 className="fa fa-chevron-down",
                                 style={
-                                    "color":"var(--secondary)",
+                                    "color":"var(--primary)",
                                     "alignSelf": "center"
                                 },
                                 id=f"accordion-group-{i}-toggle-icon"
@@ -45,7 +44,7 @@ accordion = html.Div(
         make_accordion_item(2, "Question 2", lorem_ipsum[:199]), 
         make_accordion_item(3, "Question 3", lorem_ipsum[:199]), 
     ], 
-    className="accordion my-4"
+    className="accordion"
 )
 
 

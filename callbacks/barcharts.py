@@ -12,7 +12,7 @@ from plotly.subplots import make_subplots
     [Output("barcharts", "children"),
      Output("barcharts-title", "children")],
     [Input("reduction-dropdown", "value"),
-     Input("column-dropdown", "value"),
+     Input("data-dropdown", "value"),
      Input("compliance-dropdown", "value")],
     State("dataframes", "data")
 )
@@ -96,6 +96,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
         linewidth=2,
     )
     fig.update_yaxes(
+        title="Inzidenz",
         # Outline
         mirror=True,
         showline=True,

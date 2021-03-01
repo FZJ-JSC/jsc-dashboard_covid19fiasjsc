@@ -3,16 +3,21 @@
   font-weight: 505;
   text-align: left;
 /*   text-transform: uppercase; */
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
 .nav-button.active {
-  background-color: transparent !important;
-  border-color: transparent !important;
-  border-bottom-color: white !important;
+/*   background-color: transparent !important; */
+/*   border-color: transparent !important; */
+  border-bottom-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
+.nav-button:hover,
 .nav-button.active:hover {
-  background-color: #1d2124 !important;
+/*   background-color: #dae0e5 !important; */
+  color: var(--primary);
 }
 
 .nav-button:focus {
@@ -28,23 +33,21 @@
 
 .nav-button.light.active,
 .nav-button.light:active {
-  color: var(--primary) !important;
+/*   color: var(--primary) !important; */
   border-bottom-color: var(--primary) !important;
 }
 
 .nav-button.light:hover {
-  color: black;
+  color: var(--primary);
 }
 
-.nav-button.light.active:hover {
-  background-color: transparent !important;
-}
 
 .nav-row {
+  background-color: white;
 /*   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 1px 3px 0px rgba(0,0,0,.12); */
-  box-shadow: 0 0 1em 0.15em rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0.5em 0.15em rgba(0, 0, 0, 0.2);
   padding: 1rem;
+  margin-bottom: 1.5rem;
   width: 100%;
   z-index: 90;
 }
-

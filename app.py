@@ -57,7 +57,7 @@ def update_dataframes(reduction):
 dataframes = update_dataframes("025")
 
 
-app = JupyterDash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, FONT_AWESOME])  # LITERA #COSMO
+app = JupyterDash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])  # COSMO
 
 # app.renderer = '''
 # var renderer = new DashRenderer({
