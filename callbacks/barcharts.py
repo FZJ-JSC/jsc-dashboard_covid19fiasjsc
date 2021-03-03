@@ -5,12 +5,13 @@ import plotly.graph_objects as go
 from app import *
 from dash.dependencies import Input, Output, State
 from math import ceil
+from numpy import stack
 from plotly.subplots import make_subplots
 
 
 @app.callback(
-    [Output("barcharts", "children"),
-     Output("barcharts-title", "children")],
+    [Output("compliance-barcharts", "children"),
+     Output("compliance-barcharts-title", "children")],
     [Input("reduction-dropdown", "value"),
      Input("data-dropdown", "value"),
      Input("compliance-dropdown", "value")],
@@ -37,7 +38,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
                    y=dataframes[p][c[0]][92:],
                    marker_color=colors[10],
                    name="compliant population",
-                   hovertemplate="%{y:.3s}",
+                   hoverinfo='skip',  # Defined in total instead
                    showlegend=True if i == 0 else False),
             row=row, col=col)
         fig.add_trace(
@@ -45,18 +46,38 @@ def update_barcharts(reduction, column, percentages, dataframes):
                    y=dataframes[p][c[1]][92:],
                    marker_color=colors[20],
                    name="noncompliant population",
-                   hovertemplate="%{y:.3s}",
+                   hoverinfo='skip',  # Defined in total instead
                    showlegend=True if i == 0 else False),
             row=row, col=col)
-        # Total c+n. Add for total number in hover.
+        
+        # Total c+n. Use this for custom hover template.
         fig.add_trace(
             go.Bar(x=dataframes[p]["days"][92:],
                    y=dataframes[p][c[0]][92:]+dataframes[p][c[1]][92:],
                    marker_color="rgba(0,0,0,0)",  # transparent
                    name="total",
                    base=0,
-                   hovertemplate="%{y:.3s}",
-                   showlegend=False),
+                   showlegend=False,
+                   customdata=stack(
+                       (dataframes[p][c[0]][92:],dataframes[p][c[1]][92:]), 
+                       axis=-1),
+                   # Do not remove white spaces in hovertemplate.
+                   # They are there for spacing in the rendered template.
+                   hovertemplate="""
+%Inzidenz - {x}<br>
+
+<span style="color: #636EFA;">&#9724;</span>
+ compliant: %{customdata[0]:.3s}<br>
+
+<span style="color: #EF553B;">&#9724;</span>
+ non-compliant:  %{customdata[1]:.3s}<br>
+
+<span style="color: rgba(0,0,0,0);">&#9724;</span>
+ total: %{y:.3s}
+
+<extra></extra>
+"""
+                  ),
             row=row, col=col)
 
         # Set individual colors for border depending on percentage.
@@ -71,13 +92,12 @@ def update_barcharts(reduction, column, percentages, dataframes):
         barmode="relative",
         legend=dict(
             title_text="Population",
-            # yanchor="bottom", y=1.02,
-            # xanchor="right", x=1,
             itemclick=False,
             itemdoubleclick=False,
         ),
         margin=dict(l=0, r=0, t=45),
-        hovermode="x unified"
+        hovermode="closest",
+        hoverlabel=dict(bgcolor="white")
     )
     # Title colors
     for i in range(len(fig["layout"]["annotations"])):
@@ -85,6 +105,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
             color=colors[percentages[i]])
     # Axes
     fig.update_xaxes(
+        # Ticks
         dtick=7,
         ticks="outside",
         tickson="boundaries",
@@ -94,6 +115,12 @@ def update_barcharts(reduction, column, percentages, dataframes):
         mirror=True,
         showline=True,
         linewidth=2,
+        # Spike line for hover
+        showspikes=True,
+        spikemode='across+toaxis',
+        spikesnap='data',
+        spikedash='dot',
+        spikethickness=2
     )
     fig.update_yaxes(
         title="Inzidenz",
