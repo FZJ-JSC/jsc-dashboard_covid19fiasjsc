@@ -1,0 +1,18 @@
+.card-header > * > h2,
+.card-header > h4 {
+  margin-top: 0.5rem;
+}
+
+.order-below {
+  order: 13;
+  padding-top: 0.25rem;
+  padding-left: 26.75px !important;
+}
+
+@media (min-width: 992px) {
+  .order-below {
+    order: initial;
+    padding: 0;
+  }
+}
+

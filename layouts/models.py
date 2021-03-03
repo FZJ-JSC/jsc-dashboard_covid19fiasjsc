@@ -6,7 +6,7 @@ def create_modell_button(title, component):
     return dbc.Button(
         title,
         id="{}-button".format(component),
-        className="nav-button light mx-2"
+        className="nav-button light mx-2 mb-3"
     )
 
 
@@ -20,7 +20,7 @@ models_selection = dbc.Row(
     modell_buttons,
     no_gutters=True,
     justify="center",
-    className="nav-row",
+    className="nav-row"
 )
 
 
@@ -30,7 +30,7 @@ with open("./texts/lorem_ipsum.txt") as f:
 models_explanation = dbc.Card(
     dbc.CardBody(
         [
-            html.H5(
+            html.H4(
                 "What is the compliance model?",
                 className="card-title",
                 id="model-text-title"),

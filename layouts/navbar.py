@@ -4,8 +4,8 @@ import dash_html_components as html
 
 
 # Appbar
-jsc_logo = html.Img(src="assets/logo_jsc.png", height="30px")
-fias_logo = html.Img(src="assets/logo_fias.svg", height="40px")
+jsc_logo = html.Img(src="assets/logo_jsc.png", height="35px")
+fias_logo = html.Img(src="assets/logo_fias_inverse.svg", height="50px")
 
 appbar = dbc.Navbar(
     [
@@ -17,8 +17,7 @@ appbar = dbc.Navbar(
             fias_logo,
             href="https://www.fias.science/de/lebenswissenschaften/gruppen/maria-barbarossa/",
             target="_blank",
-            className="ml-auto mr-4",
-            style={"backgroundColor": "white"}
+            className="ml-auto mr-4"
         ),
         html.A(
             jsc_logo,

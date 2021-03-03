@@ -6,8 +6,8 @@ from dash.dependencies import Input, Output, State
 
 
 @app.callback(
-    [Output("graph", "figure"),
-     Output("graph-title", "children")],
+    [Output("compliance-graph", "figure"),
+     Output("compliance-graph-title", "children")],
     [Input("reduction-dropdown", "value"),
      Input("data-dropdown", "value"),
      Input("compliance-dropdown", "value")],

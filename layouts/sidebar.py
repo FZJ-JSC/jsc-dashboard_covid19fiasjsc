@@ -63,7 +63,8 @@ sidebar = html.Div(
             style={"overflow": "auto"}
         ),
     ],
-    id="sidebar"
+    id="sidebar",
+#     style={"paddingBottom": "calc(56px + 2rem)"}
 )
 
 

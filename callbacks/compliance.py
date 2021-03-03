@@ -1,5 +1,6 @@
 from app import app
 from dash.dependencies import Input, Output, State
+from layouts.compliance import compliance_graph_content, compliance_barchart_content
 
 
 def toggle_accordion(n1, is_open):
@@ -7,7 +8,7 @@ def toggle_accordion(n1, is_open):
         return False, "fa fa-chevron-down"
     else:
         return True, "fa fa-chevron-up"
-    
+
 
 for component in ["compliance-model", "compliance-plot"]:
     app.callback(
@@ -17,3 +18,14 @@ for component in ["compliance-model", "compliance-plot"]:
         State("accordion-collapse-{}".format(component), "is_open"),
         prevent_initial_call=True
     )(toggle_accordion)
+
+
+@app.callback(
+    Output("compliance-content", "children"),
+    Input("compliance-tabs", "active_tab")
+)
+def switch_tab(at):
+    if at == "compliance-graph-tab":
+        return compliance_graph_content
+    elif at == "compliance-barcharts-tab":
+        return compliance_barchart_content

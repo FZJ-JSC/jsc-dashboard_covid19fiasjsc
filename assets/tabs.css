@@ -1,0 +1,18 @@
+li.nav-item {
+  flex-grow: 1;
+}
+
+li.nav-item > .nav-link {
+  font-size: 1.171875rem;
+  border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+li.nav-item > .nav-link:hover {
+  color: var(--primary);
+}
+
+
+li.nav-item > .nav-link.active {
+  border-top: 1px solid var(--primary);
+  color: var(--primary);
+}

@@ -1,6 +1,6 @@
-from layouts.faq import accordion, title
+from layouts.faq import model_accordion, other_accordion
 
 children = [
-    title,
-    accordion
+    model_accordion,
+    other_accordion
 ]

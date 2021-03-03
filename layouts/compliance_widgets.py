@@ -33,8 +33,7 @@ def create_formgroup(label, tooltip, widget):
                 xs=12, lg=8
             )
         ],
-        row=True,
-        className="mt-3"
+        row=True
     )
 
 
@@ -83,20 +82,27 @@ compliance_formgroup = create_formgroup(
     "Compliance", compliance_tooltip, compliance_dropdown)
 
 
-def make_accordion_item(title, widgets, component_name):
+def make_accordion_item(title, widgets, short_explanation, component_name):
     return dbc.Card(
         [
             dbc.CardHeader(
                 html.Div(
                     dbc.Row(
                         [
-                            html.H5(title, className="mb-0"),
+                            html.H5(
+                                [
+                                    html.I(className="fa fa-cog mr-2"),
+                                    title
+                                ],
+                                className="mb-0"
+                            ),
+                            dbc.Col(
+                                html.I(short_explanation),
+                                className="col-lg-auto col-12 order-below"
+                            ),
                             html.I(
                                 className="fa fa-chevron-down",
-                                style={
-                                    "color":"var(--primary)",
-                                    "alignSelf": "center"
-                                },
+                                style={"alignSelf": "center"},
                                 id="accordion-group-{}-toggle-icon".format(component_name)
                             ),
                         ],
@@ -105,31 +111,38 @@ def make_accordion_item(title, widgets, component_name):
                     ),
                     id="accordion-group-{}-toggle".format(component_name)
                 ),
-                style={"backgroundColor": "transparent", "borderBottom": "None"}
+                style={
+                    "backgroundColor": "transparent",
+                    "borderBottom": "None"
+                }
             ),
             dbc.Collapse(
                 dbc.CardBody(widgets),
                 id="accordion-collapse-{}".format(component_name)
             ),
-        ]
+        ],
     )
 
 
-compliance_widgets = dbc.Row(
-    [
-        dbc.Col(
-            make_accordion_item("Modelling Scenario", 
-                                reduction_formgroup, 
-                                "compliance-model"),
-            className="my-4",
-            xs=12#, xl=8
-        ),
-        dbc.Col(
-            make_accordion_item("Plot Configuration", 
-                                [data_formgroup, compliance_formgroup], 
-                                "compliance-plot"),
-            xs=12#, xl=8
-        ),
-    ],
-    justify="center"
-)
+compliance_widgets = dbc.Row([
+    dbc.Col(
+        html.H4("Plots", className="card-title"),
+        xs=12
+    ),
+    dbc.Col(
+        make_accordion_item("Modelling Scenario",
+                            reduction_formgroup,
+                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                            "compliance-model"),
+        className="mb-3",
+        xs=12
+    ),
+    dbc.Col(
+        make_accordion_item("Plot Configuration",
+                            [data_formgroup, compliance_formgroup],
+                            "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+                            "compliance-plot"),
+        className="mb-3",
+        xs=12
+    ),
+])
