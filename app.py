@@ -1,8 +1,7 @@
+import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
-
-from jupyter_dash import JupyterDash
 
 
 FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
@@ -57,7 +56,10 @@ def update_dataframes(reduction):
 dataframes = update_dataframes("025")
 
 
-app = JupyterDash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])  # COSMO
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
+app.title = 'Cosimo'
+
+server = app.server
 
 # app.renderer = '''
 # var renderer = new DashRenderer({
