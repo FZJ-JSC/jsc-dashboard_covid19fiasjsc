@@ -1,5 +1,5 @@
 ## Hoster
-Die Webseiten des Projektes covid19dynstat werden gehostet am
+Die Webseiten des Projektes CoSiMo werden gehostet am
 
 Forschungszentrum Jülich GmbH  
 Wilhelm-Johnen-Straße  

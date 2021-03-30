@@ -24,7 +24,10 @@ extra_nav_items = ["disclaimer-nav", "impressum-nav", "privacy-nav"]
     Input('url', 'pathname')
 )
 def set_active(pathname):
-    if pathname.endswith("/information"):
+    if pathname.endswith("/_update"):
+        return (False,) * 8
+    
+    elif pathname.endswith("/information"):
         return (False,) * 1 + (True,) + (False,) * 6
     elif pathname.endswith("/faq"):
         return (False,) * 2 + (True,) + (False,) * 5

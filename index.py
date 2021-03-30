@@ -2,9 +2,9 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+from git import Git
 
 import callbacks
-import os  # temporary import for jupyterhub service prefix
 
 from app import app, dataframes
 from apps import faq, info, legal, models
@@ -14,7 +14,7 @@ from layouts.sidebar import sidebar
 from layouts.compliance import compliance_graph_content, compliance_barchart_content
 
 
-layout_index = html.Div(
+app_layout = html.Div(
     [
         dcc.Location(id='url', refresh=False),
         html.Div(
@@ -56,13 +56,13 @@ layout_index = html.Div(
     }
 )
 
-app.layout = layout_index
+app.layout = app_layout
 
 # "Complete" layout to avoid callback errors
 # because components are not loaded on the initial page
 app.validation_layout = html.Div(
     [
-        layout_index,
+        app_layout,
         html.Div(models.children),
         html.Div([compliance_graph_content, compliance_barchart_content]),
         html.Div(info.children),
@@ -76,8 +76,14 @@ app.validation_layout = html.Div(
     Output('page-content', 'children'),
     Input('url', 'pathname')
 )
-def display_page(pathname):   
-    if pathname.endswith("/information"):
+def display_page(pathname):
+    if pathname.endswith("/_update"):
+        # Update simdata via git pull
+        g = Git('../simdata')
+        output = g.pull('origin','master')
+        return dbc.Container(output)
+    
+    elif pathname.endswith("/information"):
         return info.children
 
     elif pathname.endswith("/faq"):
@@ -97,7 +103,7 @@ def display_page(pathname):
 
     else:
         return models.children
-
+    
 
 if __name__ == '__main__':
     app.run_server(debug=True)

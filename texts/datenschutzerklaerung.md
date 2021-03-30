@@ -1,20 +1,20 @@
 Wir freuen uns sehr über Ihr Interesse an unserem Projekt.
-Datenschutz hat einen besonders hohen Stellenwert für das Projekt BSTIM-Covid19.
-Eine Nutzung der Internetseiten des Projekts BSTIM-Covid19 ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich.
+Datenschutz hat einen besonders hohen Stellenwert für das Projekt CoSiMo.
+Eine Nutzung der Internetseiten des Projekts CoSiMo ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich.
 Sofern eine betroffene Person besondere Services unseres Projekts über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden.
 Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.
 
-Die Verarbeitung personenbezogener Daten, beispielsweise des Namens, der Anschrift, E-Mail-Adresse oder Telefonnummer einer betroffenen Person, erfolgt stets im Einklang mit der Datenschutz-Grundverordnung und in Übereinstimmung mit den für das Projekt BSTIM-Covid19 geltenden landesspezifischen Datenschutzbestimmungen.
+Die Verarbeitung personenbezogener Daten, beispielsweise des Namens, der Anschrift, E-Mail-Adresse oder Telefonnummer einer betroffenen Person, erfolgt stets im Einklang mit der Datenschutz-Grundverordnung und in Übereinstimmung mit den für das Projekt CoSiMo geltenden landesspezifischen Datenschutzbestimmungen.
 Mittels dieser Datenschutzerklärung möchte unser Projekt die Öffentlichkeit über Art, Umfang und Zweck der von uns erhobenen, genutzten und verarbeiteten personenbezogenen Daten informieren.
 Ferner werden betroffene Personen mittels dieser Datenschutzerklärung über die ihnen zustehenden Rechte aufgeklärt.
 
-Das Projekt BSTIM-Covid19 hat als für die Verarbeitung Verantwortlicher zahlreiche technische und organisatorische Maßnahmen umgesetzt, um einen möglichst lückenlosen Schutz der über diese Internetseite verarbeiteten personenbezogenen Daten sicherzustellen.
+Das Projekt CoSiMo hat als für die Verarbeitung Verantwortlicher zahlreiche technische und organisatorische Maßnahmen umgesetzt, um einen möglichst lückenlosen Schutz der über diese Internetseite verarbeiteten personenbezogenen Daten sicherzustellen.
 Dennoch können Internetbasierte Datenübertragungen grundsätzlich Sicherheitslücken aufweisen, sodass ein absoluter Schutz nicht gewährleistet werden kann. Aus diesem Grund steht es jeder betroffenen Person frei, personenbezogene Daten auch auf alternativen Wegen, beispielsweise telefonisch, an uns zu übermitteln.
 
 ---
 
 ### 1. Begriffsbestimmungen
-Die Datenschutzerklärung des Projekts BSTIM-Covid19 beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DSGVO) verwendet wurden.
+Die Datenschutzerklärung des Projekts CoSiMo beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DSGVO) verwendet wurden.
 Unsere Datenschutzerklärung soll sowohl für die Öffentlichkeit als auch für unsere Kunden und Geschäftspartner einfach lesbar und verständlich sein. Um dies zu gewährleisten, möchten wir vorab die verwendeten Begrifflichkeiten erläutern.
 
 Wir verwenden in dieser Datenschutzerklärung unter anderem die folgenden Begriffe:
@@ -49,17 +49,17 @@ Einwilligung ist jede von der betroffenen Person freiwillig für den bestimmten 
 ### 2. Name und Anschrift des für die Verarbeitung Verantwortlichen 
 Verantwortlicher im Sinne der Datenschutz-Grundverordnung, sonstiger in den Mitgliedstaaten der Europäischen Union geltenden Datenschutzgesetze und anderer Bestimmungen mit datenschutzrechtlichem Charakter ist:
 
-Projekt BSTIM-Covid19  
-Prof. Dr. Gordon Pipa
+Projekt CoSiMo  
+Dr. Maria Barbarossa
 
-Institut für Kognitionswissenschaft  
-Wachsbleiche 27  
-49090 Osnabrück  
+Frankfurt Institute for Advanced Studies
+Ruth-Moufang-Straße 1
+60438 Frankfurt am Main 
 
-Mailadresse: gpipa@uni-osnabrueck.de
+Mailadresse: barbarossa@fias.uni-frankfurt.de
 
 #### a) Hoster
-Die Webseiten des Projekts BSTIM-Covid19 werden gehostet von der
+Die Webseiten des Projekts CoSiMo werden gehostet von der
 
 Forschungszentrum Jülich GmbH  
 Wilhelm-Johnen-Straße  
@@ -88,7 +88,7 @@ Jede betroffene Person kann sich jederzeit bei allen Fragen und Anregungen zum D
 ---
 
 ### 4. Cookies
-Die Internetseiten des Projekts BSTIM-Covid19 verwenden Cookies.
+Die Internetseiten des Projekts CoSiMo verwenden Cookies.
 Cookies sind Textdateien, welche über einen Internetbrowser auf einem Computersystem abgelegt und gespeichert werden.
 
 Zahlreiche Internetseiten und Server verwenden Cookies. Viele Cookies enthalten eine sogenannte Cookie-ID. Eine Cookie-ID ist eine eindeutige Kennung des Cookies.
@@ -96,7 +96,7 @@ Sie besteht aus einer Zeichenfolge, durch welche Internetseiten und Server dem k
 Dies ermöglicht es den besuchten Internetseiten und Servern, den individuellen Browser der betroffenen Person von anderen Internetbrowsern, die andere Cookies enthalten, zu unterscheiden.
 Ein bestimmter Internetbrowser kann über die eindeutige Cookie-ID wiedererkannt und identifiziert werden.
 
-Durch den Einsatz von Cookies kann das Projekt BSTIM-Covid19 den Nutzern dieser Internetseite nutzerfreundlichere Services bereitstellen, die ohne die Cookie-Setzung nicht möglich wären.
+Durch den Einsatz von Cookies kann das Projekt CoSiMo den Nutzern dieser Internetseite nutzerfreundlichere Services bereitstellen, die ohne die Cookie-Setzung nicht möglich wären.
 
 Mittels eines Cookies können die Informationen und Angebote auf unserer Internetseite im Sinne des Benutzers optimiert werden. Cookies ermöglichen uns, wie bereits erwähnt, die Benutzer unserer Internetseite wiederzuerkennen.
 Zweck dieser Wiedererkennung ist es, den Nutzern die Verwendung unserer Internetseite zu erleichtern.
@@ -110,7 +110,7 @@ Dies ist in allen gängigen Internetbrowsern möglich. Deaktiviert die betroffen
 ---
 
 ### 5. Erfassung von allgemeinen Daten und Informationen
-Die Internetseite des Projekts BSTIM-Covid19 erfasst mit jedem Aufruf der Internetseite durch eine betroffene Person oder ein automatisiertes System eine Reihe von allgemeinen Daten und Informationen.
+Die Internetseite des Projekts CoSiMo erfasst mit jedem Aufruf der Internetseite durch eine betroffene Person oder ein automatisiertes System eine Reihe von allgemeinen Daten und Informationen.
 Diese allgemeinen Daten und Informationen werden in den Logfiles des Servers gespeichert.
 Erfasst werden können die 
 (1) verwendeten Browsertypen und Versionen, 
@@ -122,18 +122,18 @@ Erfasst werden können die
 (7) der Internet-Service-Provider des zugreifenden Systems und 
 (8) sonstige ähnliche Daten und Informationen, die der Gefahrenabwehr im Falle von Angriffen auf unsere informationstechnologischen Systeme dienen.
 
-Bei der Nutzung dieser allgemeinen Daten und Informationen zieht das Projekt BSTIM-Covid19 keine Rückschlüsse auf die betroffene Person.
+Bei der Nutzung dieser allgemeinen Daten und Informationen zieht das Projekt CoSiMo keine Rückschlüsse auf die betroffene Person.
 Diese Informationen werden vielmehr benötigt, um
 (1) die Inhalte unserer Internetseite korrekt auszuliefern,
 (2) die dauerhafte Funktionsfähigkeit unserer informationstechnologischen Systeme und der Technik unserer Internetseite zu gewährleisten sowie
 (3) um Strafverfolgungsbehörden im Falle eines Cyberangriffes die zur Strafverfolgung notwendigen Informationen bereitzustellen.
-Diese anonym erhobenen Daten und Informationen werden durch das Projekt BSTIM-Covid19 daher einerseits statistisch und ferner mit dem Ziel ausgewertet, den Datenschutz und die Datensicherheit in unserem Projekt zu erhöhen, um letztlich ein optimales Schutzniveau für die von uns verarbeiteten personenbezogenen Daten sicherzustellen.
+Diese anonym erhobenen Daten und Informationen werden durch das Projekt CoSiMo daher einerseits statistisch und ferner mit dem Ziel ausgewertet, den Datenschutz und die Datensicherheit in unserem Projekt zu erhöhen, um letztlich ein optimales Schutzniveau für die von uns verarbeiteten personenbezogenen Daten sicherzustellen.
 Die anonymen Daten der Server-Logfiles werden getrennt von allen durch eine betroffene Person angegebenen personenbezogenen Daten gespeichert.
 
 ---
 
 ### 6. Kontaktmöglichkeit über die Internetseite
-Die Internetseite des Projekts BSTIM-Covid19 enthält aufgrund von gesetzlichen Vorschriften Angaben, die eine schnelle elektronische Kontaktaufnahme zu unserem Projekt sowie eine unmittelbare Kommunikation mit uns ermöglichen, was ebenfalls eine allgemeine Adresse der sogenannten elektronischen Post (E-Mail-Adresse) umfasst.
+Die Internetseite des Projekts CoSiMo enthält aufgrund von gesetzlichen Vorschriften Angaben, die eine schnelle elektronische Kontaktaufnahme zu unserem Projekt sowie eine unmittelbare Kommunikation mit uns ermöglichen, was ebenfalls eine allgemeine Adresse der sogenannten elektronischen Post (E-Mail-Adresse) umfasst.
 Sofern eine betroffene Person per E-Mail oder über ein Kontaktformular den Kontakt mit dem für die Verarbeitung Verantwortlichen aufnimmt, werden die von der betroffenen Person übermittelten personenbezogenen Daten automatisch gespeichert.
 Solche auf freiwilliger Basis von einer betroffenen Person an den für die Verarbeitung Verantwortlichen übermittelten personenbezogenen Daten werden für Zwecke der Bearbeitung oder der Kontaktaufnahme zur betroffenen Person gespeichert.
 Es erfolgt keine Weitergabe dieser personenbezogenen Daten an Dritte.
@@ -184,10 +184,10 @@ Jede von der Verarbeitung personenbezogener Daten betroffene Person hat das vom 
    - Die Löschung der personenbezogenen Daten ist zur Erfüllung einer rechtlichen Verpflichtung nach dem Unionsrecht oder dem Recht der Mitgliedstaaten erforderlich, dem der Verantwortliche unterliegt.
    - Die personenbezogenen Daten wurden in Bezug auf angebotene Dienste der Informationsgesellschaft gemäß Art. 8 Abs. 1 DSGVO erhoben.
 
-Sofern einer der oben genannten Gründe zutrifft und eine betroffene Person die Löschung von personenbezogenen Daten, die beim Projekt BSTIM-Covid19 gespeichert sind, veranlassen möchte, kann sie sich hierzu jederzeit an den für die Verarbeitung Verantwortlichen wenden.
-Ein Mitarbeiter des Projekts BSTIM-Covid19 wird veranlassen, dass dem Löschverlangen unverzüglich nachgekommen wird.
+Sofern einer der oben genannten Gründe zutrifft und eine betroffene Person die Löschung von personenbezogenen Daten, die beim Projekt CoSiMo gespeichert sind, veranlassen möchte, kann sie sich hierzu jederzeit an den für die Verarbeitung Verantwortlichen wenden.
+Ein Mitarbeiter des Projekts CoSiMo wird veranlassen, dass dem Löschverlangen unverzüglich nachgekommen wird.
 
-Wurden die personenbezogenen Daten vom Projekt BSTIM-Covid19 öffentlich gemacht und ist unser Projekt als Verantwortlicher gemäß Art. 17 Abs. 1 DSGVO zur Löschung der personenbezogenen Daten verpflichtet, so trifft das Projekt BSTIM-Covid19 unter Berücksichtigung der verfügbaren Technologie und der Implementierungskosten angemessene Maßnahmen, auch technischer Art, um andere für die Datenverarbeitung Verantwortliche, welche die veröffentlichten personenbezogenen Daten verarbeiten, darüber in Kenntnis zu setzen, dass die betroffene Person von diesen anderen für die Datenverarbeitung Verantwortlichen die Löschung sämtlicher Links zu diesen personenbezogenen Daten oder von Kopien oder Replikationen dieser personenbezogenen Daten verlangt hat, soweit die Verarbeitung nicht erforderlich ist. Ein Mitarbeiter des Projekts BSTIM-Covid19 wird im Einzelfall das Notwendige veranlassen.
+Wurden die personenbezogenen Daten vom Projekt CoSiMo öffentlich gemacht und ist unser Projekt als Verantwortlicher gemäß Art. 17 Abs. 1 DSGVO zur Löschung der personenbezogenen Daten verpflichtet, so trifft das Projekt CoSiMo unter Berücksichtigung der verfügbaren Technologie und der Implementierungskosten angemessene Maßnahmen, auch technischer Art, um andere für die Datenverarbeitung Verantwortliche, welche die veröffentlichten personenbezogenen Daten verarbeiten, darüber in Kenntnis zu setzen, dass die betroffene Person von diesen anderen für die Datenverarbeitung Verantwortlichen die Löschung sämtlicher Links zu diesen personenbezogenen Daten oder von Kopien oder Replikationen dieser personenbezogenen Daten verlangt hat, soweit die Verarbeitung nicht erforderlich ist. Ein Mitarbeiter des Projekts CoSiMo wird im Einzelfall das Notwendige veranlassen.
 
 #### e) Recht auf Einschränkung der Verarbeitung
 Jede von der Verarbeitung personenbezogener Daten betroffene Person hat das vom Europäischen Richtlinien- und Verordnungsgeber gewährte Recht, von dem Verantwortlichen die Einschränkung der Verarbeitung zu verlangen, wenn eine der folgenden Voraussetzungen gegeben ist:
@@ -196,22 +196,22 @@ Jede von der Verarbeitung personenbezogener Daten betroffene Person hat das vom 
    - Der Verantwortliche benötigt die personenbezogenen Daten für die Zwecke der Verarbeitung nicht länger, die betroffene Person benötigt sie jedoch zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
    - Die betroffene Person hat Widerspruch gegen die Verarbeitung gem. Art. 21 Abs. 1 DSGVO eingelegt und es steht noch nicht fest, ob die berechtigten Gründe des Verantwortlichen gegenüber denen der betroffenen Person überwiegen.
 
-Sofern eine der oben genannten Voraussetzungen gegeben ist und eine betroffene Person die Einschränkung von personenbezogenen Daten, die beim Projekt BSTIM-Covid19 gespeichert sind, verlangen möchte, kann sie sich hierzu jederzeit an den für die Verarbeitung Verantwortlichen wenden. Ein Mitarbeiter des Projekts BSTIM-Covid19 wird die Einschränkung der Verarbeitung veranlassen.
+Sofern eine der oben genannten Voraussetzungen gegeben ist und eine betroffene Person die Einschränkung von personenbezogenen Daten, die beim Projekt CoSiMo gespeichert sind, verlangen möchte, kann sie sich hierzu jederzeit an den für die Verarbeitung Verantwortlichen wenden. Ein Mitarbeiter des Projekts CoSiMo wird die Einschränkung der Verarbeitung veranlassen.
 
 #### f) Recht auf Datenübertragbarkeit
 Jede von der Verarbeitung personenbezogener Daten betroffene Person hat das vom Europäischen Richtlinien- und Verordnungsgeber gewährte Recht, die sie betreffenden personenbezogenen Daten, welche durch die betroffene Person einem Verantwortlichen bereitgestellt wurden, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten. Sie hat außerdem das Recht, diese Daten einem anderen Verantwortlichen ohne Behinderung durch den Verantwortlichen, dem die personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern die Verarbeitung auf der Einwilligung gemäß Art. 6 Abs. 1 Buchstabe a DSGVO oder Art. 9 Abs. 2 Buchstabe a DSGVO oder auf einem Vertrag gemäß Art. 6 Abs. 1 Buchstabe b DSGVO beruht und die Verarbeitung mithilfe automatisierter Verfahren erfolgt, sofern die Verarbeitung nicht für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, welche dem Verantwortlichen übertragen wurde.
 
 Ferner hat die betroffene Person bei der Ausübung ihres Rechts auf Datenübertragbarkeit gemäß Art. 20 Abs. 1 DSGVO das Recht, zu erwirken, dass die personenbezogenen Daten direkt von einem Verantwortlichen an einen anderen Verantwortlichen übermittelt werden, soweit dies technisch machbar ist und sofern hiervon nicht die Rechte und Freiheiten anderer Personen beeinträchtigt werden.  
-Zur Geltendmachung des Rechts auf Datenübertragbarkeit kann sich die betroffene Person jederzeit an den für die Verarbeitung Verantwortlichen des Projekts BSTIM-Covid19 wenden.
+Zur Geltendmachung des Rechts auf Datenübertragbarkeit kann sich die betroffene Person jederzeit an den für die Verarbeitung Verantwortlichen des Projekts CoSiMo wenden.
 
 #### g) Recht auf Widerspruch
 Jede von der Verarbeitung personenbezogener Daten betroffene Person hat das vom Europäischen Richtlinien- und Verordnungsgeber gewährte Recht, aus Gründen, die sich aus ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung sie betreffender personenbezogener Daten, die aufgrund von Art. 6 Abs. 1 Buchstaben e oder f DSGVO erfolgt, Widerspruch einzulegen. Dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling.
 
-Das Projekt BSTIM-Covid19 verarbeitet die personenbezogenen Daten im Falle des Widerspruchs nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die den Interessen, Rechten und Freiheiten der betroffenen Person überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
+Das Projekt CoSiMo verarbeitet die personenbezogenen Daten im Falle des Widerspruchs nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die den Interessen, Rechten und Freiheiten der betroffenen Person überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 
-Zudem hat die betroffene Person das Recht, aus Gründen, die sich aus ihrer besonderen Situation ergeben, gegen die sie betreffende Verarbeitung personenbezogener Daten, die beim Projekt BSTIM-Covid19 zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken gemäß Art. 89 Abs. 1 DSGVO erfolgen, Widerspruch einzulegen, es sei denn, eine solche Verarbeitung ist zur Erfüllung einer im öffentlichen Interesse liegenden Aufgabe erforderlich.
+Zudem hat die betroffene Person das Recht, aus Gründen, die sich aus ihrer besonderen Situation ergeben, gegen die sie betreffende Verarbeitung personenbezogener Daten, die beim Projekt CoSiMo zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken gemäß Art. 89 Abs. 1 DSGVO erfolgen, Widerspruch einzulegen, es sei denn, eine solche Verarbeitung ist zur Erfüllung einer im öffentlichen Interesse liegenden Aufgabe erforderlich.
 
-Zur Ausübung des Rechts auf Widerspruch kann sich die betroffene Person direkt an den für die Verarbeitung Verantwortlichen des Projekts BSTIM-Covid19 wenden.
+Zur Ausübung des Rechts auf Widerspruch kann sich die betroffene Person direkt an den für die Verarbeitung Verantwortlichen des Projekts CoSiMo wenden.
 Der betroffenen Person steht es ferner frei, im Zusammenhang mit der Nutzung von Diensten der Informationsgesellschaft, ungeachtet der Richtlinie 2002/58/EG, ihr Widerspruchsrecht mittels automatisierter Verfahren auszuüben, bei denen technische Spezifikationen verwendet werden.
 
 #### h) Automatisierte Entscheidungen im Einzelfall einschließlich Profiling
@@ -222,7 +222,7 @@ Jede von der Verarbeitung personenbezogener Daten betroffene Person hat das vom 
 
 Ist die Entscheidung 
 (1) für den Abschluss oder die Erfüllung eines Vertrags zwischen der betroffenen Person und dem Verantwortlichen erforderlich oder 
-(2) erfolgt sie mit ausdrücklicher Einwilligung der betroffenen Person, trifft das Projekt BSTIM-Covid19 angemessene Maßnahmen, um die Rechte und Freiheiten sowie die berechtigten Interessen der betroffenen Person zu wahren, wozu mindestens das Recht auf Erwirkung des Eingreifens einer Person seitens des Verantwortlichen, auf Darlegung des eigenen Standpunkts und auf Anfechtung der Entscheidung gehört.
+(2) erfolgt sie mit ausdrücklicher Einwilligung der betroffenen Person, trifft das Projekt CoSiMo angemessene Maßnahmen, um die Rechte und Freiheiten sowie die berechtigten Interessen der betroffenen Person zu wahren, wozu mindestens das Recht auf Erwirkung des Eingreifens einer Person seitens des Verantwortlichen, auf Darlegung des eigenen Standpunkts und auf Anfechtung der Entscheidung gehört.
 
 Möchte die betroffene Person Rechte mit Bezug auf automatisierte Entscheidungen geltend machen, kann sie sich hierzu jederzeit an den für die Verarbeitung Verantwortlichen wenden.
 

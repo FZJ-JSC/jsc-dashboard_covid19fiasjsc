@@ -3,6 +3,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
 
+from jupyter_dash import JupyterDash
 
 FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 
@@ -46,7 +47,7 @@ columns_incidence_titles = {
 def update_dataframes(reduction):
     dataframes = dict()
     for i in compliance_percentages:
-        df = pd.read_csv("./large_csv/0218_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
+        df = pd.read_csv("../simdata/compliance/0218_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
         df["days"] = ["Tag {}".format(day) for day in range(-92,35)]
         # Need to change df to dict for json serialization
         dataframes[i] = df.to_dict()
@@ -57,6 +58,7 @@ dataframes = update_dataframes("025")
 
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
+# app = JupyterDash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
 app.title = 'Cosimo'
 
 server = app.server

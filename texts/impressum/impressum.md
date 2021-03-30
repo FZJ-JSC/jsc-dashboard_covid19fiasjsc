@@ -1,13 +1,13 @@
-Das Projekt covid19dynstat ist ein gemeinsames Projekt des Institutes für Kognitionswissenschaft der Universität Osnabrück und des Jülich Supercomputing Centre am Forschungszentrum Jülich.
+Das Projekt CoSiMo ist ein gemeinsames Projekt des Frankfurt Institute for Advanced Studies und des Jülich Supercomputing Centre am Forschungszentrum Jülich.
 
 ---
 
 ### Inhaltlicher und wissenschaftlicher Kontakt
 
-Prof. Dr. Gordon Pipa
+Dr. Maria Barbarossa
 
-Institut für Kognitionswissenschaft  
-Wachsbleiche 27  
-49090 Osnabrück  
+Frankfurt Institute for Advanced Studies
+Ruth-Moufang-Straße 1
+60438 Frankfurt am Main 
 
-Mailadresse: gpipa@uni-osnabrueck.de
+Mailadresse: barbarossa@fias.uni-frankfurt.de
