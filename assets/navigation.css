@@ -1,6 +1,7 @@
 .nav-button {
   border-radius: 0;
-  font-weight: 505;
+/*   font-weight: 505; */
+  font-weight: bold;
   text-align: left;
 /*   text-transform: uppercase; */
   background-color: transparent !important;
@@ -10,7 +11,7 @@
 .nav-button.active {
 /*   background-color: transparent !important; */
 /*   border-color: transparent !important; */
-  border-bottom-color: var(--primary) !important;
+/*   border-bottom-color: var(--primary) !important; */
   color: var(--primary) !important;
 }
 
@@ -34,7 +35,7 @@
 .nav-button.light.active,
 .nav-button.light:active {
 /*   color: var(--primary) !important; */
-  border-bottom-color: var(--primary) !important;
+/*   border-bottom-color: var(--primary) !important; */
 }
 
 .nav-button.light:hover {

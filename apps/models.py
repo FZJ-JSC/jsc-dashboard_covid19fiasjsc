@@ -6,7 +6,7 @@ from layouts.compliance import compliance_content
 
 children = [
     # Navigation between models
-    models_selection,
+#     models_selection,
     # Model explanation
     models_explanation,
     # Page content

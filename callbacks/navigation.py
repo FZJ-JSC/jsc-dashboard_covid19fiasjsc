@@ -14,8 +14,8 @@ def toggle_collapse(n, is_open):
     return is_open
 
 
-nav_items = ["model-nav", "info-nav", "qa-nav", "about-nav", "source-nav"]
-extra_nav_items = ["disclaimer-nav", "impressum-nav", "privacy-nav"]
+nav_items = ["model-nav"]
+extra_nav_items = ["impressum-nav", "privacy-nav"]
 
 # Toggle active nav item in sidebar,
 # depending on the current url
@@ -25,20 +25,11 @@ extra_nav_items = ["disclaimer-nav", "impressum-nav", "privacy-nav"]
 )
 def set_active(pathname):
     if pathname.endswith("/_update"):
-        return (False,) * 8
-    
-    elif pathname.endswith("/information"):
-        return (False,) * 1 + (True,) + (False,) * 6
-    elif pathname.endswith("/faq"):
-        return (False,) * 2 + (True,) + (False,) * 5
-    elif pathname.endswith("/about"):
-        return (False,) * 3 + (True,) + (False,) * 4
-    
-    elif pathname.endswith("/disclaimer"):
-        return (False,) * 5 + (True,) + (False,) * 2
+        return (False,) * 3
+
     elif pathname.endswith("/impressum"):
-        return (False,) * 6 + (True,) + (False,) * 1
+        return (False,) * 1 + (True,) + (False,) * 1
     elif pathname.endswith("/privacy"):
-        return (False,) * 7 + (True,) + (False,) * 0
+        return (False,) * 2 + (True,) + (False,) * 0
     else:
-        return (False,) * 0 + (True,) + (False,) * 7
+        return (False,) * 0 + (True,) + (False,) * 2

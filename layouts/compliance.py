@@ -9,7 +9,7 @@ compliance_graph_content = dcc.Loading(
         [
             dbc.Row(
                 [
-                    html.H5(id="compliance-graph-title", className="card-title"),
+                    html.H5(id="compliance-graph-title", className="card-title bold"),
                     html.I(
                         className="card-title fa fa-question-circle fa-lg ml-2",
                         id="compliance-graph-target",
@@ -37,7 +37,7 @@ compliance_graph_content = dcc.Loading(
 compliance_barchart_content = dcc.Loading(
     html.Div(
         [
-            html.H5(id="compliance-barcharts-title", className="mt-3"),
+            html.H5(id="compliance-barcharts-title", className="mt-3 bold"),
             html.Div(
                 id="compliance-barcharts",
                 className="w-1",
@@ -57,10 +57,12 @@ compliance_content = [
                     [
                         dbc.Tab(
                             label="Plot",
+                            tabClassName="bold",
                             tab_id="compliance-graph-tab"
                         ),
                         dbc.Tab(
                             label="Daily incidence",
+                            tabClassName="bold",
                             tab_id="compliance-barcharts-tab"
                         ),
                     ],

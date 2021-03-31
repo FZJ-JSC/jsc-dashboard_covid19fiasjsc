@@ -23,3 +23,7 @@ body > div > div > div > div > div,
 .w-1 {
   width: 100%;
 }
+
+.bold {
+  font-weight: 600;
+}

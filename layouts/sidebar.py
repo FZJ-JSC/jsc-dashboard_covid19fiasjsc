@@ -2,9 +2,19 @@ import dash_bootstrap_components as dbc
 import dash_html_components as html
 
 
-def create_nav_button(title, name, href):
+def create_nav_button(title, name, href, icon=None):
+    if icon:
+        children = [
+            html.I(
+                className="fa fa-{} fa-lg mr-2".format(icon),
+            ),
+            title.upper(),
+        ]
+    else:
+        children = title
+    
     return dbc.Button(
-        title,
+        children,
         id=name,
         href=href,
         color="light",
@@ -27,16 +37,10 @@ def create_external_link(title, name, href):
 
 
 nav_buttons = [
-    create_nav_button("Models", "model-nav", "/"),
-    create_nav_button("Background Information", "info-nav", "information"),
-    create_nav_button("FAQ", "qa-nav", "faq"),
-    create_nav_button("About Us", "about-nav", "about"),
-    create_external_link("Source Code", "source-nav",
-                         href="https://github.com/FZJ-JSC/jsc-dashboard_covid19fiasjsc")
+    create_nav_button("Home", "model-nav", "/", icon="home"),
 ]
 
 extra_nav_buttons = [
-    create_nav_button("Disclaimer", "disclaimer-nav", "disclaimer"),
     create_nav_button("Legal Disclosure", "impressum-nav", "impressum"),
     create_nav_button("Data Protection", "privacy-nav", "privacy")
 ]
@@ -51,7 +55,8 @@ sidebar = html.Div(
             dbc.Nav(
                 nav_buttons + 
                 [
-                    html.Div(style={"flexGrow": "1"})
+                    html.Div(style={"flexGrow": "1"}),
+                    html.Br()
                 ] +
                 extra_nav_buttons,
                 vertical=True,
@@ -64,7 +69,7 @@ sidebar = html.Div(
         ),
     ],
     id="sidebar",
-#     style={"paddingBottom": "calc(56px + 2rem)"}
+    style={"paddingBottom": "2rem"}
 )
 
 
