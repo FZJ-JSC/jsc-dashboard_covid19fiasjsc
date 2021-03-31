@@ -14,7 +14,7 @@ def create_formgroup(label, tooltip, widget):
                     label,
                     html.I(
                         className="fa fa-question-circle ml-2",
-                        id="{}_target".format(component_name),
+                        id="{}-target".format(component_name),
                         style={
                             "color": "var(--dark)",
                             "alignSelf": "center"
@@ -22,7 +22,7 @@ def create_formgroup(label, tooltip, widget):
                     ),
                     dbc.Tooltip(
                         tooltip, 
-                        target="{}_target".format(component_name),
+                        target="{}-target".format(component_name),
                         style={"height": "auto"}
                     )
                 ],
@@ -37,8 +37,12 @@ def create_formgroup(label, tooltip, widget):
     )
 
 
-with open("./texts/lorem_ipsum.txt") as f:
-    lorem_ipsum = f.read()
+with open("./texts/compliance/reduction-factor.md") as f:
+    reduction_tooltip = f.read()
+with open("./texts/compliance/compliance-level.md") as f:
+    compliance_tooltip = f.read()
+with open("./texts/compliance/plotted-data.md") as f:
+    data_tooltip = f.read()
 
 
 reduction_dropdown = dcc.Dropdown(
@@ -52,7 +56,20 @@ reduction_dropdown = dcc.Dropdown(
     value="025"
 )
 reduction_formgroup = create_formgroup(
-    "Reduction Factor", lorem_ipsum[:199], reduction_dropdown)
+    "Reduction Factor", reduction_tooltip, reduction_dropdown)
+
+
+compliance_dropdown = dcc.Dropdown(
+    id="compliance-dropdown",
+    options=[
+        {"label": "{}%".format(percentage), "value": percentage}
+        for percentage in compliance_percentages[1:]
+    ],
+    value=[10, 30, 50, 70, 100],
+    multi=True
+)
+compliance_formgroup = create_formgroup(
+    "Compliance", compliance_tooltip, compliance_dropdown)
 
 
 data_dropdown = dcc.Dropdown(
@@ -65,21 +82,7 @@ data_dropdown = dcc.Dropdown(
     value="It"
 )
 data_formgroup = create_formgroup(
-    "Plotted Data", lorem_ipsum[:199], data_dropdown)
-
-
-compliance_dropdown = dcc.Dropdown(
-    id="compliance-dropdown",
-    options=[
-        {"label": "{}%".format(percentage), "value": percentage}
-        for percentage in compliance_percentages[1:]
-    ],
-    value=[10, 30, 50, 70, 100],
-    multi=True
-)
-compliance_tooltip = "Acceptance to comply with regulations"
-compliance_formgroup = create_formgroup(
-    "Compliance", compliance_tooltip, compliance_dropdown)
+    "Plotted Data", data_tooltip, data_dropdown)
 
 
 def make_accordion_item(title, widgets, short_explanation, component_name):
@@ -131,16 +134,16 @@ compliance_widgets = dbc.Row([
     ),
     dbc.Col(
         make_accordion_item("Modelling Scenario",
-                            reduction_formgroup,
-                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                            [reduction_formgroup, compliance_formgroup],
+                            "Please select the contact restriction severity to be introduced and the compliance level in the population.",
                             "compliance-model"),
         className="mb-3",
         xs=12
     ),
     dbc.Col(
         make_accordion_item("Plot Configuration",
-                            [data_formgroup, compliance_formgroup],
-                            "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+                            data_formgroup,
+                            "Please select simulation data for visualisation/to be visualized.",
                             "compliance-plot"),
         className="mb-3",
         xs=12

@@ -1,4 +1,5 @@
 import dash_bootstrap_components as dbc
+import dash_core_components as dcc
 import dash_html_components as html
 
 
@@ -24,8 +25,8 @@ models_selection = dbc.Row(
 )
 
 
-with open("./texts/lorem_ipsum.txt") as f:
-    lorem_ipsum = f.read()
+with open("./texts/compliance/model-short.md") as f:
+    compliance_short = f.read()
 
 models_explanation = dbc.Card(
     dbc.CardBody(
@@ -34,7 +35,7 @@ models_explanation = dbc.Card(
                 "What is the compliance model?",
                 className="card-title",
                 id="model-text-title"),
-            html.P(lorem_ipsum[:199], id="model-text"),
+            dcc.Markdown(compliance_short, id="model-text"),
             dbc.Button("...more", color="primary", id="model-text-toggle"),
         ],
     ),

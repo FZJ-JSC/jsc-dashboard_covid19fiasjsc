@@ -37,7 +37,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
             go.Bar(x=dataframes[p]["days"][92:],
                    y=dataframes[p][c[0]][92:],
                    marker_color=colors[10],
-                   name="compliant population",
+                   name="compliant people",
                    hoverinfo='skip',  # Defined in total instead
                    showlegend=True if i == 0 else False),
             row=row, col=col)
@@ -45,11 +45,11 @@ def update_barcharts(reduction, column, percentages, dataframes):
             go.Bar(x=dataframes[p]["days"][92:],
                    y=dataframes[p][c[1]][92:],
                    marker_color=colors[20],
-                   name="noncompliant population",
+                   name="noncompliant people",
                    hoverinfo='skip',  # Defined in total instead
                    showlegend=True if i == 0 else False),
             row=row, col=col)
-        
+
         # Total c+n. Use this for custom hover template.
         fig.add_trace(
             go.Bar(x=dataframes[p]["days"][92:],
@@ -59,12 +59,12 @@ def update_barcharts(reduction, column, percentages, dataframes):
                    base=0,
                    showlegend=False,
                    customdata=stack(
-                       (dataframes[p][c[0]][92:],dataframes[p][c[1]][92:]), 
+                       (dataframes[p][c[0]][92:], dataframes[p][c[1]][92:]),
                        axis=-1),
                    # Do not remove white spaces in hovertemplate.
                    # They are there for spacing in the rendered template.
                    hovertemplate="""
-%Inzidenz - {x}<br>
+Daily incidence - %{x}<br>
 
 <span style="color: #636EFA;">&#9724;</span>
  compliant: %{customdata[0]:.3s}<br>
@@ -91,7 +91,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
         height=300*rows,
         barmode="relative",
         legend=dict(
-            title_text="Population",
+            title_text="Cases among",
             itemclick=False,
             itemdoubleclick=False,
         ),
@@ -123,7 +123,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
         spikethickness=2
     )
     fig.update_yaxes(
-        title="Inzidenz",
+        title="daily incidence",
         # Outline
         mirror=True,
         showline=True,
@@ -131,7 +131,6 @@ def update_barcharts(reduction, column, percentages, dataframes):
     )
 
     # Title
-    column_text = columns_incidence_titles[column]
-    title = "Tägliche Zahl an {} für einen Reduktionsfaktor von {}".format(
-        column_text, reduction[:1] + "." + reduction[1:])
+    title = "Daily number of {} for contact reduction factor {}".format(
+        columns[column], reduction[:1] + "." + reduction[1:])
     return dcc.Graph(figure=fig), title

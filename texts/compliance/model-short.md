@@ -1,0 +1,1 @@
+Is it more effective to have strict measures followed by a small part of the population, or to adopt moderate measures that a larger part of the population is likely to be willing to adhere to?

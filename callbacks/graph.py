@@ -45,7 +45,7 @@ def update_chart(reduction, column, percentages, dataframes):
                   line=dict(color="grey", dash="dash"))
     # "Begin measures" annotation
     fig.add_annotation(xref="x", x=92,
-                       text="<b>Start<br>Interventionen</b>",
+                       text="<b>Start of<br>interventions</b>",
                        align="left",
                        xanchor="left",
                        showarrow=False,
@@ -56,7 +56,7 @@ def update_chart(reduction, column, percentages, dataframes):
         height=500,
         legend=dict(title_text="Compliance"),
         margin=dict(l=0, r=0, t=30),
-        yaxis_title="Fallzahlen"
+        yaxis_title="Cases"
         # hovermode="x"
     )
 
@@ -72,6 +72,6 @@ def update_chart(reduction, column, percentages, dataframes):
         ticklen=4
     )
 
-    title = "{} für einen Reduktionsfaktor von {}".format(
+    title = "Visualize {} (for contact reduction factor {})".format(
         columns[column], reduction[:1] + "." + reduction[1:])
     return fig, title

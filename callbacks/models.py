@@ -7,6 +7,12 @@ from layouts.compliance import compliance_content
 
 with open("./texts/lorem_ipsum.txt") as f:
     lorem_ipsum = f.read()
+    
+with open("./texts/compliance/model-short.md") as f:
+    compliance_short = f.read()
+    
+with open("./texts/compliance/model-long.md") as f:
+    compliance_long = f.read()
 
 model_buttons = ["compliance-button", "vaccination-button", "hospitalization-button"]
 
@@ -58,7 +64,7 @@ def update_model_text(btn1, btn2, btn3, toggle_btn, active1, active2, active3, b
 
     if button_id == model_buttons[0]:
         title = title + "compliance model?"
-        text = lorem_ipsum[:199]
+        text = compliance_short
         button_text = "...more"
     elif button_id == model_buttons[1]:
         title = title + "vaccination model?"
@@ -73,7 +79,7 @@ def update_model_text(btn1, btn2, btn3, toggle_btn, active1, active2, active3, b
         if btn_text == "...more":
             if active1:
                 title = title + "compliance model?"
-                text = lorem_ipsum
+                text = compliance_long
             elif active2:
                 title = title + "vaccination model?"
                 text = lorem_ipsum
@@ -84,7 +90,7 @@ def update_model_text(btn1, btn2, btn3, toggle_btn, active1, active2, active3, b
         else:
             if active1:
                 title = title + "compliance model?"
-                text = lorem_ipsum[:199]
+                text = compliance_short
             elif active2:
                 title = title + "vaccination model?"
                 text = lorem_ipsum[:199]

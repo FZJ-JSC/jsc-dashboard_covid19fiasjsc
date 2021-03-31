@@ -14,13 +14,13 @@ for i, color in zip(compliance_percentages[1:], px.colors.qualitative.Plotly):
     colors[i] = color
 
 columns = {
-    "It": "Aktive Fälle",
-    "actInfT": "Tatsächliche Anzahl aktiver Fälle",
-    "cumCasT": "Kumulierte Fälle",
-    "cumInfT": "Tatsächliche Anzahl kumulierter Fälle",
-    "knownRt": "Bekannte genesene Fälle",
-    "Rt": "Tatsächliche genesene Fälle",
-    "Dt": "Verstorbene",
+    "It": "know active cases",
+    "actInfT": "total active cases (includes undetected)",
+    "cumCasT": "known cumulative cases",
+    "cumInfT": "total cumulative cases (includes undetected)",
+    "knownRt": "known recovered cases",
+    "Rt": "total recovered cases (includes undetected)",
+    "Dt": "deceased",
 }
 
 columns_incidence = {
@@ -33,22 +33,12 @@ columns_incidence = {
     "Dt": ["incDc", "incDn"],
 }
 
-columns_incidence_titles = {
-    "It": "aktiven Fällen",
-    "actInfT": "tatsächlichen aktiven Fällen",
-    "cumCasT": "kumulierten Fällen",
-    "cumInfT": "tatsächlichen kumulierten Fällen",
-    "knownRt": "bekannten genesenen Fällen",
-    "Rt": "tatsächlichen genesenen Fällen",
-    "Dt": "verstorbenen Fällen",
-}
-
 
 def update_dataframes(reduction):
     dataframes = dict()
     for i in compliance_percentages:
         df = pd.read_csv("../simdata/compliance/0218_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
-        df["days"] = ["Tag {}".format(day) for day in range(-92,35)]
+        df["days"] = ["Day {}".format(day) for day in range(-92,35)]
         # Need to change df to dict for json serialization
         dataframes[i] = df.to_dict()
     return dataframes
