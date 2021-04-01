@@ -37,11 +37,11 @@ def create_formgroup(label, tooltip, widget):
     )
 
 
-with open("./texts/compliance/reduction-factor.md") as f:
+with open("./texts/compliance/en/reduction-factor.md") as f:
     reduction_tooltip = f.read()
-with open("./texts/compliance/compliance-level.md") as f:
+with open("./texts/compliance/en/compliance-level.md") as f:
     compliance_tooltip = f.read()
-with open("./texts/compliance/plotted-data.md") as f:
+with open("./texts/compliance/en/plotted-data.md") as f:
     data_tooltip = f.read()
 
 

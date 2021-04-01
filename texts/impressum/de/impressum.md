@@ -4,7 +4,7 @@ Das Projekt CoSiMo ist ein gemeinsames Projekt des Frankfurt Institute for Advan
 
 ### Inhaltlicher und wissenschaftlicher Kontakt
 
-Dr. Maria Barbarossa
+Dr. Maria Vittoria Barbarossa
 
 Frankfurt Institute for Advanced Studies
 Ruth-Moufang-Straße 1

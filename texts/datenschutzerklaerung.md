@@ -50,7 +50,7 @@ Einwilligung ist jede von der betroffenen Person freiwillig für den bestimmten 
 Verantwortlicher im Sinne der Datenschutz-Grundverordnung, sonstiger in den Mitgliedstaaten der Europäischen Union geltenden Datenschutzgesetze und anderer Bestimmungen mit datenschutzrechtlichem Charakter ist:
 
 Projekt CoSiMo  
-Dr. Maria Barbarossa
+Dr. Maria Vittoria Barbarossa
 
 Frankfurt Institute for Advanced Studies
 Ruth-Moufang-Straße 1

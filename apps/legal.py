@@ -24,10 +24,10 @@ def create_legal_page(title, markdown_file):
 disclaimer = create_legal_page("Disclaimer", "texts/disclaimer.md")
 
 # Impressum
-imp = create_legal_page("Impressum", "texts/impressum/impressum.md")
-haftung = create_legal_page("Haftungsausschluss", "texts/impressum/haftungsausschluss.md")
-hoster = create_legal_page("Hoster", "texts/impressum/hoster.md")
+imp = create_legal_page("Impressum", "texts/impressum/en/impressum.md")
+haftung = create_legal_page("Disclaimer", "texts/impressum/en/disclaimer.md")
+hoster = create_legal_page("Hoster", "texts/impressum/en/hoster.md")
 impressum = html.Div([imp, haftung, hoster])
 
 # Datenschutzerklärung
-privacy = create_legal_page("Datenschutzerklärung", "texts/datenschutzerklaerung.md")
+privacy = create_legal_page("Data protection", "texts/data-protection.md")

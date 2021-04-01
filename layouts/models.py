@@ -25,7 +25,7 @@ models_selection = dbc.Row(
 )
 
 
-with open("./texts/compliance/model-short.md") as f:
+with open("./texts/compliance/en/model-short.md") as f:
     compliance_short = f.read()
 
 models_explanation = dbc.Card(

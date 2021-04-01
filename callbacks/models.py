@@ -4,10 +4,10 @@ from app import app
 from dash.dependencies import Input, Output, State
 
    
-with open("./texts/compliance/model-short.md") as f:
+with open("./texts/compliance/en/model-short.md") as f:
     compliance_short = f.read()
     
-with open("./texts/compliance/model-long.md") as f:
+with open("./texts/compliance/en/model-long.md") as f:
     compliance_long = f.read()
 
 
