@@ -131,6 +131,6 @@ Daily incidence - %{x}<br>
     )
 
     # Title
-    title = "Daily number of {} for contact reduction factor {}".format(
-        columns[column], reduction[:1] + "." + reduction[1:])
+    title = "Daily new cases for contact reduction factor {}".format(
+        reduction[:1] + "." + reduction[1:])
     return dcc.Graph(figure=fig), title

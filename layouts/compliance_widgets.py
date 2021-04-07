@@ -144,7 +144,7 @@ compliance_widgets = dbc.Row([
     dbc.Col(
         make_accordion_item("Plot Configuration",
                             data_formgroup,
-                            "Please select simulation data for visualisation/to be visualized.",
+                            "Please select simulation data to be visualized.",
                             "compliance-plot"),
         className="mb-3",
         xs=12

@@ -1,5 +1,5 @@
 from app import app
-from dash.dependencies import Input, Output, State
+from dash.dependencies import ClientsideFunction, Input, Output, State
 from layouts.compliance import compliance_graph_content, compliance_barchart_content
 
 
@@ -25,7 +25,24 @@ for component in ["compliance-model", "compliance-plot"]:
     Input("compliance-tabs", "active_tab")
 )
 def switch_tab(at):
+#     print("switching tab to:")
     if at == "compliance-graph-tab":
+#         print("graph")
         return compliance_graph_content
     elif at == "compliance-barcharts-tab":
+#         print("barcharts")
         return compliance_barchart_content
+
+
+app.clientside_callback(
+    ClientsideFunction(namespace="clientside", function_name="resize"),
+    Output("resize-dummy-1", "children"),
+    Input("compliance-graph", "figure")
+)
+
+
+app.clientside_callback(
+    ClientsideFunction(namespace="clientside", function_name="resize"),
+    Output("resize-dummy-2", "children"),
+    Input("compliance-barcharts", "children")
+)

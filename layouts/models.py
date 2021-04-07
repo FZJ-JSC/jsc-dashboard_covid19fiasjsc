@@ -29,10 +29,10 @@ with open("./texts/compliance/en/model-short.md") as f:
     compliance_short = f.read()
 
 models_explanation = dbc.Card(
-        [
+    [
         dbc.CardHeader(
             html.H3(
-                "What is the compliance model?",
+                "Compliance model",
                 className="mb-0 bold",
                 id="model-text-title"
             ),

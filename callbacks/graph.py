@@ -26,8 +26,8 @@ def update_chart(reduction, column, percentages, dataframes):
                              line=dict(color="black"),
                              name="0%", meta="0%",
                              hovertemplate=
-                             "%{x}<br>Fälle: %{y:.3s}" +
-                             "<extra><br>%{meta} compliance</extra>"))
+                             "%{x}<br>%{y:.3s}" +
+                             "<extra>%{meta} compliance</extra>"))
     # Other selected % compliance
     for p in percentages:
         name = "{}%".format(p)
@@ -36,8 +36,8 @@ def update_chart(reduction, column, percentages, dataframes):
                                  line=dict(color=colors[p]),
                                  name=name, meta=name,
                                  hovertemplate=
-                                 "%{x}<br>Fälle: %{y:.3s}" +
-                                 "<extra><br>%{meta} compliance</extra>"))
+                                 "%{x}<br>%{y:.3s}" +
+                                 "<extra>%{meta} compliance</extra>"))
 
     # Vertical line
     fig.add_shape(xref="x", x0=92, x1=92,

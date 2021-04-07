@@ -17,6 +17,8 @@ from layouts.compliance import compliance_graph_content, compliance_barchart_con
 app_layout = html.Div(
     [
         dcc.Location(id='url', refresh=False),
+        html.Div(id="resize-dummy-1"),
+        html.Div(id="resize-dummy-2"),
         html.Div(
             [
                 # Navbar
@@ -82,7 +84,7 @@ def display_page(pathname):
         g = Git('../simdata')
         output = g.pull('origin','master')
         return dbc.Container(output)
-    
+
     elif pathname.endswith("/information"):
         return info.children
 
@@ -103,7 +105,7 @@ def display_page(pathname):
 
     else:
         return models.children
-    
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
