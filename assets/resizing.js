@@ -48,6 +48,8 @@ function relayout_plots() {
             layout.legend.x = 1;
             layout.legend.yanchor = "bottom";
             layout.legend.y = 1.02;
+            // Add padding
+            document.getElementById('compliance-barcharts').className = "w-1 pt-3"
         }
         else {
             // 2 column barcharts
@@ -85,6 +87,8 @@ function relayout_plots() {
             layout.legend.x = 1.02;
             layout.legend.yanchor = "auto";
             layout.legend.y = 1;
+            // Remove padding
+            document.getElementById('compliance-barcharts').className = "w-1"
         }
         
         Plotly.newPlot(plot, data, layout, config);
@@ -103,6 +107,8 @@ function relayout_plots() {
             layout.legend.x = 1;
             layout.legend.yanchor = "bottom";
             layout.legend.y = 1.02;
+            // Add padding
+            document.getElementById('compliance-graph').className = "dash-graph w-1 pt-3"
         }
         else {
             layout.legend.orientation = "v";
@@ -110,6 +116,8 @@ function relayout_plots() {
             layout.legend.x = 1.02;
             layout.legend.yanchor = "auto";
             layout.legend.y = 1;
+            // Remove padding
+            document.getElementById('compliance-graph').className = "dash-graph w-1"
         }
         
         Plotly.newPlot(plot, data, layout, config);

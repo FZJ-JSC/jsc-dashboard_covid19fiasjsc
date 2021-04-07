@@ -25,12 +25,12 @@ for component in ["compliance-model", "compliance-plot"]:
     Input("compliance-tabs", "active_tab")
 )
 def switch_tab(at):
-#     print("switching tab to:")
+    print("switching tab to:")
     if at == "compliance-graph-tab":
-#         print("graph")
+        print("graph")
         return compliance_graph_content
     elif at == "compliance-barcharts-tab":
-#         print("barcharts")
+        print("barcharts")
         return compliance_barchart_content
 
 

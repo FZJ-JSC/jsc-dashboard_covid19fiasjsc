@@ -1,0 +1,6 @@
+/* Plotly modebar above legend when screen small */
+@media (max-width: 992px) {
+  .js-plotly-plot .plotly .modebar {
+    transform: translateY(-100%);
+  }
+}
