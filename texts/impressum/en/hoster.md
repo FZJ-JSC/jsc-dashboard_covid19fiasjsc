@@ -18,7 +18,8 @@ Tax No.: 213/5700/0033
 #### Board of Directors:
 - Prof. Dr.-Ing. Wolfgang Marquardt (Chairman)  
 - Karsten Beneke (Vice Chairman)  
-- Prof. Dr. Harald Bolt  
+- Prof. Dr. Harald Bolt 
+- Prof. Dr. Frauke Melchior
 
 #### Supervisory Board:
 Ministerial Director Volker Rieke

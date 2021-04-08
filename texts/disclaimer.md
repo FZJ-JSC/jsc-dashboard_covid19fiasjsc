@@ -1,1 +1,0 @@
-Alle hier präsentierten Ergebnisse basieren auf statistischen Methoden und bilden damit nicht das reale Geschehen, sondern Schätzungen ab, die von der wirklichen Situation abweichen können. Dies ist bei der Interpretation der Ergebnisse zu berücksichtigen.

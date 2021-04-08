@@ -124,7 +124,7 @@ Daily incidence - %{x}<br>
         spikethickness=2
     )
     fig.update_yaxes(
-        title="daily incidence",
+        title="Daily incidence",
         # Outline
         mirror=True,
         showline=True,
@@ -132,6 +132,6 @@ Daily incidence - %{x}<br>
     )
 
     # Title
-    title = "Daily new cases for contact reduction factor {}".format(
-        reduction[:1] + "." + reduction[1:])
+    title = "Daily number of {} for contact reduction factor {}".format(
+        columns[column], reduction[:1] + "." + reduction[1:])
     return dcc.Graph(figure=fig), title

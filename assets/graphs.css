@@ -4,3 +4,7 @@
     transform: translateY(-100%);
   }
 }
+
+.js-plotly-plot .plotly .modebar {
+  transform: translateY(-30%);
+}

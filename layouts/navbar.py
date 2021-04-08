@@ -10,7 +10,7 @@ fias_logo = html.Img(src="assets/logo_fias_inverse.svg", height="50px")
 appbar = dbc.Navbar(
     [
         html.A(
-            dbc.NavbarBrand("CoSiMo - Covid Simulation Model", className="ml-2"),
+            dbc.NavbarBrand("CoSiMo - Covid Simulation and Modeling Project", className="ml-2"),
             href="h#",
         ),
         html.A(

@@ -20,6 +20,7 @@ Steuer-Nr.: 213/5700/0033
 - Prof. Dr.-Ing. Wolfgang Marquardt (Vorsitzender)  
 - Karsten Beneke (Stellvertr. Vorsitzender)  
 - Prof. Dr. Harald Bolt  
+- Prof. Dr. Frauke Melchior
 
 #### Vorsitzender des Aufsichtsrats:
 Ministerialdirektor Volker Rieke

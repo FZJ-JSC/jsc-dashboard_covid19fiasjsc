@@ -16,7 +16,7 @@ from dash.dependencies import Input, Output, State
 )
 def update_chart(reduction, column, percentages, data, dataframes):
     for df in dataframes:
-        # Keys were changes to str for json, change back to int
+        # Keys were changed to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
     percentages.sort()
 

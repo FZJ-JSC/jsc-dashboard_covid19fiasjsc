@@ -1,1 +1,6 @@
-Is it more effective to have strict measures followed by a small part of the population, or to adopt moderate measures that a larger part of the population is likely to be willing to adhere to?
+After one year COVID-19 control we keep asking whether it is more effective
+
+ * to have **strict measures** followed by **few people**
+ * to adopt **moderate measures** followed by **many people**? 
+
+Our Compliance model can help answering this question.

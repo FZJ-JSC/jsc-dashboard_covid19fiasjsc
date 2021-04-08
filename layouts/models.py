@@ -36,13 +36,16 @@ models_explanation = html.Div([
             id="model-text-title"
         ),
         body=True,
-        className="mb-4"
+        className="my-4"
     ),
     dbc.Card(
         [
             dbc.CardBody(
                 [
-                    dcc.Markdown(compliance_short, id="model-text"),
+                    html.Div(
+                        dcc.Markdown(compliance_short),
+                        id="model-text"
+                    ),
                     dbc.Button("...more", color="primary", id="model-text-toggle"),
                 ],
             ),

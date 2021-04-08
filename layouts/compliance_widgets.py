@@ -101,7 +101,8 @@ def make_accordion_item(title, widgets, short_explanation, component_name):
                             ),
                             dbc.Col(
                                 html.I(short_explanation),
-                                className="col-lg-auto col-12 order-below"
+                                className="col-lg-auto col-12 order-below",
+                                style={"fontSize": "medium"}
                             ),
                             html.I(
                                 className="fa fa-chevron-down",
@@ -147,5 +148,5 @@ compliance_widgets = dbc.Row(
             xs=12
         ),
     ],
-    className="my-4"
+    className="mt-4"
 )
