@@ -127,26 +127,25 @@ def make_accordion_item(title, widgets, short_explanation, component_name):
     )
 
 
-compliance_widgets = dbc.Row([
-    dbc.Col(
-        html.H3("Plots", className="card-title bold"),
-        xs=12
-    ),
-    dbc.Col(
-        make_accordion_item("Modelling Scenario",
-                            [reduction_formgroup, compliance_formgroup],
-                            "Please select the contact restriction severity \
-                            to be introduced and the compliance level in the population.",
-                            "compliance-model"),
-        className="mb-3",
-        xs=12
-    ),
-    dbc.Col(
-        make_accordion_item("Plot Configuration",
-                            data_formgroup,
-                            "Please select simulation data to be visualized.",
-                            "compliance-plot"),
-        className="mb-3",
-        xs=12
-    ),
-])
+compliance_widgets = dbc.Row(
+    [
+        dbc.Col(
+            make_accordion_item("Modelling Scenario",
+                                [reduction_formgroup, compliance_formgroup],
+                                "Please select the contact restriction severity \
+                                to be introduced and the compliance level in the population.",
+                                "compliance-model"),
+            className="mb-3",
+            xs=12
+        ),
+        dbc.Col(
+            make_accordion_item("Plot Configuration",
+                                data_formgroup,
+                                "Please select simulation data to be visualized.",
+                                "compliance-plot"),
+            className="mb-3",
+            xs=12
+        ),
+    ],
+    className="my-4"
+)

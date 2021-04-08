@@ -37,7 +37,7 @@ def create_external_link(title, name, href):
 
 
 nav_buttons = [
-    create_nav_button("Home", "model-nav", "/", icon="home"),
+    create_nav_button("Compliance", "model-nav", "/", icon="home"),
 ]
 
 extra_nav_buttons = [

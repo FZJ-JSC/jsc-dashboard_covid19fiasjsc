@@ -28,21 +28,25 @@ models_selection = dbc.Row(
 with open("./texts/compliance/en/model-short.md") as f:
     compliance_short = f.read()
 
-models_explanation = dbc.Card(
-    [
-        dbc.CardHeader(
-            html.H3(
-                "Compliance model",
-                className="mb-0 bold",
-                id="model-text-title"
+models_explanation = html.Div([
+    dbc.Card(
+        html.H3(
+            "Compliance model",
+            className="mb-0 bold text-center",
+            id="model-text-title"
+        ),
+        body=True,
+        className="mb-4"
+    ),
+    dbc.Card(
+        [
+            dbc.CardBody(
+                [
+                    dcc.Markdown(compliance_short, id="model-text"),
+                    dbc.Button("...more", color="primary", id="model-text-toggle"),
+                ],
             ),
-        ),
-        dbc.CardBody(
-            [
-                dcc.Markdown(compliance_short, id="model-text"),
-                dbc.Button("...more", color="primary", id="model-text-toggle"),
-            ],
-        ),
-    ],
-    className="w-1"
-)
+        ],
+        className="w-1"
+    )
+])

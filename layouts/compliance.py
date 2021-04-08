@@ -49,30 +49,29 @@ compliance_barchart_content = dcc.Loading(
 )
 
 compliance_content = [
-    dbc.Card(
+    compliance_widgets,
+    dbc.Tabs(
         [
-            dbc.CardHeader([
-                compliance_widgets,
-                dbc.Tabs(
-                    [
-                        dbc.Tab(
-                            label="Plot",
-                            tabClassName="bold",
-                            tab_id="compliance-graph-tab"
-                        ),
-                        dbc.Tab(
-                            label="Daily incidence",
-                            tabClassName="bold",
-                            tab_id="compliance-barcharts-tab"
-                        ),
-                    ],
-                    id="compliance-tabs",
-                    card=True,
-                    className="mx-0"
-                )
-            ]),
-            dbc.CardBody(id="compliance-content"),
+            dbc.Tab(
+                label="Plot",
+                tabClassName="bold",
+                tab_id="compliance-graph-tab"
+            ),
+            dbc.Tab(
+                label="Daily incidence",
+                tabClassName="bold",
+                tab_id="compliance-barcharts-tab"
+            ),
         ],
-        className="my-4"
-    )
+        id="compliance-tabs",
+        card=True,
+        className="mx-0"
+    ),
+    dbc.CardBody(
+        id="compliance-content",
+        style={
+            "border": "1px solid #e7eaed", 
+            "borderTop": "None"
+        }
+    ),
 ]

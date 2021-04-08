@@ -10,10 +10,11 @@ from dash.dependencies import Input, Output, State
      Output("compliance-graph-title", "children")],
     [Input("reduction-dropdown", "value"),
      Input("data-dropdown", "value"),
-     Input("compliance-dropdown", "value")],
+     Input("compliance-dropdown", "value"),
+     Input("dataframes", "data")],
     State("dataframes", "data")
 )
-def update_chart(reduction, column, percentages, dataframes):
+def update_chart(reduction, column, percentages, data, dataframes):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))

@@ -14,16 +14,17 @@ from plotly.subplots import make_subplots
      Output("compliance-barcharts-title", "children")],
     [Input("reduction-dropdown", "value"),
      Input("data-dropdown", "value"),
-     Input("compliance-dropdown", "value")],
+     Input("compliance-dropdown", "value"),
+     Input("dataframes", "data")],
     State("dataframes", "data")
 )
-def update_barcharts(reduction, column, percentages, dataframes):
+def update_barcharts(reduction, column, percentages, data, dataframes):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
     percentages.sort()
     c = columns_incidence[column]
-
+    
     rows = ceil((len(percentages))/2)
     titles = ["{}% compliance".format(p) for p in percentages]
     fig = make_subplots(rows=rows, cols=2, shared_yaxes='all',

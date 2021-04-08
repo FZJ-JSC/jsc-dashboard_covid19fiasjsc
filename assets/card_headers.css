@@ -7,12 +7,14 @@
   order: 13;
   padding-top: 0.25rem;
   padding-left: 26.75px !important;
+  flex: 0 0 100%;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1280px) {
   .order-below {
     order: initial;
     padding: 0;
+    flex: 0 0 auto;
   }
 }
 
