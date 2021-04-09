@@ -1,4 +1,3 @@
-import dash
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -7,29 +6,14 @@ from dash.dependencies import Input, Output, State
 
 
 @app.callback(
-    Output("compliance-graph", "figure"),
+    [Output("compliance-graph", "figure"),
+     Output("compliance-graph-title", "children")],
     [Input("reduction-dropdown", "value"),
      Input("data-dropdown", "value"),
      Input("compliance-dropdown", "value"),
-     Input("dataframes", "data"),
-     Input("compliance-graph-btn-1", "n_clicks"),
-     Input("compliance-graph-btn-2", "n_clicks")],
-     State("compliance-graph", "figure")
+     Input("dataframes", "data")]
 )
-def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
-    ctx = dash.callback_context
-    button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-        
-    # Reset axes
-    if button_id == "compliance-graph-btn-1":
-        fig["layout"]["xaxis"]["range"] = [91, 126]
-        return fig
-    # Autoscale
-    elif button_id == "compliance-graph-btn-2":
-        fig["layout"]["xaxis"]["range"] = [0, 126]
-        return fig
-    
-    
+def update_chart(reduction, column, percentages, dataframes):
     for df in dataframes:
         # Keys were changed to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
@@ -88,18 +72,10 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
         ticklen=4
     )
 
-    return fig
-
-
-@app.callback(
-    Output("compliance-graph-title", "children"),
-    [Input("reduction-dropdown", "value"),
-     Input("data-dropdown", "value")]
-)
-def update_chart_title(reduction, column):
     title = "Visualize {} (for contact reduction factor {})".format(
         columns[column], reduction[:1] + "." + reduction[1:])
-    return title
+    return fig, title
+
 
 # @app.callback(
 #     Output("compliance-graph", "figure"),

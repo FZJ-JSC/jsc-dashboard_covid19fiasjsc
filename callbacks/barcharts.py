@@ -15,10 +15,9 @@ from plotly.subplots import make_subplots
     [Input("reduction-dropdown", "value"),
      Input("data-dropdown", "value"),
      Input("compliance-dropdown", "value"),
-     Input("dataframes", "data")],
-    State("dataframes", "data")
+     Input("dataframes", "data")]
 )
-def update_barcharts(reduction, column, percentages, data, dataframes):
+def update_barcharts(reduction, column, percentages, dataframes):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
@@ -121,7 +120,9 @@ Daily incidence - %{x}<br>
         spikemode='across+toaxis',
         spikesnap='data',
         spikedash='dot',
-        spikethickness=2
+        spikethickness=2,
+        # Disable panning in x axis
+        fixedrange=True
     )
     fig.update_yaxes(
         title="Daily incidence",
@@ -134,4 +135,10 @@ Daily incidence - %{x}<br>
     # Title
     title = "Daily number of {} for contact reduction factor {}".format(
         columns[column], reduction[:1] + "." + reduction[1:])
-    return dcc.Graph(figure=fig), title
+    return dcc.Graph(
+        figure=fig, 
+        config={"modeBarButtonsToRemove": [
+            "pan2d", "select2d", "lasso2d", "autoScale2d", 
+            "hoverClosestCartesian", "hoverCompareCartesian"
+        ]}
+    ), title

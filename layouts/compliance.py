@@ -33,7 +33,32 @@ compliance_graph_content = dcc.Loading(
                 ],
                 no_gutters=True
             ),
-            dcc.Graph(figure=initial_fig, id="compliance-graph", className="w-1")
+            dbc.Row(
+                [
+                    dbc.Button(
+                        "From start of intervention",
+                        id="compliance-graph-btn-1",
+                        color="primary",
+                        outline=True,
+                        size="sm"
+                    ),
+                    dbc.Button(
+                        "From start of simulation",
+                        id="compliance-graph-btn-2",
+                        className="ml-2",
+                        color="primary",
+                        outline=True,
+                        size="sm"
+                    )
+                ],
+                no_gutters=True
+            ),
+            
+            dcc.Graph(
+                figure=initial_fig,
+                config={"modeBarButtonsToRemove": ["autoScale2d"]},
+                id="compliance-graph", 
+                className="w-1")
         ],
         className="mt-4",
         style={"minHeight": "600px"}
