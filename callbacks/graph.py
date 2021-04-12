@@ -31,7 +31,7 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
 
     # Reset axes
     if button_id == "compliance-graph-btn-1":
-        fig["layout"]["xaxis"]["range"] = [91-14, 126-14]
+        fig["layout"]["xaxis"]["range"] = [90-14, 126-14]
         return fig
     # Autoscale
     elif button_id == "compliance-graph-btn-2":
@@ -64,11 +64,11 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
                                  "<extra>%{meta} compliance</extra>"))
 
     # Vertical line
-    fig.add_shape(xref="x", x0=92-14, x1=92-14,
+    fig.add_shape(xref="x", x0=91-14, x1=91-14,
                   yref="paper", y0=0, y1=1, type="line",
                   line=dict(color="grey", dash="dash"))
     # "Begin measures" annotation
-    fig.add_annotation(xref="x", x=92-14,
+    fig.add_annotation(xref="x", x=91-14,
                        text="<b>Start of<br>interventions</b>",
                        align="left",
                        xanchor="left",
@@ -86,10 +86,10 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
 
     # X axis
     fig.update_xaxes(
-        tick0=92-14,
+        tick0=91-14,
         dtick=7,
         autorange=False,
-        range=[91-14, 126-14],
+        range=[90-14, 126-14],
         ticks="outside",
         tickangle=-45,
         ticklen=4

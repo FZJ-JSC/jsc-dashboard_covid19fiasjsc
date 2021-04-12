@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# from jupyter_dash import JupyterDash
+from jupyter_dash import JupyterDash
 
 
 FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
@@ -20,7 +20,7 @@ def update_dataframes(reduction):
     dataframes = dict()
     for i in compliance_percentages:
         df = pd.read_csv("../simdata/compliance/0218_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
-        df["days"] = ["Day {}".format(day) for day in range(-92, 35)]
+        df["days"] = ["Day {}".format(day) for day in range(-91, 36)]
         # Need to change df to dict for json serialization
         dataframes[i] = df[14:].to_dict()
     return dataframes
@@ -62,13 +62,13 @@ for p in [30, 50, 70, 100]:
     )
 # Vertical line
 initial_fig.add_shape(
-    xref="x", x0=92-14, x1=92-14,
-    yref="paper", y0=0, y1=1, 
+    xref="x", x0=91-14, x1=91-14,
+    yref="paper", y0=0, y1=1,
     type="line", line=dict(color="grey", dash="dash")
 )
 # "Begin measures" annotation
 initial_fig.add_annotation(
-    xref="x", x=92-14,
+    xref="x", x=91-14,
     text="<b>Start of<br>interventions</b>",
     align="left", xanchor="left",
     showarrow=False, font=dict(color="grey")
@@ -82,8 +82,8 @@ initial_fig.update_layout(
 )
 # X axis
 initial_fig.update_xaxes(
-    tick0=92-14, dtick=7,
-    autorange=False, range=[91-14, 126-14],
+    tick0=91-14, dtick=7,
+    autorange=False, range=[90-14, 126-14],
     ticks="outside", tickson="boundaries",
     tickangle=-45, ticklen=4
 )
@@ -93,8 +93,8 @@ initial_fig.update_xaxes(
 dataframes = update_dataframes("025")
 
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
-# app = JupyterDash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
+# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
+app = JupyterDash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])
 app.title = 'CoSiMo - Covid Simulation and Modeling Project'
 
 server = app.server
