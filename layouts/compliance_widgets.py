@@ -2,7 +2,18 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 
-from app import columns, compliance_percentages
+from app import compliance_percentages
+
+
+columns = {
+    "It": "known active cases",
+    "actInfT": "total active cases",
+    "cumCasT": "known cumulative cases",
+    "cumInfT": "total cumulative cases",
+    "knownRt": "known recovered cases",
+    "Rt": "total recovered cases",
+    "Dt": "deceased",
+}
 
 
 def create_formgroup(label, tooltip, widget):
@@ -65,7 +76,7 @@ compliance_dropdown = dcc.Dropdown(
         {"label": "{}%".format(percentage), "value": percentage}
         for percentage in compliance_percentages[1:]
     ],
-    value=[10, 30, 50, 70, 100],
+    value=[30, 50, 70, 100],
     multi=True
 )
 compliance_formgroup = create_formgroup(

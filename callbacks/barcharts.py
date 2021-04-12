@@ -2,11 +2,32 @@ import dash_core_components as dcc
 import pandas as pd
 import plotly.graph_objects as go
 
-from app import *
-from dash.dependencies import Input, Output, State
+from app import app, colors
+from dash.dependencies import Input, Output
 from math import ceil
 from numpy import stack
 from plotly.subplots import make_subplots
+
+
+columns = {
+    "It": "daily new detected cases",
+    "actInfT": "daily new infections",
+    "cumCasT": "daily new detected cases",
+    "cumInfT": "daily new infections",
+    "knownRt": "daily recoveries (from known infections)",
+    "Rt": "daily recoveries",
+    "Dt": "daily new deaths",
+}
+
+columns_incidence = {
+    "It": ["incC", "incN"],
+    "actInfT": ["incInfC", "incInfN"],
+    "cumCasT": ["incC", "incN"],
+    "cumInfT": ["incInfC", "incInfN"],
+    "knownRt": ["incKnownRc", "incKnownRn"],
+    "Rt": ["incRc", "incRn"],
+    "Dt": ["incDc", "incDn"],
+}
 
 
 @app.callback(
@@ -21,9 +42,10 @@ def update_barcharts(reduction, column, percentages, dataframes):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
+    percentages.append(0)
     percentages.sort()
     c = columns_incidence[column]
-    
+
     rows = ceil((len(percentages))/2)
     titles = ["{}% compliance".format(p) for p in percentages]
     fig = make_subplots(rows=rows, cols=2, shared_yaxes='all',
@@ -34,16 +56,16 @@ def update_barcharts(reduction, column, percentages, dataframes):
         row = i//2 + 1
         col = 1 if i % 2 == 0 else 2
         fig.add_trace(
-            go.Bar(x=dataframes[p]["days"][92:],
-                   y=dataframes[p][c[0]][92:],
+            go.Bar(x=dataframes[p]["days"][92-14:],
+                   y=dataframes[p][c[0]][92-14:],
                    marker_color=colors[10],
                    name="compliant people",
                    hoverinfo='skip',  # Defined in total instead
                    showlegend=True if i == 0 else False),
             row=row, col=col)
         fig.add_trace(
-            go.Bar(x=dataframes[p]["days"][92:],
-                   y=dataframes[p][c[1]][92:],
+            go.Bar(x=dataframes[p]["days"][92-14:],
+                   y=dataframes[p][c[1]][92-14:],
                    marker_color=colors[20],
                    name="noncompliant people",
                    hoverinfo='skip',  # Defined in total instead
@@ -52,14 +74,14 @@ def update_barcharts(reduction, column, percentages, dataframes):
 
         # Total c+n. Use this for custom hover template.
         fig.add_trace(
-            go.Bar(x=dataframes[p]["days"][92:],
-                   y=dataframes[p][c[0]][92:]+dataframes[p][c[1]][92:],
+            go.Bar(x=dataframes[p]["days"][92-14:],
+                   y=dataframes[p][c[0]][92:]+dataframes[p][c[1]][92-14:],
                    marker_color="rgba(0,0,0,0)",  # transparent
                    name="total",
                    base=0,
                    showlegend=False,
                    customdata=stack(
-                       (dataframes[p][c[0]][92:], dataframes[p][c[1]][92:]),
+                       (dataframes[p][c[0]][92-14:], dataframes[p][c[1]][92-14:]),
                        axis=-1),
                    # Do not remove white spaces in hovertemplate.
                    # They are there for spacing in the rendered template.

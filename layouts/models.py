@@ -36,7 +36,7 @@ models_explanation = html.Div([
             id="model-text-title"
         ),
         body=True,
-        className="my-4"
+        className="mb-4"
     ),
     dbc.Card(
         [

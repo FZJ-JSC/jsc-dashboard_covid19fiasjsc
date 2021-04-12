@@ -27,20 +27,28 @@ def update_model_text(toggle_btn, btn_text):
         text = [
             dcc.Markdown(compliance_short),
             html.Hr(),
-            html.Img(
-                src="assets/paper_screenshot_cropped_no_background.png",
-                style={"float": "right"}
+            html.Figure(
+                [
+                    html.Img(
+                        src="assets/paper_screenshot_cropped_no_background.png",
+                        width="350px", height="200px"
+                    ),
+                    html.Figcaption(
+                        html.I("Sketch of the transmission dynamics model \
+                        used for the simulations"),
+                        style={
+                            "fontSize": "85%",
+                            "textAlign": "center"
+                        }
+                    )
+                ],
+                style={
+                    "float": "right",
+                    "width": "350px",
+                    "margin": "1rem"
+                }
             ),
             dcc.Markdown(compliance_long),
-            html.A(
-                "https://www.preprints.org/manuscript/202102.0178/v2",
-                href="https://www.preprints.org/manuscript/202102.0178/v2",
-                target="_blank",
-                style={
-                    "position": "relative",
-                    "top": "-1rem"
-                }
-            )
         ]
         button_text = "...less"
     else:

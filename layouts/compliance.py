@@ -53,11 +53,11 @@ compliance_graph_content = dcc.Loading(
                 ],
                 no_gutters=True
             ),
-            
+
             dcc.Graph(
                 figure=initial_fig,
                 config={"modeBarButtonsToRemove": ["autoScale2d"]},
-                id="compliance-graph", 
+                id="compliance-graph",
                 className="w-1")
         ],
         className="mt-4",

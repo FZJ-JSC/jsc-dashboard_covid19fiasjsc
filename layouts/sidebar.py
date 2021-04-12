@@ -44,6 +44,8 @@ extra_nav_buttons = [
     create_nav_button("Legal Disclosure", "impressum-nav", "impressum"),
     create_nav_button("Data Protection", "privacy-nav", "privacy")
 ]
+# Remove margin for last button
+extra_nav_buttons[-1].className = "nav-button mx-3"
 
 
 sidebar = html.Div(
@@ -69,7 +71,9 @@ sidebar = html.Div(
         ),
     ],
     id="sidebar",
-    style={"paddingBottom": "calc(2rem + 56px)"}
+    style={
+        "paddingTop": "calc(2rem + 68px)"
+    }
 )
 
 

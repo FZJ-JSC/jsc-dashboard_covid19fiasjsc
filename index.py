@@ -37,6 +37,7 @@ app_layout = html.Div(
                         # Page content
                         dbc.Col(
                             id="page-content",
+                            style={"paddingTop": "calc(2rem + 68px)"}
                         )
                     ],
                     style={

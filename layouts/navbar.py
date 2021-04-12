@@ -27,5 +27,6 @@ appbar = dbc.Navbar(
     ],
     id="navbar",
     color="primary",
-    dark=True
+    dark=True,
+    fixed="top"
 )

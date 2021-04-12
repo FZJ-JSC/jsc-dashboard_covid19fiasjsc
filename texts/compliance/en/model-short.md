@@ -1,6 +1,6 @@
-After one year COVID-19 control we keep asking whether it is more effective
+After one year COVID-19 control we keep asking whether it is more effective to have
 
- * to have **strict measures** followed by **few people**
- * to adopt **moderate measures** followed by **many people**? 
+ * **strict measures** followed by **few people** or
+ * **moderate measures** followed by **many people**? 
 
-Our Compliance model can help answering this question.
+Our compliance model can help answering this question.

@@ -2,9 +2,18 @@ import dash
 import pandas as pd
 import plotly.graph_objects as go
 
-from app import *
+from app import app, colors
 from dash.dependencies import Input, Output, State
 
+columns = {
+    "It": "known active cases",
+    "actInfT": "total active cases",
+    "cumCasT": "known cumulative cases",
+    "cumInfT": "total cumulative cases",
+    "knownRt": "known cumulative recoveries",
+    "Rt": "total cumulative recoveries",
+    "Dt": "cumulative deaths",
+}
 
 @app.callback(
     Output("compliance-graph", "figure"),
@@ -19,17 +28,16 @@ from dash.dependencies import Input, Output, State
 def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
     ctx = dash.callback_context
     button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-        
+
     # Reset axes
     if button_id == "compliance-graph-btn-1":
-        fig["layout"]["xaxis"]["range"] = [91, 126]
+        fig["layout"]["xaxis"]["range"] = [91-14, 126-14]
         return fig
     # Autoscale
     elif button_id == "compliance-graph-btn-2":
-        fig["layout"]["xaxis"]["range"] = [0, 126]
+        fig["layout"]["xaxis"]["range"] = [0, 126-14]
         return fig
-    
-    
+
     for df in dataframes:
         # Keys were changed to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
@@ -39,7 +47,7 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
     # 0% compliance
     fig.add_trace(go.Scatter(x=dataframes[0]["days"],
                              y=dataframes[0][column],
-                             line=dict(color="black"),
+                             line=dict(color=colors[0]),
                              name="0%", meta="0%",
                              hovertemplate=
                              "%{x}<br>%{y:.3s}" +
@@ -47,8 +55,8 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
     # Other selected % compliance
     for p in percentages:
         name = "{}%".format(p)
-        fig.add_trace(go.Scatter(x=dataframes[p]["days"][92:],
-                                 y=dataframes[p][column][92:],
+        fig.add_trace(go.Scatter(x=dataframes[p]["days"][(92-14):],
+                                 y=dataframes[p][column][(92-14):],
                                  line=dict(color=colors[p]),
                                  name=name, meta=name,
                                  hovertemplate=
@@ -56,11 +64,11 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
                                  "<extra>%{meta} compliance</extra>"))
 
     # Vertical line
-    fig.add_shape(xref="x", x0=92, x1=92,
+    fig.add_shape(xref="x", x0=92-14, x1=92-14,
                   yref="paper", y0=0, y1=1, type="line",
                   line=dict(color="grey", dash="dash"))
     # "Begin measures" annotation
-    fig.add_annotation(xref="x", x=92,
+    fig.add_annotation(xref="x", x=92-14,
                        text="<b>Start of<br>interventions</b>",
                        align="left",
                        xanchor="left",
@@ -78,12 +86,11 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
 
     # X axis
     fig.update_xaxes(
-        tick0=92,
+        tick0=92-14,
         dtick=7,
         autorange=False,
-        range=[91, 126],
+        range=[91-14, 126-14],
         ticks="outside",
-        tickson="boundaries",
         tickangle=-45,
         ticklen=4
     )
@@ -100,21 +107,3 @@ def update_chart_title(reduction, column):
     title = "Visualize {} (for contact reduction factor {})".format(
         columns[column], reduction[:1] + "." + reduction[1:])
     return title
-
-# @app.callback(
-#     Output("compliance-graph", "figure"),
-#     Input("compliance-graph-btn-1", "n_clicks"),
-#     State("compliance-graph", "figure")
-# )
-# def reset_axes(n_clicks, fig):
-#     fig.update_xaxes(range=[91, 126])
-    
-    
-# @app.callback(
-#     Output("compliance-graph", "figure"),
-#     Input("compliance-graph-btn-2", "n_clicks"),
-#     State("compliance-graph", "figure")
-# )
-# def autoscale(n_clicks, fig):
-#     fig.update_xaxes(range=[0, 126])
-    
