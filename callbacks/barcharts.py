@@ -1,4 +1,7 @@
+import dash_bootstrap_components as dbc
 import dash_core_components as dcc
+import dash_html_components as html
+
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -28,6 +31,30 @@ columns_incidence = {
     "Rt": ["incRc", "incRn"],
     "Dt": ["incDc", "incDn"],
 }
+
+toggle_incidence_buttons = dbc.Row(
+    [
+        dbc.Button(
+            "Daily incidence",
+            id="compliance-barchart-btn-1",
+            color="primary",
+            outline=True,
+            size="sm",
+            style={"min-width": "175px"}
+        ),
+        dbc.Button(
+            "7 day incidence",
+            id="compliance-barchart-btn-2",
+            className="ml-2",
+            color="primary",
+            outline=True,
+            size="sm",
+            style={"min-width": "175px"}
+        )
+    ],
+    no_gutters=True
+)
+
 
 
 @app.callback(
@@ -75,7 +102,7 @@ def update_barcharts(reduction, column, percentages, dataframes):
         # Total c+n. Use this for custom hover template.
         fig.add_trace(
             go.Bar(x=dataframes[p]["days"][92-14:],
-                   y=dataframes[p][c[0]][92:]+dataframes[p][c[1]][92-14:],
+                   y=dataframes[p][c[0]][92-14:]+dataframes[p][c[1]][92-14:],
                    marker_color="rgba(0,0,0,0)",  # transparent
                    name="total",
                    base=0,
@@ -155,12 +182,17 @@ Daily incidence - %{x}<br>
     )
 
     # Title
-    title = "Daily number of {} for contact reduction factor {}".format(
+    title = "Number of {} for contact reduction factor {}".format(
         columns[column], reduction[:1] + "." + reduction[1:])
-    return dcc.Graph(
+    # Barcharts
+    barcharts = dcc.Graph(
         figure=fig, 
-        config={"modeBarButtonsToRemove": [
-            "pan2d", "select2d", "lasso2d", "autoScale2d", 
+        config={"modeBarButtonsToRemove": [  # pan2d
+            "zoom2d", "select2d", "lasso2d", "autoScale2d", 
             "hoverClosestCartesian", "hoverCompareCartesian"
         ]}
-    ), title
+    )
+    
+    if column == "It":
+        return [toggle_incidence_buttons, barcharts], title
+    return barcharts, title

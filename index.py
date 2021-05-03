@@ -11,7 +11,8 @@ from apps import faq, info, legal, models
 
 from layouts.navbar import appbar
 from layouts.sidebar import sidebar
-from layouts.compliance import compliance_graph_content, compliance_barchart_content
+from layouts.compliance import compliance_content, compliance_graph_content, compliance_barchart_content
+from callbacks.barcharts import toggle_incidence_buttons
 
 
 app_layout = html.Div(
@@ -66,8 +67,11 @@ app.layout = app_layout
 app.validation_layout = html.Div(
     [
         app_layout,
-        html.Div(models.children),
-        html.Div([compliance_graph_content, compliance_barchart_content]),
+        html.Div([
+            compliance_content,
+            compliance_graph_content,
+            compliance_barchart_content,
+            toggle_incidence_buttons]),
         html.Div(info.children),
         html.Div(faq.children),
     ]
