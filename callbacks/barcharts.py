@@ -13,11 +13,11 @@ from plotly.subplots import make_subplots
 
 
 columns = {
-    "It": "daily new detected cases",
+    "It": "daily new reported cases",
     "actInfT": "daily new infections",
-    "cumCasT": "daily new detected cases",
+    "cumCasT": "daily new reported cases",
     "cumInfT": "daily new infections",
-    "knownRt": "daily recoveries (from known infections)",
+    "knownRt": "daily recoveries (from reported infections)",
     "Rt": "daily recoveries",
     "Dt": "daily new deaths",
 }
@@ -32,38 +32,45 @@ columns_incidence = {
     "Dt": ["incDc", "incDn"],
 }
 
+severity = {
+    "025": "strict",
+    "05": "moderate",
+    "08": "minimal"
+}
+
+
 toggle_incidence_buttons = dbc.Row(
-    [
-        dbc.Button(
-            "Daily incidence",
-            id="compliance-barchart-btn-1",
-            color="primary",
-            outline=True,
-            size="sm",
-            style={"min-width": "175px"}
-        ),
-        dbc.Button(
-            "7 day incidence",
-            id="compliance-barchart-btn-2",
-            className="ml-2",
-            color="primary",
-            outline=True,
-            size="sm",
-            style={"min-width": "175px"}
-        )
-    ],
+    dbc.ButtonGroup(
+        [
+            dbc.Button(
+                "Daily incidence",
+                id="compliance-barchart-btn-1",
+                color="primary",
+                outline=True,
+                style={"min-width": "175px"}
+            ),
+            dbc.Button(
+                "7 day incidence",
+                id="compliance-barchart-btn-2",
+                color="primary",
+                outline=True,
+                style={"min-width": "175px"}
+            )
+        ],
+        size="sm"
+    ),
     no_gutters=True
 )
 
 
 
 @app.callback(
-    [Output("compliance-barcharts", "children"),
-     Output("compliance-barcharts-title", "children")],
-    [Input("reduction-dropdown", "value"),
-     Input("data-dropdown", "value"),
-     Input("compliance-dropdown", "value"),
-     Input("dataframes", "data")]
+    Output("compliance-barcharts", "children"),
+    Output("compliance-barcharts-title", "children"),
+    Input("reduction-dropdown", "value"),
+    Input("data-dropdown", "value"),
+    Input("compliance-dropdown", "value"),
+    Input("dataframes", "data")
 )
 def update_barcharts(reduction, column, percentages, dataframes):
     for df in dataframes:
@@ -182,8 +189,8 @@ Daily incidence - %{x}<br>
     )
 
     # Title
-    title = "Number of {} for contact reduction factor {}".format(
-        columns[column], reduction[:1] + "." + reduction[1:])
+    title = "Number of {} for {} intervention".format(
+        columns[column], severity[reduction])
     # Barcharts
     barcharts = dcc.Graph(
         figure=fig, 

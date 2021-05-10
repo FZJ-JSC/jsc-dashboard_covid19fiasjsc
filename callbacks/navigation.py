@@ -5,8 +5,8 @@ from dash.dependencies import Input, Output, State
 # Toggle navigation menu
 @app.callback(
     Output("sidebar-collapse", "is_open"),
-    [Input("sidebar-toggle", "n_clicks")],
-    [State("sidebar-collapse", "is_open")],
+    Input("sidebar-toggle", "n_clicks"),
+    State("sidebar-collapse", "is_open"),
 )
 def toggle_collapse(n, is_open):
     if n:
@@ -15,7 +15,7 @@ def toggle_collapse(n, is_open):
 
 
 nav_items = ["model-nav"]
-extra_nav_items = ["impressum-nav", "privacy-nav"]
+extra_nav_items = ["about-nav", "impressum-nav", "privacy-nav"]
 
 # Toggle active nav item in sidebar,
 # depending on the current url
@@ -25,11 +25,13 @@ extra_nav_items = ["impressum-nav", "privacy-nav"]
 )
 def set_active(pathname):
     if pathname.endswith("/_update"):
-        return (False,) * 3
-
+        return (False,) * 4
+    
+    elif pathname.endswith("/about"):
+        return (False,) * 1 + (True,) + (False,) * 2
     elif pathname.endswith("/impressum"):
-        return (False,) * 1 + (True,) + (False,) * 1
+        return (False,) * 2 + (True,) + (False,) * 1
     elif pathname.endswith("/privacy"):
-        return (False,) * 2 + (True,) + (False,) * 0
+        return (False,) * 3 + (True,) + (False,) * 0
     else:
-        return (False,) * 0 + (True,) + (False,) * 2
+        return (False,) * 0 + (True,) + (False,) * 3

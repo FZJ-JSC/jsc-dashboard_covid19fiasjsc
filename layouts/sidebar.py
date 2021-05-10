@@ -41,6 +41,7 @@ nav_buttons = [
 ]
 
 extra_nav_buttons = [
+    create_nav_button("About", "about-nav", "about"),
     create_nav_button("Legal Disclosure", "impressum-nav", "impressum"),
     create_nav_button("Data Protection", "privacy-nav", "privacy")
 ]

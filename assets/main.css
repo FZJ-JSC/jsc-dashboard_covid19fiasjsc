@@ -28,3 +28,7 @@ body > div > div > div > div > div,
 .bold {
   font-weight: 600;
 }
+
+.no-margin-p p {
+  margin-bottom: 0;
+}

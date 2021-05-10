@@ -4,63 +4,87 @@ from app import app
 from dash.dependencies import Input, Output, State
 
 
-@app.callback(
-    [Output("model-accordion-collapse-{}".format(i), "is_open") for i in range(1, 4)] +
-    [Output("model-accordion-group-{}-toggle-icon".format(i), "className") for i in range(1, 4)],
-    [Input("model-accordion-group-{}-toggle".format(i), "n_clicks") for i in range(1, 4)],
-    [State("model-accordion-collapse-{}".format(i), "is_open") for i in range(1, 4)]
-)
-def toggle_model_accordion(n1, n2, n3, is_open1, is_open2, is_open3):
-    ctx = dash.callback_context
-
+def toggle_accordion(n, is_open):
     down = "fa fa-chevron-down"
     up = "fa fa-chevron-up"
-    all_closed = (False,) * 3 + (down,) * 3
-
-    if not ctx.triggered:
-        return all_closed
+    
+    if not is_open:
+        return True, up
     else:
-        button_id = ctx.triggered[0]["prop_id"].split(".")[0]
+        return False, down
+    
 
-    if button_id == "model-accordion-group-1-toggle" and n1:
-        if not is_open1:
-            return True, False, False, up, down, down
-        else:
-            return all_closed
-    elif button_id == "model-accordion-group-2-toggle" and n2:
-        if not is_open2:
-            return False, True, False, down, up, down
-        else:
-            return all_closed
-    elif button_id == "model-accordion-group-3-toggle" and n3:
-        if not is_open3:
-            return False, False, True, down, down, up
-        else:
-            return all_closed
-    return all_closed
+for i in range(1, 8):
+    app.callback(
+        Output("general-faq-accordion-collapse-{}".format(i), "is_open"),
+        Output("general-faq-accordion-group-{}-toggle-icon".format(i), "className"),
+        Input("general-faq-accordion-group-{}-toggle".format(i), "n_clicks"),
+        State("general-faq-accordion-collapse-{}".format(i), "is_open"),
+        prevent_initial_call=True
+    )(toggle_accordion)
+    
+for i in range(1, 7):
+    app.callback(
+        Output("compliance-faq-accordion-collapse-{}".format(i), "is_open"),
+        Output("compliance-faq-accordion-group-{}-toggle-icon".format(i), "className"),
+        Input("compliance-faq-accordion-group-{}-toggle".format(i), "n_clicks"),
+        State("compliance-faq-accordion-collapse-{}".format(i), "is_open"),
+        prevent_initial_call=True
+    )(toggle_accordion)
+    
 
+# @app.callback(
+#     [Output("general-faq-accordion-collapse-{}".format(i), "is_open") for i in range(1, 8)] +
+#     [Output("general-faq-accordion-group-{}-toggle-icon".format(i), "className") for i in range(1, 8)],
+#     [Input("general-faq-accordion-group-{}-toggle".format(i), "n_clicks") for i in range(1, 8)],
+#     [State("general-faq-accordion-collapse-{}".format(i), "is_open") for i in range(1, 8)]
+# )
+# def toggle_general_faq_accordion(n1, n2, n3, n4, n5, n6, n7, 
+#                                  is_open1, is_open2, is_open3, is_open4, is_open5, is_open6, is_open7):
+#     ctx = dash.callback_context
 
-@app.callback(
-    [Output("other-accordion-collapse-{}".format(i), "is_open") for i in range(1, 2)] +
-    [Output("other-accordion-group-{}-toggle-icon".format(i), "className") for i in range(1, 2)],
-    [Input("other-accordion-group-{}-toggle".format(i), "n_clicks") for i in range(1, 2)],
-    [State("other-accordion-collapse-{}".format(i), "is_open") for i in range(1, 2)]
-)
-def toggle_other_accordion(n1, is_open1):
-    ctx = dash.callback_context
+#     down = "fa fa-chevron-down"
+#     up = "fa fa-chevron-up"
+#     all_closed = (False,) * 7 + (down,) * 7
 
-    down = "fa fa-chevron-down"
-    up = "fa fa-chevron-up"
-    all_closed = (False,) * 1 + (down,) * 1
-
-    if not ctx.triggered:
-        return all_closed
-    else:
-        button_id = ctx.triggered[0]["prop_id"].split(".")[0]
-
-    if button_id == "other-accordion-group-1-toggle" and n1:
-        if not is_open1:
-            return True, up
-        else:
-            return all_closed
-    return all_closed
+#     if not ctx.triggered:
+#         return all_closed
+#     else:
+#         button_id = ctx.triggered[0]["prop_id"].split(".")[0]
+    
+#     if "1" in button_id and n1:
+#         if not is_open1:
+#             return (False,) * 0 + (True,) + (False,) * 6 + (down,) * 0 + (up,) + (down,) * 6
+#         else:
+#             return all_closed
+#     elif "2" in button_id and n2:
+#         if not is_open2:
+#             return (False,) * 1 + (True,) + (False,) * 5 + (down,) * 1 + (up,) + (down,) * 5
+#         else:
+#             return all_closed
+#     elif "3" in button_id and n3:
+#         if not is_open3:
+#             return (False,) * 2 + (True,) + (False,) * 4 + (down,) * 2 + (up,) + (down,) * 4
+#         else:
+#             return all_closed
+#     elif "4" in button_id and n4:
+#         if not is_open4:
+#             return (False,) * 3 + (True,) + (False,) * 3 + (down,) * 3 + (up,) + (down,) * 3
+#         else:
+#             return all_closed
+#     elif "5" in button_id and n5:
+#         if not is_open5:
+#             return (False,) * 4 + (True,) + (False,) * 2 + (down,) * 4 + (up,) + (down,) * 2
+#         else:
+#             return all_closed
+#     elif "6" in button_id and n6:
+#         if not is_open6:
+#             return (False,) * 5 + (True,) + (False,) * 1 + (down,) * 5 + (up,) + (down,) * 1
+#         else:
+#             return all_closed
+#     elif "7" in button_id and n7:
+#         if not is_open7:
+#             return (False,) * 6 + (True,) + (False,) * 0 + (down,) * 6 + (up,) + (down,) * 0
+#         else:
+#             return all_closed
+#     return all_closed

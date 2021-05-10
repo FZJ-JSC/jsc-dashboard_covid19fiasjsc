@@ -5,25 +5,61 @@ import plotly.graph_objects as go
 from app import app, colors
 from dash.dependencies import Input, Output, State
 
+
 columns = {
-    "It": "known active cases",
+    "It": "reported active cases",
     "actInfT": "total active cases",
-    "cumCasT": "known cumulative cases",
+    "cumCasT": "reported cumulative cases",
     "cumInfT": "total cumulative cases",
-    "knownRt": "known cumulative recoveries",
+    "knownRt": "reported cumulative recoveries",
     "Rt": "total cumulative recoveries",
     "Dt": "cumulative deaths",
 }
 
+severity = {
+    "025": "strict",
+    "05": "moderate",
+    "08": "minimal"
+}
+
+
+@app.callback(
+    Output("compliance-graph-title", "children"),
+    Input("reduction-dropdown", "value"),
+    Input("data-dropdown", "value")
+)
+def update_chart_title(reduction, column):
+    title = "Visualize {} (for {} intervention)".format(
+        columns[column], severity[reduction])
+    return title
+
+
+@app.callback(
+    Output("compliance-graph-btn-1", "active"),
+    Output("compliance-graph-btn-2", "active"),
+    Input("compliance-graph-btn-1", "n_clicks"),
+    Input("compliance-graph-btn-2", "n_clicks"),
+)
+def toggle_active_button(btn1, btn2):
+    ctx = dash.callback_context
+    button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+    if button_id == "compliance-graph-btn-1":
+        return True, False
+    elif button_id == "compliance-graph-btn-2":
+        return False, True
+    return True, False
+
+
 @app.callback(
     Output("compliance-graph", "figure"),
-    [Input("reduction-dropdown", "value"),
-     Input("data-dropdown", "value"),
-     Input("compliance-dropdown", "value"),
-     Input("dataframes", "data"),
-     Input("compliance-graph-btn-1", "n_clicks"),
-     Input("compliance-graph-btn-2", "n_clicks")],
-     State("compliance-graph", "figure")
+    Input("reduction-dropdown", "value"),
+    Input("data-dropdown", "value"),
+    Input("compliance-dropdown", "value"),
+    Input("dataframes", "data"),
+    Input("compliance-graph-btn-1", "n_clicks"),
+    Input("compliance-graph-btn-2", "n_clicks"),
+    State("compliance-graph", "figure")
 )
 def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
     ctx = dash.callback_context
@@ -98,12 +134,3 @@ def update_chart(reduction, column, percentages, dataframes, btn1, btn2, fig):
     return fig
 
 
-@app.callback(
-    Output("compliance-graph-title", "children"),
-    [Input("reduction-dropdown", "value"),
-     Input("data-dropdown", "value")]
-)
-def update_chart_title(reduction, column):
-    title = "Visualize {} (for contact reduction factor {})".format(
-        columns[column], reduction[:1] + "." + reduction[1:])
-    return title

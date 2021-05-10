@@ -7,7 +7,7 @@ from git import Git
 import callbacks
 
 from app import app, dataframes
-from apps import faq, info, legal, models
+from apps import about, compliance, legal
 
 from layouts.navbar import appbar
 from layouts.sidebar import sidebar
@@ -71,9 +71,8 @@ app.validation_layout = html.Div(
             compliance_content,
             compliance_graph_content,
             compliance_barchart_content,
-            toggle_incidence_buttons]),
-        html.Div(info.children),
-        html.Div(faq.children),
+            toggle_incidence_buttons
+        ])
     ]
 )
 
@@ -90,17 +89,8 @@ def display_page(pathname):
         output = g.pull('origin','master')
         return dbc.Container(output)
 
-    elif pathname.endswith("/information"):
-        return info.children
-
-    elif pathname.endswith("/faq"):
-        return faq.children
-
     elif pathname.endswith("/about"):
-        return []
-
-    elif pathname.endswith("/disclaimer"):
-        return legal.disclaimer
+        return about.children
 
     elif pathname.endswith("/impressum"):
         return legal.impressum
@@ -109,8 +99,8 @@ def display_page(pathname):
         return legal.privacy
 
     else:
-        return models.children
+        return compliance.children
 
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# if __name__ == '__main__':
+#     app.run_server(debug=True)

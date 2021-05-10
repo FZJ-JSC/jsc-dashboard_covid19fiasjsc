@@ -4,7 +4,9 @@ First attempts to slow down the spread of a novel infectious disease are based o
 ---
 
 #### **The model**
-The underlying mathematical model is related to the spread of COVID-19 among the German population. The simulated time “pre-intervention” reproduces a period of mild control measures adhered to by the whole population, resulting in a moderate increase in the number of infections. The reproduction number for the time before intervention is 1.5. To effectively contain a wave of infection, a reproduction number lower than 1 is necessary. At a specified point in time (labeled **day 0**, determined by reaching 20000 daily new cases in a population of 83 million) additional contact restrictions are introduced in the simulations. For further information on the mathematical background see:
+The underlying mathematical model is related to the spread of COVID-19 among the German population. The simulated time “pre-intervention” reproduces a period of mild control measures adhered to by the whole population, resulting in a moderate increase in the number of infections. The reproduction number for the time before intervention is 1.5. To effectively contain a wave of infection, a reproduction number lower than 1 is necessary. At a specified point in time (labeled **day 0**, determined by reaching 20000 daily new cases in a population of 83 million) additional contact restrictions are introduced in the simulations. The model accounts for detected (hence reported) and undetected infectious individuals.
+
+For further information on the mathematical background see:
 
 Barbarossa, M.V.; Fuhrmann, J.  
 Compliance with NPIs and Possible Deleterious Effects on Mitigation of an Epidemic Outbreak, Preprints 2021,  
@@ -13,7 +15,7 @@ https://www.preprints.org/manuscript/202102.0178/v2
 ---
 
 #### **The webtool**
-CoSiMo-Webtool users can select (i) the severity of the measures (contact reduction factor) and (ii) the proportion of the population that adheres to the additional measures (compliance level). Users can then choose which information from the model (for example new infections, cumulative infections, or total number of deaths) they want to visualize. In this way the user can observe how the course of the outbreak develops from the time the contact restrictions are introduced.
+CoSiMo-Webtool users can select (i) the severity of the measures (intervention severity) and (ii) the proportion of the population that adheres to the additional measures (compliance level). Users can then choose which information from the model (for example new infections, cumulative infections, or total number of deaths) they want to visualize. In this way the user can observe how the course of the outbreak develops from the time the contact restrictions are introduced.
 
 ---
 

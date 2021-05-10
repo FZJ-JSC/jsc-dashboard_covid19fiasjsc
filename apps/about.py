@@ -2,8 +2,9 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 
+# from layouts.about import about_content
 
-def create_legal_page(title, markdown_file, margin=""):
+def create_about_page(title, markdown_file, margin=""):
     with open(markdown_file) as md_file:
         markdown = md_file.read()
 
@@ -20,11 +21,8 @@ def create_legal_page(title, markdown_file, margin=""):
         className=margin
     )
 
-# Impressum
-imp = create_legal_page("Impressum", "texts/impressum/en/impressum.md", "mb-4")
-haftung = create_legal_page("Disclaimer", "texts/impressum/en/disclaimer.md", "mb-4")
-hoster = create_legal_page("Hoster", "texts/impressum/en/hoster.md")
-impressum = html.Div([imp, haftung, hoster])
+about = create_about_page("About", "texts/about/en/about.md", "mb-4")
+team = create_about_page("Team", "texts/about/en/team.md", "mb-4")
+contributions = create_about_page("Contributions", "texts/about/en/contributions.md")
 
-# Datenschutzerklärung
-privacy = create_legal_page("Data protection", "texts/data-protection.md")
+children = [about, team, contributions]

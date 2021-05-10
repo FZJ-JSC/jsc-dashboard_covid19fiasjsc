@@ -15,9 +15,9 @@ with open("./texts/compliance/en/model-long.md") as f:
     
 @app.callback(
     Output("compliance-model-faq-modal", "is_open"),
-    [Input("compliance-model-faq-toggle-open", "n_clicks"), 
-     Input("compliance-model-faq-toggle-close", "n_clicks")],
-    [State("compliance-model-faq-modal", "is_open")],
+    Input("compliance-model-faq-toggle-open", "n_clicks"), 
+    Input("compliance-model-faq-toggle-close", "n_clicks"),
+    State("compliance-model-faq-modal", "is_open"),
 )
 def toggle_modal(n1, n2, is_open):
     if n1 or n2:
@@ -26,8 +26,8 @@ def toggle_modal(n1, n2, is_open):
 
 
 @app.callback(
-    [Output("compliance-model-text", "children"),
-     Output("compliance-model-text-toggle", "children")],
+    Output("compliance-model-text", "children"),
+    Output("compliance-model-text-toggle", "children"),
     Input("compliance-model-text-toggle", "n_clicks"),
     State("compliance-model-text-toggle", "children"),
     prevent_initial_call=True
@@ -76,13 +76,13 @@ def toggle_accordion(n1, is_open):
         return True, "fa fa-chevron-up"
 
 
-for component in ["compliance-model", "compliance-plot"]:
+for component in ["compliance-model-config", "compliance-plot-config"]:
     app.callback(
-        [Output("accordion-collapse-{}".format(component), "is_open"),
-         Output("accordion-group-{}-toggle-icon".format(component), "className")],
+        Output("accordion-collapse-{}".format(component), "is_open"),
+        Output("accordion-group-{}-toggle-icon".format(component), "className"),
         Input("accordion-group-{}-toggle".format(component), "n_clicks"),
         State("accordion-collapse-{}".format(component), "is_open"),
-        prevent_initial_call=True
+        prevent_initial_call=True,
     )(toggle_accordion)
 
 

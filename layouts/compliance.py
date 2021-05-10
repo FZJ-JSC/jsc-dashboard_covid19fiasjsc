@@ -1,20 +1,19 @@
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
+import en_EN
 
 from app import compliance_percentages, initial_fig
+from layouts.faq import compliance_faq, general_faq
 
 
 ###
 # Model explanation
 ###
-with open("./texts/compliance/en/model-short.md") as f:
-    compliance_short = f.read()
-
 compliance_model_explanation = html.Div([
     dbc.Card(
         html.H3(
-            "Compliance model",
+            en_EN.compliance["compliance-model-text-title"],
             className="mb-0 bold text-center",
             id="compliance-model-text-title"
         ),
@@ -23,45 +22,57 @@ compliance_model_explanation = html.Div([
     ),
     dbc.Card(
         [
-            dbc.CardBody(
-                [
-                    html.Div(
-                        dcc.Markdown(compliance_short),
-                        id="compliance-model-text"
-                    ),
-                    dbc.Row(
-                        children=[
-                            dbc.Button(
-                                "...more",
-                                color="primary",
-                                style={"min-width": "80px"},
-                                id="compliance-model-text-toggle"),
-                            dbc.Button(
-                                "FAQ",
-                                color="warning",
-                                style={"min-width": "80px"},
-                                id="compliance-model-faq-toggle-open"),
-                            dbc.Modal(
-                                [
-                                    dbc.ModalHeader("Header"),
-                                    dbc.ModalBody("This is the content of the modal"),
-                                    dbc.ModalFooter(
-                                        dbc.Button(
-                                            "Close",
-                                            id="compliance-model-faq-toggle-close",
-                                            className="ml-auto"
-                                        )
-                                    ),
-                                ],
-                                id="compliance-model-faq-modal",
+            dcc.Markdown(
+                en_EN.compliance["compliance-model-text"],
+                id="compliance-model-text"
+            ),
+            dbc.Row(
+                children=[
+                    dbc.Button(
+                        en_EN.compliance["compliance-model-text-toggle"],
+                        color="primary",
+                        style={"min-width": "80px"},
+                        id="compliance-model-text-toggle"),
+                    ###
+                    # FAQ
+                    ###
+                    dbc.Button(
+                        en_EN.compliance["compliance-model-faq-toggle-open"],
+                        color="warning",
+                        style={"min-width": "80px"},
+                        id="compliance-model-faq-toggle-open"),
+                    dbc.Modal(
+                        [
+                            dbc.ModalHeader(
+                                en_EN.compliance["general-faq-title"],
+                                id="general-faq-title"
+                            ),
+                            dbc.ModalBody(general_faq),
+                            dbc.ModalHeader(
+                                en_EN.compliance["compliance-faq-title"],
+                                id="compliance-faq-title"
+                            ),
+                            dbc.ModalBody(
+                                compliance_faq
+                            ),
+                            dbc.ModalFooter(
+                                dbc.Button(
+                                    en_EN.compliance["compliance-model-faq-toggle-close"],
+                                    id="compliance-model-faq-toggle-close",
+                                    className="ml-auto"
+                                )
                             ),
                         ],
-                        no_gutters=True,
-                        justify="between"
-                    )
+                        id="compliance-model-faq-modal",
+                        size="xl",
+                        scrollable=True
+                    ),
                 ],
-            ),
+                no_gutters=True,
+                justify="between"
+            )
         ],
+        body=True,
         className="w-1"
     )
 ])
@@ -70,13 +81,15 @@ compliance_model_explanation = html.Div([
 ###
 # Formgroups
 ###
-def create_formgroup(label, tooltip, widget):
-    component_name = label.replace(" ", "-").lower()
+def create_formgroup(label, tooltip, widget, component_name):
     return dbc.FormGroup(
         [
             dbc.Col(
                 [
-                    label,
+                    html.Div(
+                        label,
+                        id="{}-label".format(component_name)
+                    ),
                     html.I(
                         className="fa fa-question-circle ml-2",
                         id="{}-target".format(component_name),
@@ -101,27 +114,19 @@ def create_formgroup(label, tooltip, widget):
         row=True
     )
 
-
-with open("./texts/compliance/en/reduction-factor.md") as f:
-    reduction_tooltip = f.read()
-with open("./texts/compliance/en/compliance-level.md") as f:
-    compliance_tooltip = f.read()
-with open("./texts/compliance/en/plotted-data.md") as f:
-    data_tooltip = f.read()
-    
    
 reduction_dropdown = dcc.Dropdown(
     id="reduction-dropdown",
     clearable=False,
-    options=[
-        {"label": "strict", "value": "025"},
-        {"label": "moderate", "value": "05"},
-        {"label": "minimal", "value": "08"},
-    ],
+    options=en_EN.compliance["reduction-dropdown"],
     value="025"
 )
 reduction_formgroup = create_formgroup(
-    "Reduction Factor", reduction_tooltip, reduction_dropdown)
+    en_EN.compliance["reduction-dropdown-label"], 
+    en_EN.compliance["reduction-dropdown-target"], 
+    reduction_dropdown, 
+    "reduction-dropdown"
+)
 
 compliance_dropdown = dcc.Dropdown(
     id="compliance-dropdown",
@@ -133,28 +138,26 @@ compliance_dropdown = dcc.Dropdown(
     multi=True
 )
 compliance_formgroup = create_formgroup(
-    "Compliance", compliance_tooltip, compliance_dropdown)
+    en_EN.compliance["compliance-dropdown-label"], 
+    en_EN.compliance["compliance-dropdown-target"], 
+    compliance_dropdown, 
+    "compliance-dropdown"
+)
 
 data_dropdown = dcc.Dropdown(
     id="data-dropdown",
     clearable=False,
     searchable=False,
-    options=[
-        {"label": "deceased", "value": "Dt"},
-        {"label": "known cases", "value": "", "disabled": True},
-        {"label": "active", "value": "It"},
-        {"label": "cumulative", "value": "cumCasT"},
-        {"label": "recovered", "value": "knownRt"},
-        {"label": "total cases", "value": "", "disabled": True},
-        {"label": "active", "value": "actInfT"},
-        {"label": "cumulative", "value": "cumInfT"},
-        {"label": "recovered", "value": "Rt"},
-    ],
+    options=en_EN.compliance["data-dropdown"],
     value="It",
     className="optgroup"
 )
 data_formgroup = create_formgroup(
-    "Plotted Data", data_tooltip, data_dropdown)
+    en_EN.compliance["data-dropdown-label"], 
+    en_EN.compliance["data-dropdown-target"], 
+    data_dropdown,
+    "data-dropdown"
+)
 
 
 ###
@@ -172,10 +175,14 @@ def make_accordion_item(title, widgets, short_explanation, component_name):
                                     html.I(className="fa fa-cog mr-2"),
                                     title
                                 ],
+                                id="{}-title".format(component_name),
                                 className="mb-0"
                             ),
                             dbc.Col(
-                                html.I(short_explanation),
+                                html.I(
+                                    short_explanation,
+                                    id="{}-explanation".format(component_name)
+                                ),
                                 className="col-lg-auto col-12 order-below",
                                 style={"fontSize": "medium"}
                             ),
@@ -206,19 +213,18 @@ def make_accordion_item(title, widgets, short_explanation, component_name):
 compliance_widgets = dbc.Row(
     [
         dbc.Col(
-            make_accordion_item("Modelling Scenario",
+            make_accordion_item(en_EN.compliance["compliance-model-config-title"], 
                                 [reduction_formgroup, compliance_formgroup],
-                                "Please select the contact restriction severity \
-                                to be introduced and the compliance level in the population.",
-                                "compliance-model"),
+                                en_EN.compliance["compliance-model-config-explanation"], 
+                                "compliance-model-config"),
             className="mb-3",
             xs=12
         ),
         dbc.Col(
-            make_accordion_item("Plot Configuration",
+            make_accordion_item(en_EN.compliance["compliance-plot-config-title"], 
                                 data_formgroup,
-                                "Please select simulation data to be visualized.",
-                                "compliance-plot"),
+                                en_EN.compliance["compliance-plot-config-explanation"], 
+                                "compliance-plot-config"),
             className="mb-3",
             xs=12
         ),
@@ -230,12 +236,13 @@ compliance_widgets = dbc.Row(
 ###
 # Plots
 ###
-with open("./texts/compliance/en/plots-explanation.md") as f:
-    plots_explanation = f.read()
 
 compliance_plots_explanation = dbc.Card(
     dbc.CardBody([
-        dcc.Markdown(plots_explanation),
+        dcc.Markdown(
+            en_EN.compliance["compliance-plot-explanation"], 
+            id="compliance-plot-explanation"
+        ),
         compliance_widgets
     ]),
     className="mt-4",
@@ -249,7 +256,7 @@ compliance_graph_content = dcc.Loading(
             dbc.Row(
                 [
                     html.H5(
-                        "Visualize known active cases (for contact reduction factor 0.25)", 
+                        en_EN.compliance["compliance-graph-title"], 
                         id="compliance-graph-title", 
                         className="card-title bold"
                     ),
@@ -262,8 +269,7 @@ compliance_graph_content = dcc.Loading(
                         },
                     ),
                     dbc.Tooltip(
-                        "Simulated data before and after introduction of control measures \
-                        for selected restriction factor and compliance levels.",
+                        en_EN.compliance["compliance-graph-target"], 
                         target="compliance-graph-target",
                         style={"height": "auto"}
                     ),
@@ -271,23 +277,23 @@ compliance_graph_content = dcc.Loading(
                 no_gutters=True
             ),
             dbc.Row(
-                [
-                    dbc.Button(
-                        "From start of intervention",
-                        id="compliance-graph-btn-1",
-                        color="primary",
-                        outline=True,
-                        size="sm"
-                    ),
-                    dbc.Button(
-                        "From start of simulation",
-                        id="compliance-graph-btn-2",
-                        className="ml-2",
-                        color="primary",
-                        outline=True,
-                        size="sm"
-                    )
-                ],
+                dbc.ButtonGroup(
+                    [
+                        dbc.Button(
+                            en_EN.compliance["compliance-graph-btn-1"], 
+                            id="compliance-graph-btn-1",
+                            color="primary",
+                            outline=True
+                        ),
+                        dbc.Button(
+                            en_EN.compliance["compliance-graph-btn-2"],
+                            id="compliance-graph-btn-2",
+                            color="primary",
+                            outline=True
+                        )
+                    ],
+                    size="sm"
+                ),
                 no_gutters=True
             ),
             dcc.Graph(
@@ -325,12 +331,12 @@ compliance_content = [
     dbc.Tabs(
         [
             dbc.Tab(
-                label="Selected output",
+                label=en_EN.compliance["compliance-graph-tab"],
                 tabClassName="bold",
                 tab_id="compliance-graph-tab"
             ),
             dbc.Tab(
-                label="Corresponding daily incidence",
+                label=en_EN.compliance["compliance-barcharts-tab"],
                 tabClassName="bold",
                 tab_id="compliance-barcharts-tab"
             ),
