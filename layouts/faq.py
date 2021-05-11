@@ -3,7 +3,7 @@ import dash_html_components as html
 import re
 
 
-def make_accordion_item(i, title, text, component_name):
+def create_accordion_item(i, title, text, component_name, lang):
     return dbc.Card(
         [
             html.Div(
@@ -17,7 +17,7 @@ def make_accordion_item(i, title, text, component_name):
                             html.I(
                                 className="fa fa-chevron-down",
                                 style={"alignSelf": "center"},
-                                id=f"{component_name}-accordion-group-{i}-toggle-icon"
+                                id=f"{component_name}-accordion-group-{i}-toggle-icon-{lang}"
                             ),
                             width="auto"
                         )
@@ -25,7 +25,7 @@ def make_accordion_item(i, title, text, component_name):
                     no_gutters=True,
                     justify="between"
                 ),
-                id=f"{component_name}-accordion-group-{i}-toggle",
+                id=f"{component_name}-accordion-group-{i}-toggle-{lang}",
                 className="card-header",
                 style={"backgroundColor": "transparent"}
             ),
@@ -35,41 +35,22 @@ def make_accordion_item(i, title, text, component_name):
                     className="bg-light",
                     style={"borderTop": "1px solid rgba(0, 0, 0, 0.125)"}
                 ),
-                id=f"{component_name}-accordion-collapse-{i}",
+                id=f"{component_name}-accordion-collapse-{i}-{lang}",
             ),
         ]
     )
 
 
-###
-# General FAQ
-###
-with open("texts/faq/en/general.md") as f:
-    general_faq_md = re.split("[\n]{3}", f.read())
+def create_faq(file, component_name, lang):
+    with open(file) as f:
+        faq_md = re.split("[\n]{3}", f.read())
     
-general_faq_items = []
-for i, question in enumerate(general_faq_md, start=1):
-    q = question.split('\n')
-    general_faq_items.append(make_accordion_item(i, q[0], q[1:], "general-faq"))
-    
-general_faq = html.Div(
-    general_faq_items,
-    className="accordion"
-)
+    faq_items = []
+    for i, question in enumerate(faq_md, start=1):
+        q = question.split('\n')
+        faq_items.append(create_accordion_item(i, q[0], q[1:], component_name, lang))
 
-
-###
-# Compliance FAQ
-###
-with open("./texts/faq/en/compliance.md") as f:
-    compliance_faq_md = re.split("[\n]{3}", f.read())
-    
-compliance_faq_items = []
-for i, question in enumerate(compliance_faq_md, start=1):
-    q = question.split('\n')
-    compliance_faq_items.append(make_accordion_item(i, q[0], q[1:], "compliance-faq"))
-    
-compliance_faq = html.Div(
-    compliance_faq_items,
-    className="accordion"
-)
+    return html.Div(
+        faq_items,
+        className="accordion"
+    )

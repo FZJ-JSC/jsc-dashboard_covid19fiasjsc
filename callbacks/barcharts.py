@@ -63,14 +63,16 @@ toggle_incidence_buttons = dbc.Row(
 )
 
 
+LANG = "en"
+
 
 @app.callback(
-    Output("compliance-barcharts", "children"),
-    Output("compliance-barcharts-title", "children"),
-    Input("reduction-dropdown", "value"),
-    Input("data-dropdown", "value"),
-    Input("compliance-dropdown", "value"),
-    Input("dataframes", "data")
+    Output(f"compliance-barcharts-{LANG}", "children"),
+    Output(f"compliance-barcharts-title-{LANG}", "children"),
+    Input(f"reduction-dropdown-{LANG}", "value"),
+    Input(f"data-dropdown-{LANG}", "value"),
+    Input(f"compliance-dropdown-{LANG}", "value"),
+    Input(f"dataframes-{LANG}", "data")
 )
 def update_barcharts(reduction, column, percentages, dataframes):
     for df in dataframes:

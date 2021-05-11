@@ -16,26 +16,26 @@ with open("./texts/compliance/en/plots-explanation.md") as f:
     
     
 compliance = {
-    "compliance-model-text-title" : "Compliance model",
-    "compliance-model-text": compliance_short,
-    "compliance-model-text-toggle": "...more",
+    "page-title" : "Compliance model",
+    "model-text": compliance_short,
+    "toggle-btn": "...more",
     
-    "compliance-model-faq-toggle-open": "FAQ",
-    "compliance-model-faq-toggle-close": "Close",
+    "faq-btn": "FAQ",
+    "faq-close-btn": "Close",
     "general-faq-title": "General FAQs",
     "compliance-faq-title": "Compliance Model FAQs",
     
     "reduction-dropdown-label": "Intervention Severity",
-    "reduction-dropdown-target": reduction_tooltip,
+    "reduction-dropdown-tooltip": reduction_tooltip,
     "reduction-dropdown": [
         {"label": "strict", "value": "025"},
         {"label": "moderate", "value": "05"},
         {"label": "minimal", "value": "08"}
     ],
     "compliance-dropdown-label": "Compliance",
-    "compliance-dropdown-target": compliance_tooltip,
+    "compliance-dropdown-tooltip": compliance_tooltip,
     "data-dropdown-label": "Plotted Data",
-    "data-dropdown-target": data_tooltip,
+    "data-dropdown-tooltip": data_tooltip,
     "data-dropdown": [
         {"label": "deceased", "value": "Dt"},
         {"label": "reported cases", "value": "", "disabled": True},
@@ -48,18 +48,38 @@ compliance = {
         {"label": "recovered", "value": "Rt"},
     ],
     
-    "compliance-model-config-title": "Modelling Scenario",
-    "compliance-model-config-explanation": "Please select the contact restriction severity to be introduced and the compliance level in the population.",
-    "compliance-plot-config-title": "Plot Configuration",
-    "compliance-plot-config-explanation": "Please select simulation data to be visualized.",
+    "config-title": "Modelling Scenario",
+    "config-hint": "Please select the contact restriction severity to be introduced and the compliance level in the population.",
+    "plot-config-title": "Plot Configuration",
+    "plot-config-hint": "Please select simulation data to be visualized.",
     
-    "compliance-plot-explanation": compliance_plot_explanation,
+    "plot-explanation": compliance_plot_explanation,
     
-    "compliance-graph-tab": "Selected output",
-    "compliance-barcharts-tab": "Corresponding daily incidence",
+    "graph-tab": "Selected output",
+    "barcharts-tab": "Corresponding daily incidence",
     
-    "compliance-graph-title": "Visualize known active cases (for contact reduction factor 0.25)",
-    "compliance-graph-target": "Simulated data before and after introduction of control measures for selected intervention severity and compliance levels.",
-    "compliance-graph-btn-1": "From start of intervention",
-    "compliance-graph-btn-2": "From start of simulation",
+    "graph-title": "Visualize known active cases (for contact reduction factor 0.25)",
+    "graph-tooltip": "Simulated data before and after introduction of control measures for selected intervention severity and compliance levels.",
+    "graph-btn-1": "From start of intervention",
+    "graph-btn-2": "From start of simulation"
+}
+
+
+other = {
+    "about": "About",
+    "about-path": "texts/about/en/about.md",
+    "team": "Team",
+    "team-path": "texts/about/en/team.md",
+    "contrib": "Contributions",
+    "contrib-path": "texts/about/en/contributions.md",
+    
+    "impressum": "Impressum",
+    "impressum-path": "texts/impressum/en/impressum.md",
+    "disclaimer": "Disclaimer",
+    "disclaimer-path": "texts/impressum/en/disclaimer.md",
+    "hoster": "Hoster",
+    "hoster-path": "texts/impressum/en/hoster.md",
+    
+    "privacy": "Data Protection",
+    "privacy-path": "texts/data-protection.md"
 }

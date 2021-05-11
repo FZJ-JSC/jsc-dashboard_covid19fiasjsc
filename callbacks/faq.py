@@ -14,30 +14,32 @@ def toggle_accordion(n, is_open):
         return False, down
     
 
+LANG = "en"
+    
 for i in range(1, 8):
     app.callback(
-        Output("general-faq-accordion-collapse-{}".format(i), "is_open"),
-        Output("general-faq-accordion-group-{}-toggle-icon".format(i), "className"),
-        Input("general-faq-accordion-group-{}-toggle".format(i), "n_clicks"),
-        State("general-faq-accordion-collapse-{}".format(i), "is_open"),
+        Output(f"general-faq-accordion-collapse-{i}-{LANG}", "is_open"),
+        Output(f"general-faq-accordion-group-{i}-toggle-icon-{LANG}", "className"),
+        Input(f"general-faq-accordion-group-{i}-toggle-{LANG}", "n_clicks"),
+        State(f"general-faq-accordion-collapse-{i}-{LANG}", "is_open"),
         prevent_initial_call=True
     )(toggle_accordion)
     
 for i in range(1, 7):
     app.callback(
-        Output("compliance-faq-accordion-collapse-{}".format(i), "is_open"),
-        Output("compliance-faq-accordion-group-{}-toggle-icon".format(i), "className"),
-        Input("compliance-faq-accordion-group-{}-toggle".format(i), "n_clicks"),
-        State("compliance-faq-accordion-collapse-{}".format(i), "is_open"),
+        Output(f"compliance-faq-accordion-collapse-{i}-{LANG}", "is_open"),
+        Output(f"compliance-faq-accordion-group-{i}-toggle-icon-{LANG}", "className"),
+        Input(f"compliance-faq-accordion-group-{i}-toggle-{LANG}", "n_clicks"),
+        State(f"compliance-faq-accordion-collapse-{i}-{LANG}", "is_open"),
         prevent_initial_call=True
     )(toggle_accordion)
     
 
 # @app.callback(
-#     [Output("general-faq-accordion-collapse-{}".format(i), "is_open") for i in range(1, 8)] +
-#     [Output("general-faq-accordion-group-{}-toggle-icon".format(i), "className") for i in range(1, 8)],
-#     [Input("general-faq-accordion-group-{}-toggle".format(i), "n_clicks") for i in range(1, 8)],
-#     [State("general-faq-accordion-collapse-{}".format(i), "is_open") for i in range(1, 8)]
+#     [Output("general-faq-accordion-collapse-{}", "is_open") for i in range(1, 8)] +
+#     [Output("general-faq-accordion-group-{}-toggle-icon", "className") for i in range(1, 8)],
+#     [Input("general-faq-accordion-group-{}-toggle", "n_clicks") for i in range(1, 8)],
+#     [State("general-faq-accordion-collapse-{}", "is_open") for i in range(1, 8)]
 # )
 # def toggle_general_faq_accordion(n1, n2, n3, n4, n5, n6, n7, 
 #                                  is_open1, is_open2, is_open3, is_open4, is_open5, is_open6, is_open7):

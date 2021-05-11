@@ -3,21 +3,23 @@ import dash_html_components as html
 
 from app import app
 from dash.dependencies import ClientsideFunction, Input, Output, State
-from layouts.compliance import compliance_graph_content, compliance_barchart_content
+from apps.en.compliance import graph_content, barchart_content
 
 
 # Callbacks for model explanation
 with open("./texts/compliance/en/model-short.md") as f:
-    compliance_short = f.read()
+    compliance_short_en = f.read()
 
 with open("./texts/compliance/en/model-long.md") as f:
-    compliance_long = f.read()
-    
+    compliance_long_en = f.read()
+
+LANG = "en"    
+
 @app.callback(
-    Output("compliance-model-faq-modal", "is_open"),
-    Input("compliance-model-faq-toggle-open", "n_clicks"), 
-    Input("compliance-model-faq-toggle-close", "n_clicks"),
-    State("compliance-model-faq-modal", "is_open"),
+    Output(f"compliance-model-faq-modal-{LANG}", "is_open"),
+    Input(f"compliance-model-faq-toggle-open-{LANG}", "n_clicks"), 
+    Input(f"compliance-model-faq-toggle-close-{LANG}", "n_clicks"),
+    State(f"compliance-model-faq-modal-{LANG}", "is_open"),
 )
 def toggle_modal(n1, n2, is_open):
     if n1 or n2:
@@ -26,16 +28,16 @@ def toggle_modal(n1, n2, is_open):
 
 
 @app.callback(
-    Output("compliance-model-text", "children"),
-    Output("compliance-model-text-toggle", "children"),
-    Input("compliance-model-text-toggle", "n_clicks"),
-    State("compliance-model-text-toggle", "children"),
+    Output(f"compliance-model-text-{LANG}", "children"),
+    Output(f"compliance-model-text-toggle-{LANG}", "children"),
+    Input(f"compliance-model-text-toggle-{LANG}", "n_clicks"),
+    State(f"compliance-model-text-toggle-{LANG}", "children"),
     prevent_initial_call=True
 )
 def toggle_model_explanation(toggle_btn, btn_text):
     if btn_text == "...more":
         text = [
-            dcc.Markdown(compliance_short),
+            dcc.Markdown(compliance_short_en),
             html.Hr(),
             html.Figure(
                 [
@@ -58,11 +60,11 @@ def toggle_model_explanation(toggle_btn, btn_text):
                     "margin": "1rem"
                 }
             ),
-            dcc.Markdown(compliance_long),
+            dcc.Markdown(compliance_long_en),
         ]
         button_text = "...less"
     else:
-        text = dcc.Markdown(compliance_short)
+        text = dcc.Markdown(compliance_short_en)
         button_text = "...more"
 
     return text, button_text
@@ -76,37 +78,37 @@ def toggle_accordion(n1, is_open):
         return True, "fa fa-chevron-up"
 
 
-for component in ["compliance-model-config", "compliance-plot-config"]:
+for component in [f"compliance-model-config", f"compliance-plot-config"]:
     app.callback(
-        Output("accordion-collapse-{}".format(component), "is_open"),
-        Output("accordion-group-{}-toggle-icon".format(component), "className"),
-        Input("accordion-group-{}-toggle".format(component), "n_clicks"),
-        State("accordion-collapse-{}".format(component), "is_open"),
+        Output(f"accordion-collapse-{component}-{LANG}", "is_open"),
+        Output(f"accordion-group-{component}-toggle-icon-{LANG}", "className"),
+        Input(f"accordion-group-{component}-toggle-{LANG}", "n_clicks"),
+        State(f"accordion-collapse-{component}-{LANG}", "is_open"),
         prevent_initial_call=True,
     )(toggle_accordion)
 
 
 # Callback for navigating between plots
 @app.callback(
-    Output("compliance-content", "children"),
-    Input("compliance-tabs", "active_tab")
+    Output(f"compliance-content-{LANG}", "children"),
+    Input(f"compliance-tabs-{LANG}", "active_tab")
 )
 def switch_tab(at):
     if at == "compliance-graph-tab":
-        return compliance_graph_content
+        return graph_content
     elif at == "compliance-barcharts-tab":
-        return compliance_barchart_content
+        return barchart_content
 
 
 # Clientside callbacks for resizing plots
 app.clientside_callback(
     ClientsideFunction(namespace="clientside", function_name="resize"),
     Output("resize-dummy-1", "children"),
-    Input("compliance-graph", "figure")
+    Input(f"compliance-graph-{LANG}", "figure")
 )
 
 app.clientside_callback(
     ClientsideFunction(namespace="clientside", function_name="resize"),
     Output("resize-dummy-2", "children"),
-    Input("compliance-barcharts", "children")
+    Input(f"compliance-barcharts-{LANG}", "children")
 )

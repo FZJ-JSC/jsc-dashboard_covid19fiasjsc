@@ -7,12 +7,9 @@ from git import Git
 import callbacks
 
 from app import app, dataframes
-from apps import about, compliance, legal
-
-from layouts.navbar import appbar
-from layouts.sidebar import sidebar
-from layouts.compliance import compliance_content, compliance_graph_content, compliance_barchart_content
-from callbacks.barcharts import toggle_incidence_buttons
+from apps.en import compliance, other
+from apps.appbar import appbar
+from apps.sidebar import sidebar
 
 
 app_layout = html.Div(
@@ -59,22 +56,14 @@ app_layout = html.Div(
         "height": "100%"
     }
 )
-
 app.layout = app_layout
 
-# "Complete" layout to avoid callback errors
-# because components are not loaded on the initial page
-app.validation_layout = html.Div(
-    [
-        app_layout,
-        html.Div([
-            compliance_content,
-            compliance_graph_content,
-            compliance_barchart_content,
-            toggle_incidence_buttons
-        ])
-    ]
-)
+app.validation_layout = html.Div([
+    app_layout,
+    compliance.page,
+    compliance.graph_content,
+    compliance.barchart_content
+])
 
 
 # Change page depending on URL
@@ -90,17 +79,17 @@ def display_page(pathname):
         return dbc.Container(output)
 
     elif pathname.endswith("/about"):
-        return about.children
+        return other.about_page
 
     elif pathname.endswith("/impressum"):
-        return legal.impressum
+        return other.impressum_page
 
     elif pathname.endswith("/privacy"):
-        return legal.privacy
+        return other.privacy_page
 
     else:
-        return compliance.children
+        return compliance.page
 
 
-# if __name__ == '__main__':
-#     app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True)
