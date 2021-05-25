@@ -1,0 +1,1 @@
+The compliance level indicates which portion of the population adheres to the introduced measured. For example, a compliance level of 70% means that 70% of people follows the regulations, while 30% of the population does not modify its behavior.

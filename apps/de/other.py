@@ -1,11 +1,10 @@
 import dash_html_components as html
-import en_EN
-
 from layouts.other_pages import create_page
+import de_DE
 
 
-LANG = "en"
-TEXT = en_EN.other
+LANG = "de"
+TEXT = de_DE.other
 
 
 # About

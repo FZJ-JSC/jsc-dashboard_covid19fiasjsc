@@ -39,13 +39,13 @@ compliance = {
     "data-dropdown": [
         {"label": "deceased", "value": "Dt"},
         {"label": "reported cases", "value": "", "disabled": True},
-        {"label": "active", "value": "It"},
-        {"label": "cumulative", "value": "cumCasT"},
-        {"label": "recovered", "value": "knownRt"},
+        {"label": "reported active cases", "value": "It"},
+        {"label": "reported cumulative cases", "value": "cumCasT"},
+        {"label": "reported recovered cases", "value": "knownRt"},
         {"label": "total cases (incl. undetected)", "value": "", "disabled": True},
-        {"label": "active", "value": "actInfT"},
-        {"label": "cumulative", "value": "cumInfT"},
-        {"label": "recovered", "value": "Rt"},
+        {"label": "total active cases", "value": "actInfT"},
+        {"label": "total cumulative cases", "value": "cumInfT"},
+        {"label": "total recovered cases", "value": "Rt"},
     ],
     
     "config-title": "Modelling Scenario",
@@ -58,7 +58,7 @@ compliance = {
     "graph-tab": "Selected output",
     "barcharts-tab": "Corresponding daily incidence",
     
-    "graph-title": "Visualize known active cases (for contact reduction factor 0.25)",
+    "graph-title": "Visualize known active cases (for strict intervention)",
     "graph-tooltip": "Simulated data before and after introduction of control measures for selected intervention severity and compliance levels.",
     "graph-btn-1": "From start of intervention",
     "graph-btn-2": "From start of simulation"
@@ -82,4 +82,12 @@ other = {
     
     "privacy": "Data Protection",
     "privacy-path": "texts/data-protection.md"
+}
+
+
+sidebar = {
+    "compliance": "Compliance".upper(),
+    "about": "About",
+    "impressum": "Legal Disclosure",
+    "privacy": "Data Protection"
 }

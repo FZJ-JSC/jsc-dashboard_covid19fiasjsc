@@ -1,0 +1,1 @@
+Das **CoSiMo-Webtool** ist eine benutzerfreundliche Simulationsoberfläche zur Visualisierung spezifischer Fragen zur Ausbreitung von Infektionskrankheiten, die mit Hilfe mathematischer Modelle und Computersimulationen beantwortet werden können. Das CoSiMo-Webtool wurde im Rahmen des CoSiMo (COVID-19 Simulation and Modeling)-Projekts entwickelt.

@@ -1,5 +1,3 @@
-## Haftungsausschluss
-
 ### Inhalt der eigenen Seiten
 Wir haben die Internet-Seiten des Projektes CoSiMo sorgfältig zusammengestellt.
 Allerdings übernehmen wir keine Gewähr oder Haftung für die Aktualität, Vollständigkeit und Richtigkeit der angebotenen Informationen.

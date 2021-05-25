@@ -23,6 +23,24 @@ appbar = dbc.Navbar(
             jsc_logo,
             href="https://www.fz-juelich.de/ias/jsc/DE/Home/home_node.html",
             target="_blank"
+        ),
+        dbc.Nav(
+            [
+                dbc.Button(
+                    "EN",
+                    id="lang-en",
+                    size="sm", 
+                    color="primary"
+                ),
+                dbc.Button(
+                    "DE",
+                    id="lang-de",
+                    size="sm",
+                    color="primary"
+                ),
+            ],
+            vertical=True,
+            className="ml-4"
         )
     ],
     id="navbar",

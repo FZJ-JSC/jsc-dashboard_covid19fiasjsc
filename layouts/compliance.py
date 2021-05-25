@@ -34,8 +34,8 @@ def create_faq_modal(title1, faq1, title2, faq2, btn, lang):
 
 
 def create_model_explanation(page_title, explanation_short, btn1, btn2, modal_widget, lang):
-     return html.Div([
-         dbc.Card(
+    return html.Div([
+        dbc.Card(
             html.H3(
                 page_title,
                 className="mb-0 bold text-center",
@@ -55,7 +55,7 @@ def create_model_explanation(page_title, explanation_short, btn1, btn2, modal_wi
                         dbc.Button(
                             btn1,
                             color="primary",
-                            style={"min-width": "80px"},
+                            style={"minWidth": "80px"},
                             id=f"compliance-model-text-toggle-{lang}"),
                         ###
                         # FAQ
@@ -63,7 +63,7 @@ def create_model_explanation(page_title, explanation_short, btn1, btn2, modal_wi
                         dbc.Button(
                             btn2,
                             color="warning",
-                            style={"min-width": "80px"},
+                            style={"minWidth": "80px"},
                             id=f"compliance-model-faq-toggle-open-{lang}"
                         ),
                         modal_widget
@@ -121,33 +121,32 @@ def create_formgroup(label, tooltip, widget, component_name, lang):
 def create_config_accordion_item(title, hint, widgets, component_name, lang):
     return dbc.Card(
         [
-            dbc.CardHeader(
-                html.Div(
-                    dbc.Row(
-                        [
-                            html.H5(
-                                [
-                                    html.I(className="fa fa-cog mr-2"),
-                                    title
-                                ],
-                                className="mb-0"
-                            ),
-                            dbc.Col(
-                                html.I(hint),
-                                className="col-lg-auto col-12 order-below",
-                                style={"fontSize": "medium"}
-                            ),
-                            html.I(
-                                className="fa fa-chevron-down",
-                                style={"alignSelf": "center"},
-                                id=f"accordion-group-{component_name}-toggle-icon-{lang}"
-                            ),
-                        ],
-                        no_gutters=True,
-                        justify="between"
-                    ),
-                    id=f"accordion-group-{component_name}-toggle-{lang}"
+            html.Div(
+                dbc.Row(
+                    [
+                        html.H5(
+                            [
+                                html.I(className="fa fa-cog mr-2"),
+                                title
+                            ],
+                            className="mb-0"
+                        ),
+                        dbc.Col(
+                            html.I(hint),
+                            className="col-lg-auto col-12 order-below",
+                            style={"fontSize": "medium"}
+                        ),
+                        html.I(
+                            className="fa fa-chevron-down",
+                            style={"alignSelf": "center"},
+                            id=f"accordion-group-{component_name}-toggle-icon-{lang}"
+                        ),
+                    ],
+                    no_gutters=True,
+                    justify="between"
                 ),
+                id=f"accordion-group-{component_name}-toggle-{lang}",
+                className="card-header",
                 style={
                     "backgroundColor": "transparent",
                     "borderBottom": "None"
@@ -159,7 +158,6 @@ def create_config_accordion_item(title, hint, widgets, component_name, lang):
             ),
         ],
     )
-
 
 
 def create_compliance_widgets(accordion1, accordion2):
@@ -185,16 +183,16 @@ def create_compliance_widgets(accordion1, accordion2):
 ###
 def create_compliance_plots_explanation(explanation, compliance_widgets, lang):
     return dbc.Card(
-    dbc.CardBody([
-        dcc.Markdown(
-            explanation, 
-            id=f"compliance-plot-explanation-{lang}"
-        ),
-        compliance_widgets
-    ]),
-    className="mt-4",
-    style={"borderBottom": "none"}
-)
+        dbc.CardBody([
+            dcc.Markdown(
+                explanation, 
+                id=f"compliance-plot-explanation-{lang}"
+            ),
+            compliance_widgets
+        ]),
+        className="mt-4",
+        style={"borderBottom": "none"}
+    )
 
 
 def create_compliance_graph_content(title, tooltip, btn1, btn2, fig, lang):

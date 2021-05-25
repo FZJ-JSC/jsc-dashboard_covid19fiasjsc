@@ -1,20 +1,20 @@
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
-import en_EN
+import de_DE
 
 from app import compliance_percentages, initial_fig
 from layouts.compliance import *
 from layouts.faq import *
 
 
-LANG = "en"
-TEXT = en_EN.compliance
+LANG = "de"
+TEXT = de_DE.compliance
 
 
 # Faq
-general_faq = create_faq("texts/faq/en/general.md", "general-faq", LANG)
-compliance_faq = create_faq("texts/faq/en/compliance.md", "compliance-faq", LANG)
+general_faq = create_faq("texts/faq/de/general.md", "general-faq", LANG)
+compliance_faq = create_faq("texts/faq/de/compliance.md", "compliance-faq", LANG)
     
 faq_modal = create_faq_modal(TEXT["general-faq-title"], general_faq,
                              TEXT["compliance-faq-title"], compliance_faq,

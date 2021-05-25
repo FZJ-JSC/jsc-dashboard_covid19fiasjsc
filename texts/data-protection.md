@@ -78,15 +78,7 @@ Any data subject may, at any time, contact our Data Protection Officer directly 
 ---
 
 ### 4. Cookies
-The Internet pages of the CoSiMo project use cookies. Cookies are text files that are stored in a computer system via an Internet browser.
-
-Many Internet sites and servers use cookies. Many cookies contain a so-called cookie ID. A cookie ID is a unique identifier of the cookie. It consists of a character string through which Internet pages and servers can be assigned to the specific Internet browser in which the cookie was stored. This allows visited Internet sites and servers to differentiate the individual browser of the dats subject from other Internet browsers that contain other cookies. A specific Internet browser can be recognized and identified using the unique cookie ID.
-
-Through the use of cookies, the CoSiMo project can provide the users of this website with more user-friendly services that would not be possible without the cookie setting.
-
-By means of a cookie, the information and offers on our website can be optimized with the user in mind. Cookies allow us, as previously mentioned, to recognize our website users. The purpose of this recognition is to make it easier for users to utilize our website. The website user that uses cookies, e.g. does not have to enter access data each time the website is accessed, because this is taken over by the website, and the cookie is thus stored on the user's computer system. Another example is the cookie of a shopping cart in an online shop. The online store remembers the articles that a customer has placed in the virtual shopping cart via a cookie.
-
-The data subject may, at any time, prevent the setting of cookies through our website by means of a corresponding setting of the Internet browser used, and may thus permanently deny the setting of cookies. Furthermore, already set cookies may be deleted at any time via an Internet browser or other software programs. This is possible in all popular Internet browsers. If the data subject deactivates the setting of cookies in the Internet browser used, not all functions of our website may be entirely usable.
+The Internet pages of the CoSiMo project does not use cookies. Cookies are text files that are stored in a computer system via an Internet browser. Many Internet sites and servers use cookies. Many cookies contain a so-called cookie ID. A cookie ID is a unique identifier of the cookie. It consists of a character string through which Internet pages and servers can be assigned to the specific Internet browser in which the cookie was stored. This allows visited Internet sites and servers to differentiate the individual browser of the dats subject from other Internet browsers that contain other cookies. A specific Internet browser can be recognized and identified using the unique cookie ID.
 
 ---
 
@@ -210,27 +202,12 @@ We clarify that the provision of personal data is partly required by law (e.g. t
 
 ---
 
-### 13. Data protection provisions about the application and use of YouTube
-On this website, the controller has integrated components of YouTube. YouTube is an Internet video portal that enables video publishers to set video clips and other users free of charge, which also provides free viewing, review and commenting on them. YouTube allows you to publish all kinds of videos, so you can access both full movies and TV broadcasts, as well as music videos, trailers, and videos made by users via the Internet portal.
-
-The operating company of YouTube is YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, UNITED STATES. The YouTube, LLC is a subsidiary of Google Inc., 1600 Amphitheatre Pkwy, Mountain View, CA 94043-1351, UNITED STATES.
-
-With each call-up to one of the individual pages of this Internet site, which is operated by the controller and on which a YouTube component (YouTube video) was integrated, the Internet browser on the information technology system of the data subject is automatically prompted to download a display of the corresponding YouTube component. Further information about YouTube may be obtained under https://www.youtube.com/yt/about/en/. During the course of this technical procedure, YouTube and Google gain knowledge of what specific sub-page of our website was visited by the data subject.
-
-If the data subject is logged in on YouTube, YouTube recognizes with each call-up to a sub-page that contains a YouTube video, which specific sub-page of our Internet site was visited by the data subject. This information is collected by YouTube and Google and assigned to the respective YouTube account of the data subject.
-
-YouTube and Google will receive information through the YouTube component that the data subject has visited our website, if the data subject at the time of the call to our website is logged in on YouTube; this occurs regardless of whether the person clicks on a YouTube video or not. If such a transmission of this information to YouTube and Google is not desirable for the data subject, the delivery may be prevented if the data subject logs off from their own YouTube account before a call-up to our website is made.
-
-YouTube's data protection provisions, available at https://www.google.com/intl/en/policies/privacy/, provide information about the collection, processing and use of personal data by YouTube and Google.
-
----
-
-### 14. Existence of automated decision-making
+### 13. Existence of automated decision-making
 As a responsible project, we do not use automatic decision-making or profiling.
 
 ---
 
-### 15. Amendment of Privacy Statement
+### 14. Amendment of Privacy Statement
 We may update our Privacy Statement from time to time. Updates of our Privacy Statement will be published on our Website. Any amendments become effective upon publication on our Website. We therefore recommend that you regularly visit the site to keep yourself informed on possible updates.
 
 This Privacy Policy has been generated by the Privacy Policy Generator of the [External Data Protection Officers](https://dg-datenschutz.de/services/external-data-protection-officer/?lang=en) that was developed in cooperation with [RC GmbH](http://remarketing.company/), which sells used notebooks and the [Media Law Lawyers](https://www.wbs-law.de/eng/practice-areas/media-law/) from WBS-LAW.

@@ -1,0 +1,1 @@
+Wählen Sie die Schärfe der zum Zeitpunkt der Intervention zusätzlich einzuführenden Maßnahmen zur Kontaktbeschränkung aus. "Strikt": -75%, "Moderat": -50%, "Minimal": -20% der effektiven (= für die Übertragung relevanten) Kontakte im Vergleich zur Zeit vor der Intervention.

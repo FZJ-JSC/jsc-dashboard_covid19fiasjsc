@@ -16,17 +16,17 @@ for i, color in zip(compliance_percentages[1:], px.colors.qualitative.Plotly):
     colors[i] = color
 
 
-def update_dataframes(reduction):
+def update_dataframes(reduction, text):
     dataframes = dict()
     for i in compliance_percentages:
         df = pd.read_csv("../simdata/compliance/0218_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
-        df["days"] = ["Day {}".format(day) for day in range(-91, 36)]
+        df["days"] = ["{} {}".format(text, day) for day in range(-91, 36)]
         # Need to change df to dict for json serialization
         dataframes[i] = df[14:].to_dict()
     return dataframes
 
 
-dataframes = update_dataframes("025")
+dataframes = update_dataframes("025", "Day")
 
 
 # Create first graph
@@ -90,7 +90,7 @@ initial_fig.update_xaxes(
 
 
 # Set dataframes back to json
-dataframes = update_dataframes("025")
+# dataframes = update_dataframes("025", "Day")
 
 
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO, FONT_AWESOME])

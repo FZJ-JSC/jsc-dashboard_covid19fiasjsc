@@ -14,25 +14,24 @@ def toggle_accordion(n, is_open):
         return False, down
     
 
-LANG = "en"
-    
-for i in range(1, 8):
-    app.callback(
-        Output(f"general-faq-accordion-collapse-{i}-{LANG}", "is_open"),
-        Output(f"general-faq-accordion-group-{i}-toggle-icon-{LANG}", "className"),
-        Input(f"general-faq-accordion-group-{i}-toggle-{LANG}", "n_clicks"),
-        State(f"general-faq-accordion-collapse-{i}-{LANG}", "is_open"),
-        prevent_initial_call=True
-    )(toggle_accordion)
-    
-for i in range(1, 7):
-    app.callback(
-        Output(f"compliance-faq-accordion-collapse-{i}-{LANG}", "is_open"),
-        Output(f"compliance-faq-accordion-group-{i}-toggle-icon-{LANG}", "className"),
-        Input(f"compliance-faq-accordion-group-{i}-toggle-{LANG}", "n_clicks"),
-        State(f"compliance-faq-accordion-collapse-{i}-{LANG}", "is_open"),
-        prevent_initial_call=True
-    )(toggle_accordion)
+for LANG in ["de", "en"]:    
+    for i in range(1, 8):
+        app.callback(
+            Output(f"general-faq-accordion-collapse-{i}-{LANG}", "is_open"),
+            Output(f"general-faq-accordion-group-{i}-toggle-icon-{LANG}", "className"),
+            Input(f"general-faq-accordion-group-{i}-toggle-{LANG}", "n_clicks"),
+            State(f"general-faq-accordion-collapse-{i}-{LANG}", "is_open"),
+            prevent_initial_call=True
+        )(toggle_accordion)
+
+    for i in range(1, 7):
+        app.callback(
+            Output(f"compliance-faq-accordion-collapse-{i}-{LANG}", "is_open"),
+            Output(f"compliance-faq-accordion-group-{i}-toggle-icon-{LANG}", "className"),
+            Input(f"compliance-faq-accordion-group-{i}-toggle-{LANG}", "n_clicks"),
+            State(f"compliance-faq-accordion-collapse-{i}-{LANG}", "is_open"),
+            prevent_initial_call=True
+        )(toggle_accordion)
     
 
 # @app.callback(
