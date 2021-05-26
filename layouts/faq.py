@@ -1,4 +1,5 @@
 import dash_bootstrap_components as dbc
+import dash_core_components as dcc
 import dash_html_components as html
 import re
 
@@ -31,7 +32,7 @@ def create_accordion_item(i, title, text, component_name, lang):
             ),
             dbc.Collapse(
                 dbc.CardBody(
-                    text,
+                    dcc.Markdown(text),
                     className="bg-light",
                     style={"borderTop": "1px solid rgba(0, 0, 0, 0.125)"}
                 ),

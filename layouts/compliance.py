@@ -99,9 +99,10 @@ def create_formgroup(label, tooltip, widget, component_name, lang):
                         },
                     ),
                     dbc.Tooltip(
-                        tooltip, 
+                        tooltip,
                         target=f"{component_name}-target-{lang}",
-                        style={"height": "auto"}
+                        placement="auto"
+#                         style={"height": "auto"}
                     )
                 ],
                 style={"display": "flex", "alignItems": "center"},
@@ -217,7 +218,8 @@ def create_compliance_graph_content(title, tooltip, btn1, btn2, fig, lang):
                         dbc.Tooltip(
                             tooltip, 
                             target=f"compliance-graph-target-{lang}",
-                            style={"height": "auto"}
+                            placement="auto"
+#                             style={"height": "auto"}
                         ),
                     ],
                     no_gutters=True

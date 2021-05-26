@@ -15,7 +15,7 @@ TEXT = en_EN.compliance
 # Faq
 general_faq = create_faq("texts/faq/en/general.md", "general-faq", LANG)
 compliance_faq = create_faq("texts/faq/en/compliance.md", "compliance-faq", LANG)
-    
+
 faq_modal = create_faq_modal(TEXT["general-faq-title"], general_faq,
                              TEXT["compliance-faq-title"], compliance_faq,
                              TEXT["faq-close-btn"], LANG)

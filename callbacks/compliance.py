@@ -73,7 +73,7 @@ def toggle_model_explanation(toggle_btn, btn_text):
             html.Figure(
                 [
                     html.Img(
-                        src="../assets/paper_screenshot_cropped_no_background.png",
+                        src="https://cosimo.fz-juelich.de/assets/paper_screenshot_cropped_no_background.png",
                         width="350px", height="200px"
                     ),
                     html.Figcaption(
@@ -148,7 +148,7 @@ def toggle_model_explanation(toggle_btn, btn_text):
             html.Figure(
                 [
                     html.Img(
-                        src="assets/paper_screenshot_cropped_no_background.png",
+                        src="https://cosimo.fz-juelich.de/assets/paper_screenshot_cropped_no_background.png",
                         width="350px", height="200px"
                     ),
                     html.Figcaption(

@@ -10,21 +10,21 @@ with open("./texts/compliance/de/compliance-level.md") as f:
     compliance_tooltip = f.read()
 with open("./texts/compliance/de/plotted-data.md") as f:
     data_tooltip = f.read()
-    
+
 with open("./texts/compliance/de/plots-explanation.md") as f:
     compliance_plot_explanation = f.read()
-    
-    
+
+
 compliance = {
     "page-title" : "Compliance Modell",
     "model-text": compliance_short,
     "toggle-btn": "...mehr",
-    
+
     "faq-btn": "FAQ",
     "faq-close-btn": "Schließen",
     "general-faq-title": "Allgemeine FAQs",
     "compliance-faq-title": "Compliance Modell FAQs",
-    
+
     "reduction-dropdown-label": "Schärfe der Maßnahmen",
     "reduction-dropdown-tooltip": reduction_tooltip,
     "reduction-dropdown": [
@@ -47,19 +47,19 @@ compliance = {
         {"label": "kumulierte Fälle gesamt", "value": "cumInfT"},
         {"label": "genesene Fälle gesamt", "value": "Rt"},
     ],
-    
+
     "config-title": "Modellierungsszenario",
     "config-hint": "Bitte wählen Sie die Schärfe der einzuführenden Maßnahmen zur Kontaktbeschränkung und das Compliance-Level in der Bevölkerung aus.",
     "plot-config-title": "Plot Configuration",
     "plot-config-hint": "Please select simulation data to be visualized.",
-    
+
     "plot-explanation": compliance_plot_explanation,
-    
+
     "graph-tab": "Gewählte Ausgabe",
     "barcharts-tab": "Entsprechende tägliche Inzidenz",
-    
+
     "graph-title": "Visualisiere gemeldete aktive Fälle (im Falle einer strikten Intervention)",
-    "graph-tooltip": "Simulated data before and after introduction of control measures for selected intervention severity and compliance levels.",
+    "graph-tooltip": "Simulierte Daten vor und nach Einfuehrung der Maßnahmen für die ausgewählten Schärfe der Maßnahmen und die gewählten Compliance-Levels.",
     "graph-btn-1": "Ab dem Start der Intervention",
     "graph-btn-2": "Ab dem Start der Simulation"
 }
@@ -72,14 +72,14 @@ other = {
     "team-path": "texts/about/de/team.md",
     "contrib": "Beiträge",
     "contrib-path": "texts/about/de/contributions.md",
-    
+
     "impressum": "Impressum",
     "impressum-path": "texts/impressum/de/impressum.md",
     "disclaimer": "Haftungsausschluss",
     "disclaimer-path": "texts/impressum/de/haftungsausschluss.md",
     "hoster": "Hoster",
     "hoster-path": "texts/impressum/de/hoster.md",
-    
+
     "privacy": "Datenschutz",
     "privacy-path": "texts/datenschutzerklaerung.md"
 }
