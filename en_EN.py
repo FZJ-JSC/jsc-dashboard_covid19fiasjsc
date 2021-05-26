@@ -61,7 +61,10 @@ compliance = {
     "graph-title": "Visualize known active cases (for strict intervention)",
     "graph-tooltip": "Simulated data before and after introduction of control measures for selected intervention severity and compliance levels.",
     "graph-btn-1": "From start of intervention",
-    "graph-btn-2": "From start of simulation"
+    "graph-btn-2": "From start of simulation",
+    
+    "barcharts-btn-1": "Daily incidence",
+    "barcharts-btn-2": "7 day incidence"
 }
 
 

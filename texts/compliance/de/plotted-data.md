@@ -1,1 +1,1 @@
-Please select which simulation data are going to be visualized.
+Bitte wählen Sie, welche Ausgabegröße angezeigt werden soll.

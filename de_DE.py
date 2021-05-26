@@ -34,7 +34,7 @@ compliance = {
     ],
     "compliance-dropdown-label": "Compliance",
     "compliance-dropdown-tooltip": compliance_tooltip,
-    "data-dropdown-label": "Plotted Data",
+    "data-dropdown-label": "Angezeigte Werte",
     "data-dropdown-tooltip": data_tooltip,
     "data-dropdown": [
         {"label": "Verstorbene", "value": "Dt"},
@@ -49,9 +49,9 @@ compliance = {
     ],
 
     "config-title": "Modellierungsszenario",
-    "config-hint": "Bitte wählen Sie die Schärfe der einzuführenden Maßnahmen zur Kontaktbeschränkung und das Compliance-Level in der Bevölkerung aus.",
-    "plot-config-title": "Plot Configuration",
-    "plot-config-hint": "Please select simulation data to be visualized.",
+    "config-hint": "Bitte wählen Sie die Schärfe der einzuführenden Maßnahmen zur Kontaktbeschränkung und die Compliance-Rate in der Bevölkerung aus.",
+    "plot-config-title": "Anzeigeoptionen",
+    "plot-config-hint": "Bitte wählen Sie den angezeigten Ausgabewert.",
 
     "plot-explanation": compliance_plot_explanation,
 
@@ -59,9 +59,12 @@ compliance = {
     "barcharts-tab": "Entsprechende tägliche Inzidenz",
 
     "graph-title": "Visualisiere gemeldete aktive Fälle (im Falle einer strikten Intervention)",
-    "graph-tooltip": "Simulierte Daten vor und nach Einfuehrung der Maßnahmen für die ausgewählten Schärfe der Maßnahmen und die gewählten Compliance-Levels.",
+    "graph-tooltip": "Simulierte Daten vor und nach Einfuehrung der Maßnahmen für die ausgewählte Schärfe der Maßnahmen und die gewählten Compliance-Raten.",
     "graph-btn-1": "Ab dem Start der Intervention",
-    "graph-btn-2": "Ab dem Start der Simulation"
+    "graph-btn-2": "Ab dem Start der Simulation",
+    
+    "barcharts-btn-1": "Tägliche Inzidenz",
+    "barcharts-btn-2": "7-Tages-Inzidenz"
 }
 
 

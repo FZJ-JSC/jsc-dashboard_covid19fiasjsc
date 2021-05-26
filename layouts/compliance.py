@@ -182,9 +182,13 @@ def create_compliance_widgets(accordion1, accordion2):
 ###
 # Plots
 ###
-def create_compliance_plots_explanation(explanation, compliance_widgets, lang):
+def create_compliance_plots_explanation(img1, img2, explanation, compliance_widgets, lang):
     return dbc.Card(
         dbc.CardBody([
+            dbc.Row([
+                dbc.Col(html.Img(src=img1, height="auto", width="auto")),
+                dbc.Col(html.Img(src=img2, height="auto", width="auto"))
+            ]),
             dcc.Markdown(
                 explanation, 
                 id=f"compliance-plot-explanation-{lang}"
@@ -256,16 +260,54 @@ def create_compliance_graph_content(title, tooltip, btn1, btn2, fig, lang):
     )
 
 
-def create_compliance_barchart_content(lang):
+def _create_compliance_barchart_incidence_buttons(btn1, btn2, lang):
+    return dbc.Row(
+        dbc.ButtonGroup(
+            [
+                dbc.Button(
+                    btn1,
+                    id=f"compliance-barchart-btn-1-{lang}",
+                    color="primary",
+                    outline=True,
+                    style={"minWidth": "175px"}
+                ),
+                dbc.Button(
+                    btn2,
+                    id=f"compliance-barchart-btn-2-{lang}",
+                    color="primary",
+                    outline=True,
+                    style={"minWidth": "175px"}
+                )
+            ],
+            size="sm"
+        ),
+        id=f"compliance-barchart-btns-{lang}",
+        no_gutters=True
+    )
+
+
+def create_compliance_barchart_content(btn1, btn2, lang):
+    buttons = _create_compliance_barchart_incidence_buttons(btn1, btn2, lang)
+    
     return dcc.Loading(
         html.Div(
             [
                 html.H5(id=f"compliance-barcharts-title-{lang}", className="mt-3 bold"),
-                html.Div(
+                buttons,
+                dcc.Graph(
                     id=f"compliance-barcharts-{lang}",
+                    config={"modeBarButtonsToRemove": [  # pan2d
+                        "zoom2d", "select2d", "lasso2d", "autoScale2d", 
+                        "hoverClosestCartesian", "hoverCompareCartesian"
+                    ]},
                     className="w-1",
                     style={"minHeight": "600px"}
-                ),
+                )  
+#                 html.Div(
+#                     id=f"compliance-barcharts-{lang}",
+#                     className="w-1",
+#                     style={"minHeight": "600px"}
+#                 ),
             ],
             className="mt-4"
         )

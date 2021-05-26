@@ -15,7 +15,7 @@ https://www.preprints.org/manuscript/202102.0178/v2
 ---
 
 #### **Das Webtool**
-CoSiMo-Webtool Benutzer\*innen können (i) die Schärfe der Maßnahmen (*Schärfe der Maßnahmen*) und (ii) den Anteil der Bevölkerung auswählen, der die zusätzlichen Maßnahmen einhält (*Compliance-Level*). Benutzer*innen können anschließend wählen, welche Informationen aus dem Modell (z. B. gemeldete Neuinfektionen, kumulative Infektionen oder Gesamtzahl der Todesfälle) sie visualisieren möchten. Auf diese Weise können die Benutzer*innen beobachten, wie sich der Verlauf des Ausbruchs ab dem Zeitpunkt der Intervention entwickelt.
+CoSiMo-Webtool Benutzer\*innen können (i) die Schärfe der Maßnahmen (*Schärfe der Maßnahmen*) und (ii) den Anteil der Bevölkerung auswählen, der die zusätzlichen Maßnahmen einhält (*Compliance-Rate*). Benutzer*innen können anschließend wählen, welche Informationen aus dem Modell (z. B. gemeldete Neuinfektionen, kumulative Infektionen oder Gesamtzahl der Todesfälle) sie visualisieren möchten. Auf diese Weise können die Benutzer*innen beobachten, wie sich der Verlauf des Ausbruchs ab dem Zeitpunkt der Intervention entwickelt.
 
 ---
 

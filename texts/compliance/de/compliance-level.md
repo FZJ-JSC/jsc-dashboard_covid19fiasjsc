@@ -1,1 +1,1 @@
-The compliance level indicates which portion of the population adheres to the introduced measured. For example, a compliance level of 70% means that 70% of people follows the regulations, while 30% of the population does not modify its behavior.
+Die Compliance-Rate gibt an, welcher Anteil der Bevölkerung die eingeführten Maßnahmen tatsächlich umsetzt. So bedeutet zum Beispiel eine Compliance-Rate von 70%, dass 70% der Personen die Vorgaben befolgen, während 30% ihr vorheriges Verhalten auch nach der Intervention beibehalten.

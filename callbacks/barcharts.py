@@ -1,3 +1,4 @@
+import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
@@ -55,51 +56,33 @@ severity_en = {
 }
 
 
-toggle_incidence_buttons_de = dbc.Row(
-    dbc.ButtonGroup(
-        [
-            dbc.Button(
-                "Tägliche Inzidenz",
-                id="compliance-barchart-btn-1-de",
-                color="primary",
-                outline=True,
-                style={"minWidth": "175px"}
-            ),
-            dbc.Button(
-                "7-Tages-Inzidenz",
-                id="compliance-barchart-btn-2-de",
-                color="primary",
-                outline=True,
-                style={"minWidth": "175px"}
-            )
-        ],
-        size="sm"
-    ),
-    no_gutters=True
-)
-   
-toggle_incidence_buttons_en = dbc.Row(
-    dbc.ButtonGroup(
-        [
-            dbc.Button(
-                "Daily incidence",
-                id="compliance-barchart-btn-1-en",
-                color="primary",
-                outline=True,
-                style={"minWidth": "175px"}
-            ),
-            dbc.Button(
-                "7 day incidence",
-                id="compliance-barchart-btn-2-en",
-                color="primary",
-                outline=True,
-                style={"minWidth": "175px"}
-            )
-        ],
-        size="sm"
-    ),
-    no_gutters=True
-)
+for LANG in ["de", "en"]:
+    @app.callback(
+        Output(f"compliance-barchart-btns-{LANG}", "style"),
+        Input(f"data-dropdown-{LANG}", "value")
+    )
+    def toggle_visibility(column):
+        if column == "It":
+            return {"display": "flex"}
+        else:
+            return {"display": "none"}
+        
+        
+    @app.callback(
+        Output(f"compliance-barchart-btn-1-{LANG}", "active"),
+        Output(f"compliance-barchart-btn-2-{LANG}", "active"),
+        Input(f"compliance-barchart-btn-1-{LANG}", "n_clicks"),
+        Input(f"compliance-barchart-btn-2-{LANG}", "n_clicks"),
+    )
+    def toggle_active_button(btn1, btn2):
+        ctx = dash.callback_context
+        button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+        if "btn-1" in button_id:
+            return True, False
+        elif "btn-2" in button_id:
+            return False, True
+        return True, False
 
 
 ###
@@ -108,14 +91,24 @@ toggle_incidence_buttons_en = dbc.Row(
 LANG = "de"
 
 @app.callback(
-    Output(f"compliance-barcharts-{LANG}", "children"),
     Output(f"compliance-barcharts-title-{LANG}", "children"),
+    Input(f"reduction-dropdown-{LANG}", "value"),
+    Input(f"data-dropdown-{LANG}", "value")
+)
+def update_barcharts_titl_de(reduction, column):
+    title = "Number of {} for {} intervention".format(
+        columns_de[column], severity_de[reduction])
+    return title
+
+
+@app.callback(
+    Output(f"compliance-barcharts-{LANG}", "figure"),
     Input(f"reduction-dropdown-{LANG}", "value"),
     Input(f"data-dropdown-{LANG}", "value"),
     Input(f"compliance-dropdown-{LANG}", "value"),
     Input(f"dataframes-{LANG}", "data")
 )
-def update_barcharts_en(reduction, column, percentages, dataframes):
+def update_barcharts_en(reduction, column, percentages, dataframes, btn2):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
@@ -132,6 +125,7 @@ def update_barcharts_en(reduction, column, percentages, dataframes):
         p = percentages[i]
         row = i//2 + 1
         col = 1 if i % 2 == 0 else 2
+        
         fig.add_trace(
             go.Bar(x=dataframes[p]["days"][92-14:],
                    y=dataframes[p][c[0]][92-14:],
@@ -230,22 +224,7 @@ Tägliche Inzidenz - %{x}<br>
         showline=True,
         linewidth=2
     )
-
-    # Title
-    title = "Anzahl der {} im Falle einer {} Intervention".format(
-        columns_en[column], severity_en[reduction])
-    # Barcharts
-    barcharts = dcc.Graph(
-        figure=fig, 
-        config={"modeBarButtonsToRemove": [  # pan2d
-            "zoom2d", "select2d", "lasso2d", "autoScale2d", 
-            "hoverClosestCartesian", "hoverCompareCartesian"
-        ]}
-    )
-    
-    if column == "It":
-        return [toggle_incidence_buttons_de, barcharts], title
-    return barcharts, title
+    return fig
     
     
 ###
@@ -254,14 +233,25 @@ Tägliche Inzidenz - %{x}<br>
 LANG = "en"
 
 @app.callback(
-    Output(f"compliance-barcharts-{LANG}", "children"),
     Output(f"compliance-barcharts-title-{LANG}", "children"),
+    Input(f"reduction-dropdown-{LANG}", "value"),
+    Input(f"data-dropdown-{LANG}", "value")
+)
+def update_barcharts_titl_en(reduction, column):
+    title = "Number of {} for {} intervention".format(
+        columns_en[column], severity_en[reduction])
+    return title
+
+
+@app.callback(
+    Output(f"compliance-barcharts-{LANG}", "figure"),
     Input(f"reduction-dropdown-{LANG}", "value"),
     Input(f"data-dropdown-{LANG}", "value"),
     Input(f"compliance-dropdown-{LANG}", "value"),
-    Input(f"dataframes-{LANG}", "data")
+    Input(f"dataframes-{LANG}", "data"),
+    Input(f"compliance-barchart-btn-2-{LANG}", "active")
 )
-def update_barcharts_en(reduction, column, percentages, dataframes):
+def update_barcharts_en(reduction, column, percentages, dataframes, btn2):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))
@@ -278,13 +268,24 @@ def update_barcharts_en(reduction, column, percentages, dataframes):
         p = percentages[i]
         row = i//2 + 1
         col = 1 if i % 2 == 0 else 2
-        fig.add_trace(
-            go.Bar(x=dataframes[p]["days"][92-14:],
-                   y=dataframes[p][c[0]][92-14:],
-                   marker_color=colors[10],
-                   name="compliant people",
-                   hoverinfo='skip',  # Defined in total instead
-                   showlegend=True if i == 0 else False),
+
+        if column=="It" and btn2==True:
+            fig.add_trace(
+                go.Bar(x=dataframes[p]["days"][92-14:],
+                       y=dataframes[p][c[0]][92-14:]*7/830,
+                       marker_color=colors[10],
+                       name="compliant people",
+                       hoverinfo='skip',  # Defined in total instead
+                       showlegend=True if i == 0 else False),
+                row=row, col=col)
+        else:
+            fig.add_trace(
+                go.Bar(x=dataframes[p]["days"][92-14:],
+                       y=dataframes[p][c[0]][92-14:],
+                       marker_color=colors[10],
+                       name="compliant people",
+                       hoverinfo='skip',  # Defined in total instead
+                       showlegend=True if i == 0 else False),
             row=row, col=col)
         fig.add_trace(
             go.Bar(x=dataframes[p]["days"][92-14:],
@@ -376,19 +377,10 @@ Daily incidence - %{x}<br>
         showline=True,
         linewidth=2
     )
-
-    # Title
-    title = "Number of {} for {} intervention".format(
-        columns_en[column], severity_en[reduction])
-    # Barcharts
-    barcharts = dcc.Graph(
-        figure=fig, 
-        config={"modeBarButtonsToRemove": [  # pan2d
-            "zoom2d", "select2d", "lasso2d", "autoScale2d", 
-            "hoverClosestCartesian", "hoverCompareCartesian"
-        ]}
-    )
     
-    if column == "It":
-        return [toggle_incidence_buttons_en, barcharts], title
-    return barcharts, title
+    # 7 day incidence
+    if column=="It" and btn2==True:
+        for bar in fig.data:
+            bar.y = bar.y * 3
+    
+    return fig

@@ -129,7 +129,7 @@ app.clientside_callback(
 app.clientside_callback(
     ClientsideFunction(namespace="clientside", function_name="resize"),
     Output("resize-dummy-2", "children"),
-    Input(f"compliance-barcharts-{LANG}", "children"),
+    Input(f"compliance-barcharts-{LANG}", "figure"),
 )
 
 
@@ -206,5 +206,5 @@ app.clientside_callback(
 app.clientside_callback(
     ClientsideFunction(namespace="clientside", function_name="resize"),
     Output("resize-dummy-4", "children"),
-    Input(f"compliance-barcharts-{LANG}", "children"),
+    Input(f"compliance-barcharts-{LANG}", "figure"),
 )

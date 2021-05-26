@@ -76,11 +76,13 @@ compliance_widgets = create_compliance_widgets(acc1, acc2)
 
 
 # Plots
-plot_explanation = create_compliance_plots_explanation(TEXT["plot-explanation"], compliance_widgets, LANG)
+plot_explanation = create_compliance_plots_explanation("assets/compliance_line_charts_deutsch.svg", 
+                                                       "assets/compliance_bar_charts_deutsch.svg",
+                                                       TEXT["plot-explanation"], compliance_widgets, LANG)
 graph_content = create_compliance_graph_content(TEXT["graph-title"], TEXT["graph-tooltip"],
                                                 TEXT["graph-btn-1"], TEXT["graph-btn-2"],
                                                 initial_fig, LANG)
-barchart_content = create_compliance_barchart_content(LANG)
+barchart_content = create_compliance_barchart_content(TEXT["barcharts-btn-1"], TEXT["barcharts-btn-2"], LANG)
 
 # Layout page
 page = create_compliance_page(model_explanation, plot_explanation,
