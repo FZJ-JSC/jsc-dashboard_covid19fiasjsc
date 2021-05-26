@@ -26,11 +26,15 @@ with open("./texts/compliance/de/model-short.md") as f:
     compliance_short_de = f.read()
 with open("./texts/compliance/de/model-long.md") as f:
     compliance_long_de = f.read()
+compliance_long_de_1 = compliance_long_de.split("---")[0]
+compliance_long_de_2 = "---".join(compliance_long_de.split("---")[1:])
+
 with open("./texts/compliance/en/model-short.md") as f:
     compliance_short_en = f.read()
 with open("./texts/compliance/en/model-long.md") as f:
     compliance_long_en = f.read()
-
+compliance_long_en_1 = compliance_long_en.split("---")[0]
+compliance_long_en_2 = "---".join(compliance_long_en.split("---")[1:])
 
 for LANG in ["de", "en"]:
     # FAQ modal open-close
@@ -70,6 +74,8 @@ def toggle_model_explanation(toggle_btn, btn_text):
         text = [
             dcc.Markdown(compliance_short_de),
             html.Hr(),
+            dcc.Markdown(compliance_long_de_1),
+            html.Hr(),
             html.Figure(
                 [
                     html.Img(
@@ -91,7 +97,7 @@ def toggle_model_explanation(toggle_btn, btn_text):
                     "margin": "1rem"
                 }
             ),
-            dcc.Markdown(compliance_long_de),
+            dcc.Markdown(compliance_long_de_2),
         ]
         button_text = "...weniger"
     else:
@@ -145,6 +151,8 @@ def toggle_model_explanation(toggle_btn, btn_text):
         text = [
             dcc.Markdown(compliance_short_en),
             html.Hr(),
+            dcc.Markdown(compliance_long_en_1),
+            html.Hr(),
             html.Figure(
                 [
                     html.Img(
@@ -166,7 +174,7 @@ def toggle_model_explanation(toggle_btn, btn_text):
                     "margin": "1rem"
                 }
             ),
-            dcc.Markdown(compliance_long_en),
+            dcc.Markdown(compliance_long_en_2),
         ]
         button_text = "...less"
     else:
