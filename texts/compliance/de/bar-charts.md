@@ -1,0 +1,7 @@
+Der Tab *Entsprechende tägliche Inzidenz* zeigt für jede gewählte Compliance-Rate den täglichen Zuwachs der gewählten Modellausgabe als Balkendiagramm an. So wird z.B. für die Auswahl *gemeldete aktive Fälle* die Anzahl der täglich neu gemeldeten Fälle angezeigt, welche Veränderungen im Epidemieverlauf indizieren.
+
+In diesen Diagrammen sind immer die fünf Wochen nach der simulierten Intervention dargestellt. Außerdem wird für alle ausgewählten Szenarien die gleiche vertikale Skala verwendet. Diese Skala kann mit Hilfe der Zoom-Werkzeuge in der oberen rechten Ecke des Diagramms angepasst werden.
+
+Mit Hilfe der Farben wird zwischen dem Beitrag von compliant (blau) und noncompliant (rot) Personen zur gezeigten Inzidenz unterschieden.
+
+Beachten Sie, dass in einigen Szenarien die Fallinzidenz nach der Intervention zeitweilig stagnieren oder sogar leicht abnehmen kann, bevor sie wieder ansteigt; siehe beispielsweise das obige Szenario mit 40% Compliance. Dies resultiert nicht etwas aus einer Verhaltensänderung als Reaktion auf eine scheinbare Verlangsamung der Epidemie - das Modell beinhaltet keine Verhaltensänderung außer der Intervention selbst. Die vorübergehende Stagnation nach einer Intervention und der anschließende Anstieg der Inzidenz stellen ein typisches Phänomen einer sich ausbreitenden Epidemie dar.

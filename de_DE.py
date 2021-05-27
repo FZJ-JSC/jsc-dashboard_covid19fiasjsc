@@ -12,7 +12,11 @@ with open("./texts/compliance/de/plotted-data.md") as f:
     data_tooltip = f.read()
 
 with open("./texts/compliance/de/plots-explanation.md") as f:
-    compliance_plot_explanation = f.read()
+    compliance_config_explanation = f.read()
+with open("./texts/compliance/de/line-plot.md") as f:
+    line_plot_explanation = f.read()
+with open("./texts/compliance/de/bar-charts.md") as f:
+    bar_charts_explanation = f.read()
 
 
 compliance = {
@@ -53,7 +57,12 @@ compliance = {
     "plot-config-title": "Anzeigeoptionen",
     "plot-config-hint": "Bitte wählen Sie den angezeigten Ausgabewert.",
 
-    "plot-explanation": compliance_plot_explanation,
+    "plots-explanation": "Klicken Sie auf die Bilder für Interpretationshilfe:",
+    "line-plot-explanation-title": "Liniendiagramm: Verlauf der Epidemie",
+    "line-plot-explanation": line_plot_explanation,
+    "bar-charts-explanation-title": "Balkendiagramme: tägliche Änderungen",
+    "bar-charts-explanation": bar_charts_explanation,
+    "config-explanation": compliance_config_explanation,
 
     "graph-tab": "Gewählte Ausgabe",
     "barcharts-tab": "Entsprechende tägliche Inzidenz",

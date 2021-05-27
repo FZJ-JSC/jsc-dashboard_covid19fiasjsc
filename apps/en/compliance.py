@@ -76,9 +76,20 @@ compliance_widgets = create_compliance_widgets(acc1, acc2)
 
 
 # Plots
-plot_explanation = create_compliance_plots_explanation("assets/compliance_line_charts.svg", 
-                                                       "assets/compliance_bar_charts.svg",
-                                                       TEXT["plot-explanation"], compliance_widgets, LANG)
+line_plot_modal = create_compliance_plot_explanation_modal("assets/compliance_line_plot.png",
+                                                           TEXT["line-plot-explanation-title"],
+                                                           TEXT["line-plot-explanation"],
+                                                           TEXT["faq-close-btn"],
+                                                           "img1", LANG)
+bar_charts_modal = create_compliance_plot_explanation_modal("assets/compliance_bar_charts.png",
+                                                            TEXT["bar-charts-explanation-title"],
+                                                            TEXT["bar-charts-explanation"],
+                                                            TEXT["faq-close-btn"],
+                                                            "img2", LANG)
+plot_explanation = create_compliance_plots_explanation(TEXT["plots-explanation"],
+                                                       line_plot_modal, bar_charts_modal,
+                                                       TEXT["config-explanation"],
+                                                       compliance_widgets, LANG)
 graph_content = create_compliance_graph_content(TEXT["graph-title"], TEXT["graph-tooltip"],
                                                 TEXT["graph-btn-1"], TEXT["graph-btn-2"],
                                                 initial_fig, LANG)

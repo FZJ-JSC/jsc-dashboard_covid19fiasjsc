@@ -1,0 +1,7 @@
+The tab *Corresponding daily incidence* shows the daily additions to the chosen model output as bar charts (one bar corresponding to one day), one figure for each selected *Compliance level*. For example, for the selection *reported active cases*, the number of daily new detected cases is shown, indicating the changes of the epidemic course.
+
+These charts always show the five weeks after the simulated intervention and use the same vertical scale for all scenarios selected. This vertical scale can be adjusted by using the zoom tools in the upper right corner of the graph.
+
+Colors are used to distinguish compliant (blue) and noncompliant (red) individuals contributing to the shown incidence.
+
+Notice that for some scenarios, the case incidence may show stagnation or even a slight decrease after the intervention before it starts rising again (see for example the 40% compliance shown above). This does not reflect any change in behavior in reaction to an apparent slow down of the epidemic - the model assumes no behavioral change except for the intervention itself. Temporary stagnation upon intervention and subsequent increase of the incidence is an inherent feature of an ongoing epidemic.

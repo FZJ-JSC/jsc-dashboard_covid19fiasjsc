@@ -12,7 +12,11 @@ with open("./texts/compliance/en/plotted-data.md") as f:
     data_tooltip = f.read()
     
 with open("./texts/compliance/en/plots-explanation.md") as f:
-    compliance_plot_explanation = f.read()
+    compliance_config_explanation = f.read()
+with open("./texts/compliance/en/line-plot.md") as f:
+    line_plot_explanation = f.read()
+with open("./texts/compliance/en/bar-charts.md") as f:
+    bar_charts_explanation = f.read()
     
     
 compliance = {
@@ -53,7 +57,12 @@ compliance = {
     "plot-config-title": "Plot Configuration",
     "plot-config-hint": "Please select simulation data to be visualized.",
     
-    "plot-explanation": compliance_plot_explanation,
+    "plots-explanation": "Click the pictures for an interpretation guide:",
+    "line-plot-explanation-title": "Line plots: state of the epidemic",
+    "line-plot-explanation": line_plot_explanation,
+    "bar-charts-explanation-title": "Bar plots: daily changes",
+    "bar-charts-explanation": bar_charts_explanation,
+    "config-explanation": compliance_config_explanation,
     
     "graph-tab": "Selected output",
     "barcharts-tab": "Corresponding daily incidence",

@@ -95,7 +95,7 @@ LANG = "de"
     Input(f"reduction-dropdown-{LANG}", "value"),
     Input(f"data-dropdown-{LANG}", "value")
 )
-def update_barcharts_titl_de(reduction, column):
+def update_barcharts_title_de(reduction, column):
     title = "Number of {} for {} intervention".format(
         columns_de[column], severity_de[reduction])
     return title
@@ -106,9 +106,10 @@ def update_barcharts_titl_de(reduction, column):
     Input(f"reduction-dropdown-{LANG}", "value"),
     Input(f"data-dropdown-{LANG}", "value"),
     Input(f"compliance-dropdown-{LANG}", "value"),
-    Input(f"dataframes-{LANG}", "data")
+    Input(f"dataframes-{LANG}", "data"),
+    Input(f"compliance-barchart-btn-2-{LANG}", "active")
 )
-def update_barcharts_en(reduction, column, percentages, dataframes, btn2):
+def update_barcharts_de(reduction, column, percentages, dataframes, btn2):
     for df in dataframes:
         # Keys were changes to str for json, change back to int
         dataframes[int(df)] = pd.DataFrame.from_dict(dataframes.pop(df))

@@ -1,0 +1,7 @@
+Der Tab *Gewählte Ausgabe* zeigt die gewählte Modellausgabe als Liniendiagramm mit Kurven unterschiedlicher Farbe, die den ausgewählten Compliance-Raten entsprechen.
+
+Diese Kurven zeigen den Verlauf der Epidemie über die Zeit; in diesem Beispiel werden die *gemeldeten aktiven Fälle* dargestellt, d.h. die Anzahl der aktuell infektiösen Personen, deren Infektion durch PCR-Tests bestätigt wurden.
+
+Beachten Sie, dass die gemeldeten Fälle zunächst keine Auskunft über die Dunkelziffer (infizierte, aber unentdeckte Personen) beinhalten. Wenn insgesamt viele Personen infiziert sind, kann es aufgrund begrenzter Testkapazitäten vorkommen, dass die Zahl der gemeldeten Fälle nur langsam ansteigt, während die Gesamtzahl der Fälle weiterhin exponentiell wächst (vergleichen Sie etwa die gemeldeten aktiven Fälle und die aktiven Fälle (gesamt) bei 0 % Compliance). Je mehr Personen infiziert sind, desto ausgeprägter ist der Unterschied zwischen der Anzahl gemeldeter Fälle und der Anzahl an Fällen insgesamt.
+
+Die Standardansicht zeigt den Zeitraum von fünf Wochen nach der Intervention. Sie können den gesamten simulierten Verlauf der Epidemie einschließlich der Zeit vor der Intervention anzeigen, indem Sie Ab dem Start der Simulation auswählen.Bis zum Zeitpunkt der Intervention sind alle Szenarien identisch.

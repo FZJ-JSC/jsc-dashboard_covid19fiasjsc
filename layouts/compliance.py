@@ -22,7 +22,7 @@ def create_faq_modal(title1, faq1, title2, faq2, btn, lang):
             dbc.ModalFooter(
                 dbc.Button(
                     btn,
-                    id=f"compliance-model-faq-toggle-close-{lang}",
+                    id=f"compliance-model-faq-close-{lang}",
                     className="ml-auto"
                 )
             ),
@@ -64,7 +64,7 @@ def create_model_explanation(page_title, explanation_short, btn1, btn2, modal_wi
                             btn2,
                             color="warning",
                             style={"minWidth": "80px"},
-                            id=f"compliance-model-faq-toggle-open-{lang}"
+                            id=f"compliance-model-faq-open-{lang}"
                         ),
                         modal_widget
                     ],
@@ -182,16 +182,52 @@ def create_compliance_widgets(accordion1, accordion2):
 ###
 # Plots
 ###
-def create_compliance_plots_explanation(img1, img2, explanation, compliance_widgets, lang):
+def create_compliance_plot_explanation_modal(img, title, explanation, btn,
+                                             component_name, lang):
+    return html.Div([
+        html.Img(
+            src=img,
+            id=f"compliance-plot-{component_name}-{lang}",
+            height="250px",
+            width="auto",
+            style={"cursor": "pointer"}
+        ),
+        dbc.Modal(
+            [
+                dbc.ModalHeader(title),
+                dbc.ModalBody([
+                    html.Img(src=img, width="100%", className="mb-2"),
+                    dcc.Markdown(explanation)
+                ]),
+                dbc.ModalFooter(
+                    dbc.Button(
+                        btn, 
+                        id=f"compliance-plot-{component_name}-close-{lang}", 
+                        className="ml-auto"
+                    )
+                ),
+            ],
+            id=f"compliance-plot-{component_name}-modal-{lang}",
+            size="xl"
+        ),
+    ])
+
+
+def create_compliance_plots_explanation(plot_explanation_title, modal1, modal2, 
+                                        config_explanation, compliance_widgets, lang):
     return dbc.Card(
         dbc.CardBody([
-            dbc.Row([
-                dbc.Col(html.Img(src=img1, height="auto", width="auto")),
-                dbc.Col(html.Img(src=img2, height="auto", width="auto"))
-            ]),
+            html.B(plot_explanation_title),
+            dbc.Row(
+                [
+                    dbc.Col(modal1, width="auto"),
+                    dbc.Col(modal2, width="auto")
+                ],
+                className="m-4"
+            ),
             dcc.Markdown(
-                explanation, 
-                id=f"compliance-plot-explanation-{lang}"
+                config_explanation, 
+                id=f"compliance-config-explanation-{lang}"
             ),
             compliance_widgets
         ]),
@@ -302,12 +338,7 @@ def create_compliance_barchart_content(btn1, btn2, lang):
                     ]},
                     className="w-1",
                     style={"minHeight": "600px"}
-                )  
-#                 html.Div(
-#                     id=f"compliance-barcharts-{lang}",
-#                     className="w-1",
-#                     style={"minHeight": "600px"}
-#                 ),
+                )
             ],
             className="mt-4"
         )

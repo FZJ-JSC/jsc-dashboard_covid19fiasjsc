@@ -40,10 +40,18 @@ for LANG in ["de", "en"]:
     # FAQ modal open-close
     app.callback(
         Output(f"compliance-model-faq-modal-{LANG}", "is_open"),
-        Input(f"compliance-model-faq-toggle-open-{LANG}", "n_clicks"), 
-        Input(f"compliance-model-faq-toggle-close-{LANG}", "n_clicks"),
+        Input(f"compliance-model-faq-open-{LANG}", "n_clicks"), 
+        Input(f"compliance-model-faq-close-{LANG}", "n_clicks"),
         State(f"compliance-model-faq-modal-{LANG}", "is_open"),
     )(toggle_modal)
+    
+    for component in ["img1", "img2"]:
+        app.callback(
+            Output(f"compliance-plot-{component}-modal-{LANG}", "is_open"),
+            Input(f"compliance-plot-{component}-{LANG}", "n_clicks"), 
+            Input(f"compliance-plot-{component}-close-{LANG}", "n_clicks"),
+            State(f"compliance-plot-{component}-modal-{LANG}", "is_open"),
+        )(toggle_modal)
 
     # Model and plot config accordions open-close
     for component in [f"compliance-model-config", f"compliance-plot-config"]:
