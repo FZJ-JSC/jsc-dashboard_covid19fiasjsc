@@ -87,14 +87,16 @@ bar_charts_modal = create_compliance_plot_explanation_modal("assets/compliance_b
                                                             TEXT["faq-close-btn"],
                                                             "img2", LANG)
 plot_explanation = create_compliance_plots_explanation(TEXT["plots-explanation"],
-                                                       line_plot_modal, bar_charts_modal,
-                                                       TEXT["config-explanation"],
-                                                       compliance_widgets, LANG)
+                                                       line_plot_modal, bar_charts_modal, 
+                                                       LANG)
+plot_config = create_compliance_plots_config(TEXT["config-explanation"], 
+                                             compliance_widgets, LANG)
 graph_content = create_compliance_graph_content(TEXT["graph-title"], TEXT["graph-tooltip"],
                                                 TEXT["graph-btn-1"], TEXT["graph-btn-2"],
                                                 initial_fig, LANG)
-barchart_content = create_compliance_barchart_content(TEXT["barcharts-btn-1"], TEXT["barcharts-btn-2"], LANG)
+barchart_content = create_compliance_barchart_content(TEXT["barcharts-btn-1"], 
+                                                      TEXT["barcharts-btn-2"], LANG)
 
 # Layout page
-page = create_compliance_page(model_explanation, plot_explanation,
+page = create_compliance_page(model_explanation, plot_explanation, plot_config,
                               TEXT["graph-tab"], TEXT["barcharts-tab"], LANG)

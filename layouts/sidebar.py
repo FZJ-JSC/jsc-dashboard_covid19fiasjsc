@@ -37,8 +37,7 @@ def create_sidebar(nav_btns, extra_nav_btns):
         ],
         id="sidebar",
         style={
-            "paddingTop": "calc(2rem + 68px)",
-            "width": "194px"
+            "paddingTop": "calc(2rem + 68px)"
         }
     )
 

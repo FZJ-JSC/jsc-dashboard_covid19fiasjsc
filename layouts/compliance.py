@@ -188,8 +188,8 @@ def create_compliance_plot_explanation_modal(img, title, explanation, btn,
         html.Img(
             src=img,
             id=f"compliance-plot-{component_name}-{lang}",
-            height="250px",
-            width="auto",
+            height="auto",
+            width="100%",
             style={"cursor": "pointer"}
         ),
         dbc.Modal(
@@ -213,18 +213,32 @@ def create_compliance_plot_explanation_modal(img, title, explanation, btn,
     ])
 
 
-def create_compliance_plots_explanation(plot_explanation_title, modal1, modal2, 
-                                        config_explanation, compliance_widgets, lang):
+def create_compliance_plots_explanation(plot_explanation_title, modal1, modal2, lang):
+                                        #config_explanation, compliance_widgets, lang):
     return dbc.Card(
         dbc.CardBody([
             html.B(plot_explanation_title),
             dbc.Row(
                 [
-                    dbc.Col(modal1, width="auto"),
-                    dbc.Col(modal2, width="auto")
+                    dbc.Col(modal1, width=6),
+                    dbc.Col(modal2, width=6)
                 ],
                 className="m-4"
             ),
+#             dcc.Markdown(
+#                 config_explanation, 
+#                 id=f"compliance-config-explanation-{lang}"
+#             ),
+#             compliance_widgets
+        ]),
+        className="mt-4",
+#         style={"borderBottom": "none"}
+    )
+
+
+def create_compliance_plots_config(config_explanation, compliance_widgets, lang):
+    return dbc.Card(
+        dbc.CardBody([
             dcc.Markdown(
                 config_explanation, 
                 id=f"compliance-config-explanation-{lang}"
@@ -348,10 +362,11 @@ def create_compliance_barchart_content(btn1, btn2, lang):
 ###
 # Layout
 ###
-def create_compliance_page(model_explanation_layout, plot_explanation_layout, label1, label2, lang):
+def create_compliance_page(model_explanation_layout, plot_explanation_layout, plot_config_layout, label1, label2, lang):
     return html.Div([
         model_explanation_layout,
         plot_explanation_layout,
+        plot_config_layout,
         dbc.Tabs(
             [
                 dbc.Tab(

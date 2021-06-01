@@ -33,6 +33,10 @@
   #sidebar-collapse {
     display: block;
   }
+
+  #sidebar {
+    "width": "194px"
+  }
     
   #page-content {
     padding: 2rem 6rem;

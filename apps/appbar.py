@@ -4,8 +4,14 @@ import dash_html_components as html
 
 
 # Appbar
-jsc_logo = html.Img(src="assets/logo_jsc.png", height="35px")
-fias_logo = html.Img(src="assets/logo_fias_inverse.svg", height="50px")
+jsc_logo = html.Img(
+    src="assets/logo_jsc.png",
+    id="logo-jsc",
+    height="35px")
+fias_logo = html.Img(
+    src="assets/logo_fias_inverse.svg",
+    id="logo-fias",
+    height="50px")
 
 appbar = dbc.Navbar(
     [
