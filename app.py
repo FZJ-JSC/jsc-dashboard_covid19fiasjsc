@@ -19,7 +19,7 @@ for i, color in zip(compliance_percentages[1:], px.colors.qualitative.Plotly):
 def update_dataframes(reduction, text):
     dataframes = dict()
     for i in compliance_percentages:
-        df = pd.read_csv("../simdata/compliance/0218_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
+        df = pd.read_csv("../simdata/compliance/0527_NonCompl_reduction{}_earlyDet_pC{}.csv".format(reduction, i))
         df["days"] = ["{} {}".format(text, day) for day in range(-91, 36)]
         # Need to change df to dict for json serialization
         dataframes[i] = df[14:].to_dict()

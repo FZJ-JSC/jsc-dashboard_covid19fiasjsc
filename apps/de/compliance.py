@@ -76,12 +76,12 @@ compliance_widgets = create_compliance_widgets(acc1, acc2)
 
 
 # Plots
-line_plot_modal = create_compliance_plot_explanation_modal("assets/compliance_line_plot.png",
+line_plot_modal = create_compliance_plot_explanation_modal("../assets/compliance_line_plot_de.png",
                                                            TEXT["line-plot-explanation-title"],
                                                            TEXT["line-plot-explanation"],
                                                            TEXT["faq-close-btn"],
                                                            "img1", LANG)
-bar_charts_modal = create_compliance_plot_explanation_modal("assets/compliance_bar_charts.png",
+bar_charts_modal = create_compliance_plot_explanation_modal("../assets/compliance_bar_charts_de.png",
                                                             TEXT["bar-charts-explanation-title"],
                                                             TEXT["bar-charts-explanation"],
                                                             TEXT["faq-close-btn"],
